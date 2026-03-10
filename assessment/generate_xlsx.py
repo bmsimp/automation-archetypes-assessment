@@ -107,19 +107,19 @@ ARCHETYPES = [
 ]
 
 PROFILES = [
-    (0,  20, "Automation Newcomer"),
-    (21, 35, "Developing Contributor"),
-    (36, 50, "Capable Generalist"),
-    (51, 65, "Strong Practitioner"),
-    (66, 80, "Automation All-Rounder"),
+    (0,  20, "Early-Stage Team"),
+    (21, 35, "Developing Team"),
+    (36, 50, "Capable Team"),
+    (51, 65, "Strong Team"),
+    (66, 80, "High-Performing Team"),
 ]
 
 BANDS = [
-    "0–2: No awareness or capability; this lens is absent",
-    "3–4: Emerging — some instinct but no structured practice",
-    "5–6: Functional — can contribute meaningfully with some gaps",
-    "7–8: Strong — reliable, practiced, others lean on you here",
-    "9–10: Exceptional — this is a defining strength; you set the standard",
+    "0-2: No one on the team fills this role; this capability is absent",
+    "3-4: Emerging - someone shows instinct but no consistent, structured practice",
+    "5-6: Functional - team has some coverage here, but with notable gaps",
+    "7-8: Strong - reliable team capability; people know who to go to",
+    "9-10: Exceptional - a clear team strength; this is where you set the standard",
 ]
 
 # ──────────────────────────────────────────────
@@ -166,7 +166,7 @@ def build_instructions(ws):
     # Title block
     ws.merge_cells('B2:D2')
     c = ws['B2']
-    c.value = "⚙  Archetypes of Automation — Self-Assessment Workbook"
+    c.value = "Archetypes of Automation — Team Capability Assessment Workbook"
     c.font = Font(bold=True, size=16, color=HEADER_FG)
     c.fill = fill(ACCENT)
     c.alignment = align('left', 'center')
@@ -205,25 +205,26 @@ def build_instructions(ws):
         row += 1
 
     heading("What is this workbook?")
-    para("This workbook supports the Archetypes of Automation framework — a self-assessment tool that helps individuals and teams identify strengths and gaps across 8 dimensions of automation capability.")
-    para("The biggest barrier to automation in small MSP teams is not technical skill — it is process thinking, team composition, and role awareness.")
+    para("This workbook supports the Archetypes of Automation framework — a team capability assessment tool for MSP/ITSP leaders. It is designed to be completed by a key team member or person in a position of authority evaluating their team's collective strengths and gaps.")
+    para("The biggest barrier to automation in small MSP teams is not technical skill — it is process thinking, team composition, and role awareness. This tool helps you see where your team stands across 8 automation capability dimensions.")
     blank()
 
     heading("Sheets in this workbook")
-    para("Individual Assessment  →  Score yourself 0–10 per archetype. Your radar chart updates automatically.", bold=True)
-    para("Team Aggregation       →  Enter each team member's scores to see the combined radar and gap analysis.", bold=True)
-    para("Framework Reference    →  Full sub-archetype list with descriptions and framework citations.", bold=True)
+    para("Assessment  →  Score your team 0-10 per archetype. The radar chart updates automatically.", bold=True)
+    para("Perspectives  →  Collect assessments from multiple evaluators and compare on a shared radar.", bold=True)
+    para("Framework Reference  →  Full sub-archetype list with descriptions and framework citations.", bold=True)
     blank()
 
-    heading("How to complete the Individual Assessment")
+    heading("How to complete the Assessment")
     for i, step in enumerate([
-        "1. Go to the 'Individual Assessment' sheet.",
-        "2. Enter your name in the yellow Name cell (row 4).",
-        "3. For each of the 8 archetypes, enter a score from 0–10 in the Score column.",
+        "1. Go to the 'Assessment' sheet.",
+        "2. Enter your name and role in the yellow Name cell (row 4).",
+        "3. For each of the 8 archetypes, enter a score from 0-10 in the Score column.",
         "   Use the dropdown — only whole numbers 0 through 10 are accepted.",
-        "4. Read the sub-archetype descriptions in the 'Framework Reference' sheet to calibrate your score.",
-        "5. Your radar chart will update automatically as you enter scores.",
-        "6. Your total and profile are shown below the score table.",
+        "4. You are scoring your TEAM's capability, not your own personal skills.",
+        "   Ask yourself: does our team have someone who reliably fills this role?",
+        "5. Read the sub-archetype descriptions in the 'Framework Reference' sheet to calibrate.",
+        "6. The radar chart and team profile update automatically as you enter scores.",
     ], 1):
         para(step)
     blank()
@@ -233,18 +234,19 @@ def build_instructions(ws):
         para(f"  {band}")
     blank()
 
-    heading("Individual Score Profiles (Total out of 80)")
+    heading("Team Capability Profiles (Total out of 80)")
     for lo, hi, label in PROFILES:
-        para(f"  {lo}–{hi}  →  {label}")
+        para(f"  {lo}-{hi}  ->  {label}")
     blank()
 
-    heading("How to use Team Aggregation")
+    heading("How to use the Perspectives sheet")
     for step in [
-        "1. Each person completes their individual assessment first.",
-        "2. Copy each person's scores into a column on the 'Team Aggregation' sheet.",
+        "1. Have multiple evaluators (e.g. owner, ops lead, senior tech) each complete an Assessment.",
+        "2. Copy each evaluator's 8 scores into a column on the 'Perspectives' sheet.",
         "3. The combined radar chart and gap analysis update automatically.",
-        "4. Look for coverage, not duplication — two 9s in Building with zero in Quality is a risk profile.",
-        "5. The archetype with the lowest combined average score = most urgent investment area.",
+        "4. Where perspectives diverge significantly, that disagreement is worth discussing.",
+        "5. Where all evaluators score an archetype low, that is your most urgent gap to address.",
+        "6. Use gaps to guide hiring, training, or partnership decisions.",
     ]:
         para(step)
 
@@ -267,20 +269,20 @@ def build_individual(ws):
     # ── Title ──
     ws.merge_cells('B1:F1')
     c = ws['B1']
-    c.value = "Archetypes of Automation — Individual Self-Assessment"
+    c.value = "Archetypes of Automation — Team Capability Assessment"
     c.font = Font(bold=True, size=14, color=HEADER_FG)
     c.fill = fill(ACCENT)
     c.alignment = align('center', 'center')
     ws.row_dimensions[1].height = 32
 
     # ── Name row ──
-    ws['B3'] = "Name:"
+    ws['B3'] = "Name & Role:"
     ws['B3'].font = font(bold=True, size=11)
     ws['B3'].alignment = align('right', 'center')
 
     ws.merge_cells('C3:D3')
     c = ws['C3']
-    c.value = "← Enter your name here"
+    c.value = "e.g. Jane Smith, Operations Lead"
     c.font = Font(italic=True, size=11, color=MUTED)
     c.fill = fill("FFFDE7")  # pale yellow prompt
     c.alignment = align('left', 'center')
@@ -340,11 +342,11 @@ def build_individual(ws):
 
         # Band formula: nested IFs
         band_formula = (
-            f'=IF(E{row}<=2,"0–2: No awareness; this lens is absent",'
-            f'IF(E{row}<=4,"3–4: Emerging — some instinct, no structured practice",'
-            f'IF(E{row}<=6,"5–6: Functional — can contribute with some gaps",'
-            f'IF(E{row}<=8,"7–8: Strong — reliable; others lean on you here",'
-            f'"9–10: Exceptional — this is a defining strength"))))'
+            f'=IF(E{row}<=2,"0-2: No one on the team fills this role; capability absent",'
+            f'IF(E{row}<=4,"3-4: Emerging - someone shows instinct but no structured practice",'
+            f'IF(E{row}<=6,"5-6: Functional - team has some coverage but with notable gaps",'
+            f'IF(E{row}<=8,"7-8: Strong - reliable team capability; people know who to go to",'
+            f'"9-10: Exceptional - a clear team strength; you set the standard"))))'
         )
         c = ws.cell(row, 6, band_formula)
         c.font = Font(size=9, color="1A1F36", italic=True)
@@ -385,17 +387,17 @@ def build_individual(ws):
 
     profile_row = total_row + 1
     ws.merge_cells(f'B{profile_row}:D{profile_row}')
-    c = ws.cell(profile_row, 2, "Profile")
+    c = ws.cell(profile_row, 2, "Team Profile")
     c.font = Font(bold=True, size=11, color=ACCENT)
     c.fill = fill(ACCENT_LIGHT)
     c.alignment = align('right', 'center')
     c.border = border_thin()
 
     profile_formula = (
-        f'=IF(E{total_row}<=20,"Automation Newcomer",'
-        f'IF(E{total_row}<=35,"Developing Contributor",'
-        f'IF(E{total_row}<=50,"Capable Generalist",'
-        f'IF(E{total_row}<=65,"Strong Practitioner","Automation All-Rounder"))))'
+        f'=IF(E{total_row}<=20,"Early-Stage Team",'
+        f'IF(E{total_row}<=35,"Developing Team",'
+        f'IF(E{total_row}<=50,"Capable Team",'
+        f'IF(E{total_row}<=65,"Strong Team","High-Performing Team"))))'
     )
     profile_cell = ws.cell(profile_row, 5, profile_formula)
     profile_cell.font = Font(bold=True, size=11, color=ACCENT)
@@ -447,7 +449,7 @@ def build_team(ws):
     last_member_col = get_column_letter(3 + NUM_MEMBERS)
     ws.merge_cells(f'B1:{last_member_col}1')
     c = ws['B1']
-    c.value = "Archetypes of Automation — Team Aggregation"
+    c.value = "Archetypes of Automation — Assessment Perspectives"
     c.font = Font(bold=True, size=14, color=HEADER_FG)
     c.fill = fill(ACCENT)
     c.alignment = align('center', 'center')
@@ -455,7 +457,7 @@ def build_team(ws):
 
     ws.merge_cells(f'B2:{last_member_col}2')
     c = ws['B2']
-    c.value = "Enter each team member's scores below. The radar chart and gap analysis update automatically."
+    c.value = "Each column = one evaluator's assessment of the team. The radar chart and gap analysis update automatically."
     c.font = Font(italic=True, size=9, color=MUTED)
     c.fill = fill(ACCENT_LIGHT)
     c.alignment = align('center', 'center')
@@ -474,13 +476,13 @@ def build_team(ws):
 
     for m in range(NUM_MEMBERS):
         col = 4 + m
-        c = ws.cell(3, col, f"Member {m+1} →")
+        c = ws.cell(3, col, f"Evaluator {m+1} ->")
         c.font = Font(italic=True, size=9, color=MUTED)
         c.alignment = align('center', 'center')
         c.fill = fill("FFFDE7")
         c.border = border_thin()
 
-        c = ws.cell(4, col, f"Member {m+1}")
+        c = ws.cell(4, col, f"Evaluator {m+1}")
         c.font = Font(bold=True, size=10, color=HEADER_FG)
         c.fill = fill(PURPLE if m % 2 else ACCENT_DARK)
         c.alignment = align('center', 'center')
@@ -641,7 +643,7 @@ def build_team(ws):
     chart = RadarChart()
     chart.type = "filled"
     chart.style = 10
-    chart.title = "Team Automation Archetype Radar"
+    chart.title = "Assessment Perspectives Radar"
 
     # Add each member as a series
     for m in range(NUM_MEMBERS):
@@ -752,8 +754,8 @@ def main():
     wb.remove(wb.active)
 
     ws_inst = wb.create_sheet("Instructions")
-    ws_ind  = wb.create_sheet("Individual Assessment")
-    ws_team = wb.create_sheet("Team Aggregation")
+    ws_ind  = wb.create_sheet("Assessment")
+    ws_team = wb.create_sheet("Perspectives")
     ws_ref  = wb.create_sheet("Framework Reference")
 
     build_instructions(ws_inst)

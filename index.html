@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Archetypes of Automation — Self-Assessment Tool</title>
+  <title>Archetypes of Automation — Team Capability Assessment</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
   <style>
     :root {
@@ -198,14 +198,14 @@
 <header>
   <div class="header-logo">⚙️</div>
   <div>
-    <h1>Archetypes of Automation — Self-Assessment Tool</h1>
-    <p>Building Automation Muscle Without a Dev Team · MSP/ITSP Framework</p>
+    <h1>Archetypes of Automation — Team Capability Assessment</h1>
+    <p>A Team Capability Framework · 8 Dimensions of Automation Readiness</p>
   </div>
 </header>
 
 <nav class="tabs">
-  <button class="tab-btn active" onclick="switchTab('individual')">Individual Assessment</button>
-  <button class="tab-btn" onclick="switchTab('team')">Team View</button>
+  <button class="tab-btn active" onclick="switchTab('individual')">Assessment</button>
+  <button class="tab-btn" onclick="switchTab('team')">Compare Perspectives</button>
   <button class="tab-btn" onclick="switchTab('about')">About the Framework</button>
 </nav>
 
@@ -218,17 +218,17 @@
     <div>
       <div class="card" style="margin-bottom:0">
         <div class="card-header">
-          <h2>Your Assessment</h2>
+          <h2>Team Capability Assessment</h2>
           <div class="action-row" style="margin:0">
             <button class="btn btn-secondary" onclick="importJSON()">⬆ Import</button>
             <button class="btn btn-primary" onclick="exportJSON()">⬇ Export</button>
-            <button class="btn btn-success" onclick="addToTeam()">+ Add to Team</button>
+            <button class="btn btn-success" onclick="addToTeam()">+ Add Perspective</button>
           </div>
         </div>
         <div class="card-body">
           <div class="name-row">
-            <label for="assessor-name">Your name:</label>
-            <input type="text" id="assessor-name" placeholder="Enter your name…" oninput="updateChart()" />
+            <label for="assessor-name">Assessor name &amp; role:</label>
+            <input type="text" id="assessor-name" placeholder="e.g. Jane Smith, Operations Lead" oninput="updateChart()" />
           </div>
           <div id="archetypes-list"></div>
         </div>
@@ -238,7 +238,7 @@
     <!-- Right: Chart + Summary -->
     <div class="chart-card">
       <div class="card" style="margin-bottom:16px">
-        <div class="card-header"><h2>Your Radar</h2></div>
+        <div class="card-header"><h2>Capability Radar</h2></div>
         <div class="card-body">
           <div class="chart-wrap">
             <canvas id="individual-chart"></canvas>
@@ -251,7 +251,7 @@
           <div class="score-summary">
             <div class="score-total" id="total-display">0</div>
             <div class="score-label">out of 80</div>
-            <div class="profile-badge" id="profile-display">Automation Newcomer</div>
+            <div class="profile-badge" id="profile-display">Early-Stage Team</div>
             <div class="score-breakdown" id="breakdown-display"></div>
           </div>
         </div>
@@ -269,10 +269,10 @@
     <div>
       <div class="card">
         <div class="card-header">
-          <h2>Team Members</h2>
+          <h2>Assessment Perspectives</h2>
           <div class="action-row" style="margin:0">
-            <button class="btn btn-secondary" onclick="importTeamJSON()">⬆ Import Team</button>
-            <button class="btn btn-primary" onclick="exportTeamJSON()">⬇ Export Team</button>
+            <button class="btn btn-secondary" onclick="importTeamJSON()">⬆ Import</button>
+            <button class="btn btn-primary" onclick="exportTeamJSON()">⬇ Export</button>
             <button class="btn btn-danger" onclick="clearTeam()">Clear All</button>
           </div>
         </div>
@@ -280,7 +280,7 @@
           <div id="team-member-list">
             <div class="empty-state">
               <div class="empty-icon">👥</div>
-              <p>No team members yet. Complete an individual assessment and click <strong>+ Add to Team</strong>.</p>
+              <p>No perspectives yet. Complete an assessment and click <strong>+ Add Perspective</strong> to compare how different evaluators see the same team.</p>
             </div>
           </div>
         </div>
@@ -290,7 +290,7 @@
     <!-- Right: Team Chart + Gap Analysis -->
     <div>
       <div class="card" style="margin-bottom:16px">
-        <div class="card-header"><h2>Team Radar</h2></div>
+        <div class="card-header"><h2>Perspectives Radar</h2></div>
         <div class="card-body">
           <div class="chart-wrap">
             <canvas id="team-chart"></canvas>
@@ -300,7 +300,7 @@
       <div class="card">
         <div class="card-header"><h2>Gap Analysis</h2><span style="font-size:0.78rem;color:var(--muted)">Lowest → Highest avg score</span></div>
         <div class="card-body" id="gap-analysis">
-          <p style="color:var(--muted);font-size:0.85rem">Add team members to see gap analysis.</p>
+          <p style="color:var(--muted);font-size:0.85rem">Add assessment perspectives to see gap analysis.</p>
         </div>
       </div>
     </div>
@@ -313,35 +313,35 @@
 <div id="tab-about" class="tab-content">
   <div class="about-content">
     <h2>The Archetypes of Automation Framework</h2>
-    <p>Developed for the talk <em>"Building Automation Muscle Without a Dev Team"</em>, this framework helps MSP/ITSP teams identify their collective strengths and gaps across 8 dimensions of automation capability.</p>
-    <p>The core insight: the biggest barrier to automation in small MSP teams is not technical skill — it is process thinking, team composition, and role awareness. No single person covers all archetypes. Teams need to assess collectively and identify gaps to guide hiring, training, or partnership decisions.</p>
+    <p>This framework helps teams identify their collective strengths and gaps across 8 dimensions of automation capability — regardless of industry, size, or technical maturity.</p>
+    <p>The core insight: the biggest barrier to automation is not technical skill — it is process thinking, team composition, and role awareness. No single person covers all archetypes. Teams assess collectively and use the gap analysis to guide hiring, training, or partnership decisions.</p>
 
     <h2>How to Use This Tool</h2>
-    <p><strong>Individual:</strong> Score yourself 0–10 on each archetype. Use the sub-archetype descriptions to calibrate. Click <em>Export</em> to save your results as a JSON file so you can return later.</p>
-    <p><strong>Team:</strong> Each team member completes their individual assessment, clicks <em>Add to Team</em>, then exports the combined team file. Anyone can import a team file to view the shared radar and gap analysis.</p>
+    <p><strong>Assessment tab:</strong> As a team leader, owner, or authority figure, rate your team's capability 0–10 on each archetype. You are evaluating the team as a whole — not your own individual skills. Expand each archetype to read the sub-archetype descriptions and ask yourself: <em>does our team have someone who reliably fills this role?</em> Click <em>Export</em> to save your assessment as a JSON file to return to later.</p>
+    <p><strong>Compare Perspectives tab:</strong> Collect assessments from multiple evaluators — for example, an owner, an ops lead, and a senior technician — and overlay them on the same radar. Where perspectives diverge, that disagreement itself is signal. Where they converge on low scores, those are your most urgent gaps.</p>
 
-    <h2>Individual Score Profiles</h2>
+    <h2>Team Capability Profiles</h2>
     <table>
-      <tr><th>Total (out of 80)</th><th>Profile</th></tr>
-      <tr><td>0–20</td><td>Automation Newcomer</td></tr>
-      <tr><td>21–35</td><td>Developing Contributor</td></tr>
-      <tr><td>36–50</td><td>Capable Generalist</td></tr>
-      <tr><td>51–65</td><td>Strong Practitioner</td></tr>
-      <tr><td>66–80</td><td>Automation All-Rounder</td></tr>
+      <tr><th>Total (out of 80)</th><th>Team Profile</th></tr>
+      <tr><td>0–20</td><td>Early-Stage Team</td></tr>
+      <tr><td>21–35</td><td>Developing Team</td></tr>
+      <tr><td>36–50</td><td>Capable Team</td></tr>
+      <tr><td>51–65</td><td>Strong Team</td></tr>
+      <tr><td>66–80</td><td>High-Performing Team</td></tr>
     </table>
 
     <h2>Scoring Bands</h2>
     <table>
       <tr><th>Score</th><th>Meaning</th></tr>
-      <tr><td>0–2</td><td>No awareness or capability; this lens is absent</td></tr>
-      <tr><td>3–4</td><td>Emerging — some instinct but no structured practice</td></tr>
-      <tr><td>5–6</td><td>Functional — can contribute meaningfully with some gaps</td></tr>
-      <tr><td>7–8</td><td>Strong — reliable, practiced, others lean on you here</td></tr>
-      <tr><td>9–10</td><td>Exceptional — this is a defining strength; you set the standard</td></tr>
+      <tr><td>0–2</td><td>No one on the team fills this role; this capability is absent</td></tr>
+      <tr><td>3–4</td><td>Emerging — someone shows instinct but no consistent, structured practice</td></tr>
+      <tr><td>5–6</td><td>Functional — team has some coverage here, but with notable gaps</td></tr>
+      <tr><td>7–8</td><td>Strong — reliable team capability; people know who to go to</td></tr>
+      <tr><td>9–10</td><td>Exceptional — a clear team strength; this is where you set the standard</td></tr>
     </table>
 
-    <h2>Reading the Team Radar</h2>
-    <p>Each team member appears as a separate shape on the radar. Look for <strong>coverage, not duplication</strong> — two 9s in Building with zero in Quality is a risk profile. The Gap Analysis sorts archetypes from lowest to highest average team score, highlighting where investment is most urgent.</p>
+    <h2>Reading the Perspectives Radar</h2>
+    <p>Each evaluator appears as a separate shape. Look for <strong>coverage, not duplication</strong> — two 9s in Building with zero in Quality is a risk profile. Where shapes diverge significantly on an archetype, that's a conversation worth having. The Gap Analysis sorts archetypes from lowest to highest average score, surfacing where investment is most urgent.</p>
 
     <h2>Framework Citations</h2>
     <table>
@@ -466,19 +466,19 @@ const ARCHETYPES = [
 ];
 
 const PROFILES = [
-  { max: 20, label: "Automation Newcomer" },
-  { max: 35, label: "Developing Contributor" },
-  { max: 50, label: "Capable Generalist" },
-  { max: 65, label: "Strong Practitioner" },
-  { max: 80, label: "Automation All-Rounder" }
+  { max: 20, label: "Early-Stage Team" },
+  { max: 35, label: "Developing Team" },
+  { max: 50, label: "Capable Team" },
+  { max: 65, label: "Strong Team" },
+  { max: 80, label: "High-Performing Team" }
 ];
 
 const BAND_HINTS = [
-  "0–2: No awareness or capability; this lens is absent",
-  "3–4: Emerging — some instinct but no structured practice",
-  "5–6: Functional — can contribute meaningfully",
-  "7–8: Strong — reliable; others lean on you here",
-  "9–10: Exceptional — this is a defining strength"
+  "0–2: No one on the team fills this role; this capability is absent",
+  "3–4: Emerging — someone shows instinct but no consistent, structured practice",
+  "5–6: Functional — team has some coverage here, but with notable gaps",
+  "7–8: Strong — reliable team capability; people know who to go to",
+  "9–10: Exceptional — a clear team strength; this is where you set the standard"
 ];
 
 const CHART_COLORS = [
@@ -522,11 +522,11 @@ function buildArchetypesList() {
           <span style="font-size:0.78rem;color:var(--muted);white-space:nowrap">10</span>
         </div>
         <div class="slider-labels">
-          <span>No capability</span><span>Exceptional</span>
+          <span>No team capability</span><span>Team strength</span>
         </div>
-        <div class="band-hint" id="hint-${i}">0–2: No awareness or capability; this lens is absent</div>
+        <div class="band-hint" id="hint-${i}">0–2: No one on the team fills this role; this capability is absent</div>
         <div class="sub-list">
-          <div class="sub-list-title">Sub-Archetypes (expand to calibrate)</div>
+          <div class="sub-list-title">Sub-Archetypes — does your team have someone who…?</div>
           ${arch.subs.map(s => `
             <div class="sub-item">
               <div class="sub-item-name">${s.name}</div>
@@ -649,7 +649,7 @@ function buildTeamChart() {
 function updateTeamChart() {
   if (!teamChart) return;
   teamChart.data.datasets = teamMembers.map((m, i) => ({
-    label: m.name || `Member ${i+1}`,
+    label: m.name || `Evaluator ${i+1}`,
     data: [...m.scores],
     backgroundColor: CHART_COLORS[i % CHART_COLORS.length].replace('0.75','0.12'),
     borderColor: CHART_COLORS[i % CHART_COLORS.length],
@@ -665,7 +665,7 @@ function updateTeamChart() {
 function updateGapAnalysis() {
   const gap = document.getElementById('gap-analysis');
   if (teamMembers.length === 0) {
-    gap.innerHTML = '<p style="color:var(--muted);font-size:0.85rem">Add team members to see gap analysis.</p>';
+    gap.innerHTML = '<p style="color:var(--muted);font-size:0.85rem">Add assessment perspectives to see gap analysis.</p>';
     return;
   }
   const avgs = ARCHETYPES.map((a, i) => ({
@@ -688,7 +688,7 @@ function updateGapAnalysis() {
 function renderTeamMembers() {
   const list = document.getElementById('team-member-list');
   if (teamMembers.length === 0) {
-    list.innerHTML = `<div class="empty-state"><div class="empty-icon">👥</div><p>No team members yet. Complete an individual assessment and click <strong>+ Add to Team</strong>.</p></div>`;
+    list.innerHTML = `<div class="empty-state"><div class="empty-icon">👥</div><p>No perspectives yet. Complete an assessment and click <strong>+ Add Perspective</strong> to compare evaluators' views of the same team.</p></div>`;
     return;
   }
   list.innerHTML = teamMembers.map((m, i) => {
@@ -696,7 +696,7 @@ function renderTeamMembers() {
     const color = CHART_COLORS[i % CHART_COLORS.length];
     return `<div class="member-card">
       <div class="member-card-header">
-        <span class="member-name-display" style="color:${color}">${m.name || 'Member '+(i+1)}</span>
+        <span class="member-name-display" style="color:${color}">${m.name || 'Evaluator '+(i+1)}</span>
         <span class="member-total">Total: ${total}/80</span>
         <button class="btn btn-danger" style="padding:4px 10px;font-size:0.75rem" onclick="removeMember(${i})">Remove</button>
       </div>
@@ -716,10 +716,10 @@ function removeMember(i) {
 // ACTIONS
 // ═══════════════════════════════════════
 function addToTeam() {
-  const name = document.getElementById('assessor-name').value.trim() || `Member ${teamMembers.length + 1}`;
+  const name = document.getElementById('assessor-name').value.trim() || `Evaluator ${teamMembers.length + 1}`;
   teamMembers.push({ name, scores: [...scores] });
   updateTeamChart();
-  showToast(`✓ ${name} added to team`);
+  showToast(`✓ ${name} added as a perspective`);
 }
 
 function exportJSON() {
@@ -757,7 +757,7 @@ function importJSON() {
 }
 
 function exportTeamJSON() {
-  if (teamMembers.length === 0) { showToast('No team members to export'); return; }
+  if (teamMembers.length === 0) { showToast('No perspectives to export'); return; }
   const data = { type: 'team', version: 1, members: teamMembers, exported: new Date().toISOString() };
   downloadJSON(data, `archetypes-team.json`);
 }
@@ -767,11 +767,11 @@ function importTeamJSON() {
     if (data.type === 'team') {
       teamMembers = data.members || [];
       updateTeamChart();
-      showToast(`✓ Team imported (${teamMembers.length} members)`);
+      showToast(`✓ Imported (${teamMembers.length} perspectives)`);
     } else if (data.type === 'individual') {
       teamMembers.push({ name: data.name, scores: data.scores });
       updateTeamChart();
-      showToast(`✓ ${data.name || 'Member'} added to team`);
+      showToast(`✓ ${data.name || 'Evaluator'} added as perspective`);
     } else {
       alert('Unrecognised file format.');
     }
@@ -780,7 +780,7 @@ function importTeamJSON() {
 
 function clearTeam() {
   if (teamMembers.length === 0) return;
-  if (confirm(`Remove all ${teamMembers.length} team members?`)) {
+  if (confirm(`Remove all ${teamMembers.length} perspectives?`)) {
     teamMembers = [];
     updateTeamChart();
   }
@@ -790,12 +790,16 @@ function clearTeam() {
 // UTILITIES
 // ═══════════════════════════════════════
 function downloadJSON(data, filename) {
-  const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
-  const url = URL.createObjectURL(blob);
+  const json = JSON.stringify(data, null, 2);
+  const uri = 'data:application/json;charset=utf-8,' + encodeURIComponent(json);
   const a = document.createElement('a');
-  a.href = url; a.download = filename; a.click();
-  URL.revokeObjectURL(url);
-  showToast(`✓ Exported as ${filename}`);
+  a.style.display = 'none';
+  a.href = uri;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  setTimeout(() => document.body.removeChild(a), 100);
+  showToast(`Exported as ${filename}`);
 }
 
 function pickFile(callback) {
@@ -818,7 +822,7 @@ function switchTab(name) {
   document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
   document.getElementById(`tab-${name}`).classList.add('active');
   document.querySelectorAll('.tab-btn').forEach(b => {
-    if (b.textContent.toLowerCase().includes(name === 'about' ? 'about' : name === 'team' ? 'team' : 'individual'))
+    if (b.textContent.toLowerCase().includes(name === 'about' ? 'about' : name === 'team' ? 'compare' : 'assessment'))
       b.classList.add('active');
   });
 }

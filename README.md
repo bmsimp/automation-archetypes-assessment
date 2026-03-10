@@ -43,19 +43,20 @@ Two formats are provided. Both cover the same framework content.
 - Gap analysis ranks archetypes from lowest to highest average team score
 - Export and import full team data as a single JSON file
 
-**Individual workflow:**
+**Assessment workflow:**
 1. Open `index.html` in your browser
-2. Enter your name
-3. Score yourself 0–10 on each archetype (expand sections to read sub-archetype descriptions)
-4. Click **Export** to save your results as a `.json` file
+2. Enter your name and role (e.g. "Jane Smith, Operations Lead")
+3. Score your **team's capability** 0–10 on each archetype — you are evaluating the team as a whole, not your own skills. Expand each section and ask: *does our team have someone who reliably fills this role?*
+4. Click **Export** to save your assessment as a `.json` file
 5. To resume later: open the tool again and click **Import**
 
-**Team workflow:**
-1. Each person completes their individual assessment on their own device
-2. Click **Add to Team** (or share your exported `.json` with a team facilitator)
-3. The facilitator imports each person's file via **Import Team** on the Team View tab
-4. Review the team radar and gap analysis together
-5. Export the combined team file to share or revisit
+**Compare Perspectives workflow:**
+1. Collect assessments from multiple evaluators — for example, an owner, an ops lead, and a senior technician
+2. Each person completes their own assessment of the team and clicks **+ Add Perspective**
+3. Or share exported `.json` files with a facilitator who imports them via the Compare Perspectives tab
+4. Where radars diverge on an archetype, that disagreement is signal worth discussing
+5. Where all evaluators score an archetype low, that is your most urgent gap
+6. Export the combined set to share or revisit
 
 **GitHub Pages:** Enable GitHub Pages on this repository (Settings → Pages → Deploy from branch: `main`, folder: `/`) and the tool will be available at `https://<your-org>.github.io/<repo-name>/`.
 
@@ -97,21 +98,21 @@ python assessment/generate_xlsx.py
 
 | Score | Meaning |
 |-------|---------|
-| 0–2 | No awareness or capability; this lens is absent |
-| 3–4 | Emerging — some instinct but no structured practice |
-| 5–6 | Functional — can contribute meaningfully with some gaps |
-| 7–8 | Strong — reliable, practiced, others lean on you here |
-| 9–10 | Exceptional — this is a defining strength; you set the standard |
+| 0–2 | No one on the team fills this role; this capability is absent |
+| 3–4 | Emerging — someone shows instinct but no consistent, structured practice |
+| 5–6 | Functional — team has some coverage here, but with notable gaps |
+| 7–8 | Strong — reliable team capability; people know who to go to |
+| 9–10 | Exceptional — a clear team strength; this is where you set the standard |
 
-### Individual Profile (Total out of 80)
+### Team Capability Profile (Total out of 80)
 
 | Total | Profile |
 |-------|---------|
-| 0–20 | Automation Newcomer |
-| 21–35 | Developing Contributor |
-| 36–50 | Capable Generalist |
-| 51–65 | Strong Practitioner |
-| 66–80 | Automation All-Rounder |
+| 0–20 | Early-Stage Team |
+| 21–35 | Developing Team |
+| 36–50 | Capable Team |
+| 51–65 | Strong Team |
+| 66–80 | High-Performing Team |
 
 ---
 
