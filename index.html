@@ -310,7 +310,7 @@
         <div class="card-body">
           <div class="name-row">
             <label for="assessor-name">Person being assessed:</label>
-            <input type="text" id="assessor-name" placeholder="e.g. Jane Smith, Operations Lead" oninput="updateChart()" />
+            <input type="text" id="assessor-name" placeholder="e.g. Jane Smith, Operations Lead" oninput="updateChart(); saveState()" />
           </div>
           <div id="archetypes-list"></div>
         </div>
@@ -668,6 +668,34 @@ var RADAR_LABELS = [
 var scores = [0,0,0,0,0,0,0,0];
 var teamMembers = [];
 
+var LS_KEY = "archetypes-assessment";
+
+function saveState() {
+  try {
+    localStorage.setItem(LS_KEY, JSON.stringify({
+      name: (document.getElementById("assessor-name") || {}).value || "",
+      scores: scores,
+      members: teamMembers
+    }));
+  } catch(e) {}
+}
+
+function loadState() {
+  try {
+    var raw = localStorage.getItem(LS_KEY);
+    if (!raw) return;
+    var state = JSON.parse(raw);
+    if (state.name) {
+      var nameEl = document.getElementById("assessor-name");
+      if (nameEl) nameEl.value = state.name;
+    }
+    if (state.scores && state.scores.length === 8) {
+      for (var i = 0; i < 8; i++) scores[i] = state.scores[i];
+    }
+    if (state.members) teamMembers = state.members;
+  } catch(e) {}
+}
+
 // ── RADAR CHART ───────────────────────────────────────────────────────────────
 function drawRadar(canvasId, datasets) {
   var canvas = document.getElementById(canvasId);
@@ -882,6 +910,7 @@ function onSlider(i, val) {
   var hi = val <= 2 ? 0 : val <= 4 ? 1 : val <= 6 ? 2 : val <= 8 ? 3 : 4;
   document.getElementById("hint-" + i).textContent = BAND_HINTS[hi];
   updateChart();
+  saveState();
 }
 
 function scoreColor(v) {
@@ -985,6 +1014,7 @@ function renderTeamMembers() {
 function removeMember(i) {
   teamMembers.splice(i, 1);
   updateTeamChart();
+  saveState();
 }
 
 // ── ACTIONS ───────────────────────────────────────────────────────────────────
@@ -992,6 +1022,7 @@ function addToTeam() {
   var name = document.getElementById("assessor-name").value.trim() || ("Evaluator " + (teamMembers.length + 1));
   teamMembers.push({name: name, scores: scores.slice()});
   updateTeamChart();
+  saveState();
   showToast("Added: " + name);
 }
 
@@ -1009,12 +1040,14 @@ function importJSON() {
         var sl = document.getElementById("slider-" + i);
         if (sl) { sl.value = scores[i]; onSlider(i, scores[i]); }
       }
+      saveState();
       showToast("Assessment imported");
     } else if (data.type === "team") {
       if (confirm("This is a team file. Import into Compare Perspectives?")) {
         teamMembers = data.members || [];
         switchTab("team");
         updateTeamChart();
+        saveState();
         showToast("Team imported");
       }
     } else { alert("Unrecognised file format."); }
@@ -1031,10 +1064,12 @@ function importTeamJSON() {
     if (data.type === "team") {
       teamMembers = data.members || [];
       updateTeamChart();
+      saveState();
       showToast("Imported " + teamMembers.length + " perspectives");
     } else if (data.type === "individual") {
       teamMembers.push({name: data.name, scores: data.scores});
       updateTeamChart();
+      saveState();
       showToast("Added: " + (data.name || "Evaluator"));
     } else { alert("Unrecognised file format."); }
   });
@@ -1045,6 +1080,7 @@ function clearTeam() {
   if (confirm("Remove all " + teamMembers.length + " perspectives?")) {
     teamMembers = [];
     updateTeamChart();
+    saveState();
   }
 }
 
@@ -1482,6 +1518,16 @@ function _initApp() {
     var c = document.getElementById("archetypes-list");
     if (c) c.innerHTML = '<p style="color:red;padding:16px">Init error (buildArchetypesList): ' + e.message + '</p>';
   }
+
+  // Restore saved state from localStorage
+  try {
+    loadState();
+    for (var ri = 0; ri < scores.length; ri++) {
+      var sl = document.getElementById("slider-" + ri);
+      if (sl) { sl.value = scores[ri]; onSlider(ri, scores[ri]); }
+    }
+  } catch(e) {}
+
   try { updateSummary(); } catch(e) {}
   try { renderTeamMembers(); } catch(e) {}
   try { updateGapAnalysis(); } catch(e) {}
