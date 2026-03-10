@@ -128,6 +128,7 @@
 
     /* ── Chart ── */
     .chart-card { position: sticky; top: 24px; }
+    .chart-card .card-body { padding: 8px 0; }
     .chart-wrap { width: 100%; margin: 0 auto; }
     .chart-wrap canvas { display: block; width: 100%; height: auto; }
 
@@ -446,7 +447,7 @@
     <ol>
       <li>Open the <strong>Individual Assessment</strong> tab.</li>
       <li>Enter the name and role of the person being assessed (e.g. &#8220;Jane Smith, Operations Lead&#8221;).</li>
-      <li>Score their capability 0&#8211;10 on each archetype. Expand each section to read the sub-archetype descriptions and ask: <em>does this person demonstrate these characteristics?</em></li>
+      <li>Score their capability 0&#8211;10 on each archetype. Expand each section to read the sub-archetype descriptions and ask: <em>is this person demonstrating these characteristics?</em></li>
       <li>Review the live radar chart and total score as you go &#8212; they update instantly.</li>
       <li>Click <strong>+ Add to Team Assessment</strong> to include this person in the team view.</li>
       <li>Repeat for each team member.</li>
@@ -669,25 +670,26 @@ function drawRadar(canvasId, datasets) {
 
   var dpr  = window.devicePixelRatio || 1;
   var wrap = canvas.parentElement;
-  var S    = Math.min(wrap.clientWidth > 10 ? wrap.clientWidth : 460, 460);
+  var W    = Math.min(wrap.clientWidth > 10 ? wrap.clientWidth : 500, 500);
+  var H    = Math.round(W * 0.88);
 
-  canvas.width  = Math.round(S * dpr);
-  canvas.height = Math.round(S * dpr);
-  canvas.style.width  = S + "px";
-  canvas.style.height = S + "px";
+  canvas.width  = Math.round(W * dpr);
+  canvas.height = Math.round(H * dpr);
+  canvas.style.width  = W + "px";
+  canvas.style.height = H + "px";
 
   var ctx = canvas.getContext("2d");
   ctx.scale(dpr, dpr);
 
   var N    = 8;
-  var cx   = S / 2;
-  var cy   = S / 2;
-  var maxR = S * 0.30;
-  var labR = maxR * 1.32;
-  var FONT = Math.max(9, Math.round(S * 0.031));
+  var cx   = W / 2;
+  var cy   = H / 2;
+  var maxR = Math.min(W, H) * 0.30;
+  var labR = maxR * 1.38;
+  var FONT = Math.max(9, Math.round(Math.min(W, H) * 0.031));
   var PI2  = Math.PI * 2;
 
-  ctx.clearRect(0, 0, S, S);
+  ctx.clearRect(0, 0, W, H);
 
   // Grid rings
   var i, j, a, x, y, r;
@@ -843,7 +845,7 @@ function buildArchetypesList() {
         '<div class="slider-labels"><span>Not a strength</span><span>Clear strength</span></div>' +
         '<div class="band-hint" id="hint-' + i + '">' + BAND_HINTS[0] + '</div>' +
         '<div class="sub-list">' +
-          '<div class="sub-list-title">Sub-Archetypes &#8212; does this person&#8230;?</div>' +
+          '<div class="sub-list-title">Sub-Archetypes &#8212; is this person&#8230;?</div>' +
           subsHtml +
         '</div>' +
       '</div>';
