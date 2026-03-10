@@ -207,11 +207,34 @@
     /* ── About ── */
     .about-content { max-width: 760px; margin: 32px auto; padding: 0 32px; }
     .about-content h2 { font-size: 1.25rem; font-weight: 700; margin: 24px 0 10px; }
+    .about-content h3 { font-size: 1.05rem; font-weight: 700; margin: 18px 0 8px; color: var(--text); }
     .about-content p { font-size: 0.92rem; color: var(--muted); line-height: 1.65; margin-bottom: 12px; }
+    .about-content ul, .about-content ol { font-size: 0.92rem; color: var(--muted); line-height: 1.65; margin: 0 0 12px 20px; }
+    .about-content li { margin-bottom: 6px; }
     .about-content table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 12px 0 20px; }
     .about-content th { background: var(--accent-light); color: var(--accent); padding: 8px 12px; text-align: left; font-weight: 700; }
     .about-content td { padding: 8px 12px; border-bottom: 1px solid var(--border); }
     .about-content tr:last-child td { border-bottom: none; }
+    .about-content strong { color: var(--text); }
+
+    /* ── Tab Dropdown ── */
+    .tab-dropdown { position: relative; }
+    .tab-dropdown .tab-btn { display: flex; align-items: center; gap: 6px; }
+    .tab-dropdown .tab-btn .dropdown-arrow { font-size: 0.6rem; transition: transform 0.2s; }
+    .tab-dropdown.open .tab-btn .dropdown-arrow { transform: rotate(180deg); }
+    .tab-dropdown-menu {
+      display: none; position: absolute; top: 100%; left: 0; z-index: 100;
+      background: var(--surface); border: 1px solid var(--border); border-radius: 0 0 8px 8px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.25); min-width: 220px; overflow: hidden;
+    }
+    .tab-dropdown.open .tab-dropdown-menu { display: block; }
+    .tab-dropdown-item {
+      display: block; width: 100%; padding: 12px 20px; font-size: 0.88rem; font-weight: 500;
+      cursor: pointer; border: none; background: none; color: var(--muted); text-align: left;
+      font-family: inherit; transition: all 0.12s;
+    }
+    .tab-dropdown-item:hover { background: var(--accent-light); color: var(--accent); }
+    .tab-dropdown-item.active { color: var(--accent); font-weight: 600; background: var(--accent-light); }
 
     /* ── PDF Modal ── */
     .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.6); display: none; align-items: center; justify-content: center; z-index: 2000; }
@@ -258,7 +281,13 @@
 <nav class="tabs">
   <button class="tab-btn active" data-tab="individual" onclick="switchTab('individual')">Individual Assessment</button>
   <button class="tab-btn" data-tab="team" onclick="switchTab('team')">Team Assessment</button>
-  <button class="tab-btn" data-tab="about" onclick="switchTab('about')">About the Framework</button>
+  <div class="tab-dropdown" id="about-dropdown">
+    <button class="tab-btn" data-tab="about" onclick="toggleAboutDropdown(event)">About <span class="dropdown-arrow">&#9660;</span></button>
+    <div class="tab-dropdown-menu">
+      <button class="tab-dropdown-item" data-tab="about-framework" onclick="switchTab('about-framework')">About the Framework</button>
+      <button class="tab-dropdown-item" data-tab="about-howto" onclick="switchTab('about-howto')">How to Use This Tool</button>
+    </div>
+  </div>
 </nav>
 
 <div id="tab-individual" class="tab-content active">
@@ -337,24 +366,40 @@
   </div>
 </div>
 
-<div id="tab-about" class="tab-content">
+<div id="tab-about-framework" class="tab-content">
   <div class="about-content">
     <h2>The Archetypes of Automation Framework</h2>
-    <p>This framework helps teams identify their collective strengths and gaps across 8 dimensions of automation capability &#8212; regardless of industry, size, or technical maturity.</p>
-    <p>The core insight: the biggest barrier to automation is not technical skill &#8212; it is process thinking, team composition, and role awareness. No single person covers all archetypes. Teams assess collectively and use the gap analysis to guide hiring, training, or partnership decisions.</p>
-    <h2>How to Use This Tool</h2>
-    <p><strong>Individual Assessment tab:</strong> Enter the name of the person being assessed, then score their capability 0&#8211;10 on each archetype. Expand each archetype to read the sub-archetype descriptions and ask: <em>does this person demonstrate these characteristics?</em> Use Export to save as JSON, or click <strong>+ Add to Team Assessment</strong> to include them in the team view.</p>
-    <p><strong>Team Assessment tab:</strong> Collect assessments from multiple people and overlay them on the same radar. Where perspectives diverge, that disagreement is signal. Where they converge on low scores, those are your most urgent gaps. Use <strong>Generate Report</strong> to produce a printable PDF summary of the team&#8217;s capability profile.</p>
-    <h2>Individual Capability Profiles</h2>
+    <p>This framework helps teams identify their collective strengths and gaps across <strong>8 dimensions of automation capability</strong> &#8212; regardless of industry, size, or technical maturity.</p>
+    <p>The core insight: the biggest barrier to automation is not technical skill &#8212; it is process thinking, team composition, and role awareness. No single person covers all eight archetypes. Teams assess collectively and use the gap analysis to guide hiring, training, or partnership decisions.</p>
+    <p>Like a sports roster, each team member brings a unique combination of strengths. The radar chart visualization makes it easy to see where coverage is strong and where critical gaps exist. Two people scoring 9 in Building but zero in Quality is a risk profile &#8212; and one this framework is designed to surface.</p>
+
+    <h3>The 8 Archetypes</h3>
     <table>
-      <tr><th>Total (out of 80)</th><th>Profile</th></tr>
-      <tr><td>0&#8211;20</td><td>Automation Newcomer</td></tr>
-      <tr><td>21&#8211;35</td><td>Developing Contributor</td></tr>
-      <tr><td>36&#8211;50</td><td>Capable Generalist</td></tr>
-      <tr><td>51&#8211;65</td><td>Strong Practitioner</td></tr>
-      <tr><td>66&#8211;80</td><td>Automation All-Rounder</td></tr>
+      <tr><th>#</th><th>Archetype</th><th>What It Covers</th></tr>
+      <tr><td>1</td><td>Process &amp; Knowledge Holding</td><td>Understanding, retaining, and communicating how work actually happens</td></tr>
+      <tr><td>2</td><td>Problem Definition</td><td>Identifying, articulating, and prioritizing what is worth automating</td></tr>
+      <tr><td>3</td><td>Design &amp; Logic Thinking</td><td>Translating real-world processes into explicit logic before touching any tool</td></tr>
+      <tr><td>4</td><td>Communication &amp; Translation</td><td>Bridging the gap between process owners and builders</td></tr>
+      <tr><td>5</td><td>Building &amp; Implementation</td><td>Constructing automations using tools, AI, or both</td></tr>
+      <tr><td>6</td><td>Quality &amp; Oversight</td><td>Verifying automations work correctly, including failure scenarios</td></tr>
+      <tr><td>7</td><td>Human &amp; Organizational Awareness</td><td>Managing adoption, resistance, ownership, and compliance</td></tr>
+      <tr><td>8</td><td>Strategic &amp; Vision Thinking</td><td>Connecting automation work to measurable business outcomes</td></tr>
     </table>
+    <p>Each archetype contains 3&#8211;5 named <strong>sub-archetypes</strong> &#8212; specific roles or mindsets grounded in established frameworks. Expand any archetype in the Individual Assessment tab to explore its sub-archetypes and calibrate your score.</p>
+
+    <h2>Individual Capability Profiles</h2>
+    <p>After scoring all 8 archetypes (0&#8211;10 each), the total out of 80 maps to an overall capability profile:</p>
+    <table>
+      <tr><th>Total (out of 80)</th><th>Profile</th><th>What It Means</th></tr>
+      <tr><td>0&#8211;20</td><td>Automation Newcomer</td><td>New to structured automation thinking; building foundational awareness</td></tr>
+      <tr><td>21&#8211;35</td><td>Developing Contributor</td><td>Shows instinct in some areas; developing consistent practice</td></tr>
+      <tr><td>36&#8211;50</td><td>Capable Generalist</td><td>Contributes meaningfully across several dimensions with some gaps</td></tr>
+      <tr><td>51&#8211;65</td><td>Strong Practitioner</td><td>Reliable and practiced; others lean on this person across multiple areas</td></tr>
+      <tr><td>66&#8211;80</td><td>Automation All-Rounder</td><td>Exceptional breadth; a defining strength across nearly all dimensions</td></tr>
+    </table>
+
     <h2>Scoring Bands</h2>
+    <p>Each archetype is scored on a 0&#8211;10 scale. Use these bands to calibrate your assessment:</p>
     <table>
       <tr><th>Score</th><th>Meaning</th></tr>
       <tr><td>0&#8211;2</td><td>No demonstrated capability in this area</td></tr>
@@ -363,7 +408,9 @@
       <tr><td>7&#8211;8</td><td>Strong &#8212; reliable and practiced; others lean on them here</td></tr>
       <tr><td>9&#8211;10</td><td>Exceptional &#8212; a defining strength; sets the standard</td></tr>
     </table>
+
     <h2>Framework Citations</h2>
+    <p>The sub-archetypes are grounded in 16 established management, systems, and process frameworks:</p>
     <table>
       <tr><th>Framework</th><th>Source</th></tr>
       <tr><td>Theory of Constraints</td><td>Eliyahu M. Goldratt &amp; Jeff Cox, <em>The Goal: A Process of Ongoing Improvement</em> (1984)</td></tr>
@@ -371,7 +418,7 @@
       <tr><td>Design Thinking</td><td>IDEO, <a href="https://www.designkit.org/" target="_blank" rel="noopener">The Field Guide to Human-Centered Design</a>; Stanford d.school, <a href="https://dschool.stanford.edu/resources" target="_blank" rel="noopener">Design Thinking Resources</a></td></tr>
       <tr><td>Agile / Scrum</td><td>Beck et al., <a href="https://agilemanifesto.org/" target="_blank" rel="noopener">Manifesto for Agile Software Development</a> (2001); Jeff Sutherland &amp; Ken Schwaber, <a href="https://scrumguides.org/" target="_blank" rel="noopener">The Scrum Guide</a></td></tr>
       <tr><td>Diffusion of Innovations</td><td>Everett M. Rogers, <em>Diffusion of Innovations</em> (5th ed., 2003)</td></tr>
-      <tr><td>Kotter's 8-Step Change Model</td><td>John P. Kotter, <em>Leading Change</em> (1996)</td></tr>
+      <tr><td>Kotter&#8217;s 8-Step Change Model</td><td>John P. Kotter, <em>Leading Change</em> (1996)</td></tr>
       <tr><td>Prosci ADKAR</td><td>Jeff Hiatt, <em>ADKAR: A Model for Change in Business, Government and Our Community</em> (2006); <a href="https://www.prosci.com/methodology/adkar" target="_blank" rel="noopener">Prosci ADKAR Model Overview</a></td></tr>
       <tr><td>RACI Matrix</td><td>Project Management Institute, <em>A Guide to the Project Management Body of Knowledge (PMBOK Guide)</em></td></tr>
       <tr><td>Team Topologies</td><td>Matthew Skelton &amp; Manuel Pais, <em>Team Topologies: Organizing Business and Technology Teams for Fast Flow</em> (2019); <a href="https://teamtopologies.com/" target="_blank" rel="noopener">teamtopologies.com</a></td></tr>
@@ -383,9 +430,73 @@
       <tr><td>Jobs To Be Done</td><td>Clayton M. Christensen, Taddy Hall, Karen Dillon &amp; David S. Duncan, <em>Competing Against Luck: The Story of Innovation and Customer Choice</em> (2016)</td></tr>
       <tr><td>Pre-Mortem Analysis</td><td>Gary Klein, <a href="https://hbr.org/2007/09/performing-a-project-premortem" target="_blank" rel="noopener">&#8220;Performing a Project Premortem&#8221;</a> (<em>Harvard Business Review</em>, 2007)</td></tr>
     </table>
+
     <h2>Contribute &amp; Feedback</h2>
-    <p>This framework is open source. Found an issue, have a suggestion, or want to contribute? Visit the project repository on GitHub.</p>
+    <p>This framework is open source under GPL v3. Found an issue, have a suggestion, or want to contribute? Open an issue or pull request on GitHub.</p>
     <p><a href="https://github.com/bmsimp/automation-archetypes-assessment" target="_blank" rel="noopener" style="color:var(--accent);font-weight:600">github.com/bmsimp/automation-archetypes-assessment</a></p>
+  </div>
+</div>
+
+<div id="tab-about-howto" class="tab-content">
+  <div class="about-content">
+    <h2>How to Use This Tool</h2>
+    <p>This web-based assessment tool lets you score individuals and teams across the 8 Archetypes of Automation. It runs entirely in your browser &#8212; no data is sent to any server.</p>
+
+    <h3>Individual Assessment</h3>
+    <ol>
+      <li>Open the <strong>Individual Assessment</strong> tab.</li>
+      <li>Enter the name and role of the person being assessed (e.g. &#8220;Jane Smith, Operations Lead&#8221;).</li>
+      <li>Score their capability 0&#8211;10 on each archetype. Expand each section to read the sub-archetype descriptions and ask: <em>does this person demonstrate these characteristics?</em></li>
+      <li>Review the live radar chart and total score as you go &#8212; they update instantly.</li>
+      <li>Click <strong>+ Add to Team Assessment</strong> to include this person in the team view.</li>
+      <li>Repeat for each team member.</li>
+    </ol>
+
+    <h3>Saving &amp; Importing Individual Results</h3>
+    <ul>
+      <li>Click <strong>Export</strong> to save the current assessment as a <code>.json</code> file you can return to later.</li>
+      <li>Click <strong>Import</strong> to load a previously exported <code>.json</code> file, then click <strong>+ Add to Team Assessment</strong> to include them in the team view.</li>
+    </ul>
+
+    <h3>Team Assessment</h3>
+    <ol>
+      <li>Collect individual assessments from each team member.</li>
+      <li>Each person completes their own assessment on the Individual Assessment tab and clicks <strong>+ Add to Team Assessment</strong>, or share exported <code>.json</code> files with a facilitator who imports them.</li>
+      <li>Switch to the <strong>Team Assessment</strong> tab to see all evaluators overlaid on a single radar chart.</li>
+      <li>Review the <strong>Gap Analysis</strong> card &#8212; it ranks archetypes from lowest to highest average score.</li>
+    </ol>
+
+    <h3>Interpreting Team Results</h3>
+    <ul>
+      <li>Where radars <strong>diverge</strong> on an archetype, that disagreement is worth discussing &#8212; it may indicate unclear expectations or hidden strengths.</li>
+      <li>Where all evaluators score an archetype <strong>low</strong>, that is your most urgent gap to address through hiring, training, or partnerships.</li>
+      <li>The archetype with the lowest combined team score represents your most urgent investment area.</li>
+    </ul>
+
+    <h3>Saving &amp; Importing Team Results</h3>
+    <ul>
+      <li>Click <strong>Export</strong> on the Team Assessment tab to save the full team dataset as a <code>.json</code> file.</li>
+      <li>Click <strong>Import</strong> to reload a previously exported team assessment.</li>
+    </ul>
+
+    <h3>Generating a PDF Report</h3>
+    <ol>
+      <li>Click <strong>Generate Report</strong> on the Team Assessment tab.</li>
+      <li>Choose whether to include individual breakdowns (each person&#8217;s scores, radar chart, and per-dimension narrative on separate pages).</li>
+      <li>Choose explainer depth: <strong>Short</strong> (2&#8211;3 sentence narrative per dimension) or <strong>Long</strong> (full sub-archetype breakdown with framework citations).</li>
+      <li>Click <strong>Generate Report</strong> to produce a printable PDF of the full team capability profile.</li>
+    </ol>
+
+    <h2>Scoring Bands</h2>
+    <p>Each archetype is scored on a 0&#8211;10 scale. Use these bands to calibrate your assessment:</p>
+    <table>
+      <tr><th>Score</th><th>Meaning</th></tr>
+      <tr><td>0&#8211;2</td><td>No demonstrated capability in this area</td></tr>
+      <tr><td>3&#8211;4</td><td>Emerging &#8212; shows instinct but no consistent, structured practice</td></tr>
+      <tr><td>5&#8211;6</td><td>Functional &#8212; can contribute meaningfully, but with notable gaps</td></tr>
+      <tr><td>7&#8211;8</td><td>Strong &#8212; reliable and practiced; others lean on them here</td></tr>
+      <tr><td>9&#8211;10</td><td>Exceptional &#8212; a defining strength; sets the standard</td></tr>
+    </table>
   </div>
 </div>
 
@@ -968,17 +1079,49 @@ function toggleTheme() {
 function switchTab(name) {
   var tabs    = document.querySelectorAll(".tab-content");
   var buttons = document.querySelectorAll(".tab-btn");
+  var dropItems = document.querySelectorAll(".tab-dropdown-item");
   for (var i = 0; i < tabs.length; i++)    tabs[i].classList.remove("active");
   for (var j = 0; j < buttons.length; j++) buttons[j].classList.remove("active");
+  for (var d = 0; d < dropItems.length; d++) dropItems[d].classList.remove("active");
   document.getElementById("tab-" + name).classList.add("active");
+
+  // Highlight the correct top-level tab button
+  var isAboutSub = (name === "about-framework" || name === "about-howto");
   for (var k = 0; k < buttons.length; k++) {
-    if (buttons[k].getAttribute("data-tab") === name) {
+    if (isAboutSub && buttons[k].getAttribute("data-tab") === "about") {
+      buttons[k].classList.add("active");
+    } else if (buttons[k].getAttribute("data-tab") === name) {
       buttons[k].classList.add("active");
     }
   }
+  // Highlight the active dropdown item
+  for (var m = 0; m < dropItems.length; m++) {
+    if (dropItems[m].getAttribute("data-tab") === name) {
+      dropItems[m].classList.add("active");
+    }
+  }
+
+  // Close the dropdown after selection
+  var dropdown = document.getElementById("about-dropdown");
+  if (dropdown) dropdown.classList.remove("open");
+
   if (name === "individual") buildIndividualChart();
   if (name === "team")       buildTeamChart();
 }
+
+function toggleAboutDropdown(e) {
+  e.stopPropagation();
+  var dropdown = document.getElementById("about-dropdown");
+  dropdown.classList.toggle("open");
+}
+
+// Close dropdown when clicking outside
+document.addEventListener("click", function(e) {
+  var dropdown = document.getElementById("about-dropdown");
+  if (dropdown && !dropdown.contains(e.target)) {
+    dropdown.classList.remove("open");
+  }
+});
 
 var toastTimer = null;
 function showToast(msg) {
