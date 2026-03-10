@@ -128,7 +128,7 @@
 
     /* ── Chart ── */
     .chart-card { position: sticky; top: 24px; }
-    .chart-card .card-body { padding: 8px 0; }
+    .chart-wrap-body { padding: 8px 0; }
     .chart-wrap { width: 100%; margin: 0 auto; }
     .chart-wrap canvas { display: block; width: 100%; height: auto; }
 
@@ -166,8 +166,12 @@
     .member-card-header { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
     .member-name-display { font-weight: 700; font-size: 0.95rem; }
     .member-total { font-size: 0.82rem; color: var(--muted); }
-    .member-scores { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
-    .score-chip { padding: 3px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 600; background: var(--accent-light); color: var(--accent); }
+    .member-scores { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 12px; margin-top: 10px; }
+    .score-chip { display: flex; align-items: center; gap: 8px; padding: 4px 0; font-size: 0.78rem; }
+    .score-chip-label { color: var(--muted); flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .score-chip-bar { width: 48px; height: 5px; background: var(--score-0); border-radius: 3px; overflow: hidden; flex-shrink: 0; }
+    .score-chip-bar-fill { height: 100%; border-radius: 3px; background: var(--accent); }
+    .score-chip-val { min-width: 18px; text-align: right; font-weight: 700; color: var(--accent); font-size: 0.78rem; }
     .empty-state { text-align: center; padding: 40px 20px; color: var(--muted); }
     .empty-state .empty-icon { font-size: 2.5rem; margin-bottom: 10px; }
 
@@ -315,7 +319,7 @@
     <div class="chart-card">
       <div class="card" style="margin-bottom:16px">
         <div class="card-header"><h2>Capability Radar</h2></div>
-        <div class="card-body">
+        <div class="card-body chart-wrap-body">
           <div class="chart-wrap"><canvas id="individual-chart"></canvas></div>
         </div>
       </div>
@@ -355,7 +359,7 @@
     <div>
       <div class="card" style="margin-bottom:16px">
         <div class="card-header"><h2>Perspectives Radar</h2></div>
-        <div class="card-body">
+        <div class="card-body chart-wrap-body">
           <div class="chart-wrap"><canvas id="team-chart"></canvas></div>
         </div>
       </div>
@@ -641,6 +645,12 @@ var DS_COLORS = [
   ["rgba(52,152,219,0.15)",  "rgba(52,152,219,0.9)"],
   ["rgba(155,89,182,0.15)",  "rgba(155,89,182,0.9)"],
   ["rgba(26,188,156,0.15)",  "rgba(26,188,156,0.9)"]
+];
+
+var SHORT_LABELS = [
+  "Process & Knowledge", "Problem Definition", "Design & Logic",
+  "Communication", "Building", "Quality & Oversight",
+  "Human & Org.", "Strategic & Vision"
 ];
 
 var RADAR_LABELS = [
@@ -957,7 +967,11 @@ function renderTeamMembers() {
     var color = DS_COLORS[i % DS_COLORS.length][1];
     var chips = "";
     for (var j = 0; j < ARCHETYPES.length; j++) {
-      chips += '<span class="score-chip" title="' + ARCHETYPES[j].name + '">' + ARCHETYPES[j].id + ': ' + m.scores[j] + '</span>';
+      var pct = m.scores[j] * 10;
+      chips += '<span class="score-chip">' +
+        '<span class="score-chip-label">' + SHORT_LABELS[j] + '</span>' +
+        '<span class="score-chip-bar"><span class="score-chip-bar-fill" style="width:' + pct + '%"></span></span>' +
+        '<span class="score-chip-val">' + m.scores[j] + '</span></span>';
     }
     html += '<div class="member-card"><div class="member-card-header">' +
       '<span class="member-name-display" style="color:' + color + '">' + (m.name || "Evaluator " + (i+1)) + '</span>' +
