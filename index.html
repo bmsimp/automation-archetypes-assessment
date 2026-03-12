@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rhino Automator — Automation · Consulting · Public Speaking</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@300;400;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg: #0C1016;
+      --surface: #141B24;
+      --surface-alt: #1A2333;
+      --border: #243044;
+      --cobalt: #3B82F6;
+      --silver: #D1DCE8;
+      --emerald: #34D399;
+      --text: #F0F6FF;
+      --muted: #8B9EB8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Barlow Condensed', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+    a { text-decoration: none; }
+
+    /* Nav */
+    .site-nav {
+      background: var(--bg); border-bottom: 1px solid var(--border);
+      padding: 14px 32px; display: flex; align-items: center; justify-content: space-between;
+      max-width: 1100px; margin: 0 auto;
+    }
+    .site-nav .logo {
+      font-family: 'Bebas Neue'; font-size: 22px; letter-spacing: 0.07em;
+      color: var(--text); text-decoration: none;
+    }
+    .site-nav .logo span { color: var(--silver); }
+    .site-nav .links { display: flex; gap: 24px; align-items: center; }
+    .site-nav .links a {
+      font-weight: 600; font-size: 13px; letter-spacing: 0.09em; text-transform: uppercase;
+      color: var(--muted); transition: color 0.15s;
+    }
+    .site-nav .links a:hover { color: var(--text); }
+    .site-nav .links a.active { color: var(--emerald); }
+
+    /* Hero */
+    .hero {
+      max-width: 1100px; margin: 0 auto; padding: 80px 32px 64px;
+      background: linear-gradient(140deg, var(--bg) 0%, var(--surface) 100%);
+    }
+    .hero-tag {
+      font-family: 'DM Mono', monospace; font-size: 11px; color: var(--emerald);
+      letter-spacing: 0.16em; margin-bottom: 16px;
+    }
+    .hero h1 {
+      font-family: 'Bebas Neue'; font-size: 72px; letter-spacing: 0.04em;
+      line-height: 0.92; color: var(--text); margin-bottom: 6px;
+    }
+    .hero h1 .silver { color: var(--silver); }
+    .hero-sub {
+      font-size: 18px; color: var(--muted); max-width: 520px;
+      line-height: 1.6; margin: 20px 0 32px;
+    }
+    .hero-buttons { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn {
+      font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 14px;
+      letter-spacing: 0.1em; text-transform: uppercase; padding: 12px 28px;
+      border-radius: 4px; cursor: pointer; transition: all 0.15s; display: inline-block;
+    }
+    .btn-primary { background: var(--cobalt); color: #fff; border: none; }
+    .btn-primary:hover { background: #2563EB; }
+    .btn-outline-emerald { background: transparent; color: var(--emerald); border: 1.5px solid var(--emerald); }
+    .btn-outline-emerald:hover { background: rgba(52,211,153,0.08); }
+    .btn-outline-silver { background: transparent; color: var(--silver); border: 1.5px solid var(--border); }
+    .btn-outline-silver:hover { background: rgba(209,220,232,0.05); }
+
+    /* Sections */
+    .section {
+      max-width: 1100px; margin: 0 auto; padding: 64px 32px;
+    }
+    .section-label {
+      font-family: 'DM Mono', monospace; font-size: 9px; color: var(--muted);
+      letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 14px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+    .section h2 {
+      font-family: 'Bebas Neue'; font-size: 42px; letter-spacing: 0.05em;
+      color: var(--text); margin-bottom: 8px;
+    }
+    .section-desc {
+      font-size: 15px; color: var(--muted); line-height: 1.6; max-width: 600px; margin-bottom: 32px;
+    }
+
+    /* Pillar cards */
+    .pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    @media (max-width: 768px) { .pillars { grid-template-columns: 1fr; } }
+    .pillar-card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+      padding: 28px 24px; transition: border-color 0.2s;
+    }
+    .pillar-card:hover { border-color: var(--cobalt); }
+    .pillar-icon {
+      width: 44px; height: 44px; border-radius: 8px; background: rgba(59,130,246,0.12);
+      display: flex; align-items: center; justify-content: center; margin-bottom: 16px;
+      font-family: 'DM Mono', monospace; font-size: 18px; color: var(--cobalt);
+    }
+    .pillar-card h3 {
+      font-family: 'Bebas Neue'; font-size: 24px; letter-spacing: 0.05em;
+      color: var(--text); margin-bottom: 8px;
+    }
+    .pillar-card p { font-size: 14px; color: var(--muted); line-height: 1.6; }
+
+    /* Feature cards */
+    .features { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    @media (max-width: 768px) { .features { grid-template-columns: 1fr; } }
+    .feature-card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+      padding: 24px; display: flex; gap: 16px; align-items: flex-start;
+    }
+    .feature-dot {
+      width: 8px; height: 8px; border-radius: 50%; background: var(--emerald);
+      flex-shrink: 0; margin-top: 6px;
+    }
+    .feature-card h4 {
+      font-family: 'Bebas Neue'; font-size: 18px; letter-spacing: 0.04em;
+      color: var(--silver); margin-bottom: 4px;
+    }
+    .feature-card p { font-size: 13px; color: var(--muted); line-height: 1.5; }
+
+    /* CTA banner */
+    .cta-banner {
+      max-width: 1100px; margin: 0 auto; padding: 0 32px 64px;
+    }
+    .cta-inner {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+      padding: 48px 40px; text-align: center;
+    }
+    .cta-inner h2 {
+      font-family: 'Bebas Neue'; font-size: 36px; letter-spacing: 0.05em;
+      color: var(--text); margin-bottom: 8px;
+    }
+    .cta-inner p {
+      font-size: 15px; color: var(--muted); margin-bottom: 28px; line-height: 1.6;
+    }
+
+    /* Footer */
+    .site-footer {
+      max-width: 1100px; margin: 0 auto; padding: 24px 32px;
+      border-top: 1px solid var(--border);
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;
+    }
+    .site-footer .brand {
+      font-family: 'Bebas Neue'; font-size: 16px; letter-spacing: 0.06em; color: var(--border);
+    }
+    .site-footer .meta {
+      font-family: 'DM Mono', monospace; font-size: 9px; color: var(--border);
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 48px; }
+      .section h2 { font-size: 32px; }
+      .hero { padding: 48px 20px 40px; }
+      .section { padding: 40px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav class="site-nav">
+    <a href="index.html" class="logo">RHINO <span>AUTOMATOR</span></a>
+    <div class="links">
+      <a href="index.html" class="active">Home</a>
+      <a href="assessment/">Assessment</a>
+      <a href="brand.html">Brand</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-tag">// AUTOMATION · CONSULTING · PUBLIC SPEAKING</div>
+    <h1>MAKING AUTOMATION<br/><span class="silver">ACCESSIBLE.</span></h1>
+    <p class="hero-sub">Helping MSPs and IT teams build automation muscle — without needing a dedicated dev team. Practical frameworks, real workflows, and a methodology anyone can contribute to.</p>
+    <div class="hero-buttons">
+      <a href="assessment/" class="btn btn-primary">TAKE THE ASSESSMENT</a>
+      <a href="#speaking" class="btn btn-outline-emerald">SPEAKING TOPICS</a>
+      <a href="#about" class="btn btn-outline-silver">LEARN MORE</a>
+    </div>
+  </section>
+
+  <!-- Pillars -->
+  <section class="section">
+    <div class="section-label">01 — What I Do</div>
+    <h2>THREE PILLARS</h2>
+    <p class="section-desc">Not a dev shop. Not a vendor. A practitioner who builds automation and teaches others to participate — regardless of technical background.</p>
+
+    <div class="pillars">
+      <div class="pillar-card">
+        <div class="pillar-icon">⚡</div>
+        <h3>AUTOMATION</h3>
+        <p>Building real workflows that solve real problems. Rewst, Power Automate, and whatever gets the job done — focused on MSP and IT operations.</p>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-icon">🎯</div>
+        <h3>CONSULTING</h3>
+        <p>Helping teams identify what to automate, who should be involved, and how to build a practice that doesn't depend on a single developer.</p>
+      </div>
+      <div class="pillar-card" id="speaking">
+        <div class="pillar-icon">🎤</div>
+        <h3>PUBLIC SPEAKING</h3>
+        <p>Conference talks and workshops on building automation muscle, team capability mapping, and making non-technical people meaningful contributors.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Assessment teaser -->
+  <section class="section" id="about">
+    <div class="section-label">02 — The Framework</div>
+    <h2>ARCHETYPES OF AUTOMATION</h2>
+    <p class="section-desc">The biggest barrier to automation isn't technical skill — it's process thinking, team composition, and role awareness. The Archetypes framework maps 8 dimensions of automation capability so teams can find their gaps and fill them.</p>
+
+    <div class="features">
+      <div class="feature-card">
+        <div class="feature-dot"></div>
+        <div>
+          <h4>INDIVIDUAL SELF-ASSESSMENT</h4>
+          <p>Score yourself across 8 archetypes to understand where you contribute most — and where you have room to grow.</p>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-dot"></div>
+        <div>
+          <h4>TEAM RADAR CHARTS</h4>
+          <p>Overlay individual scores to visualize your team's coverage. Two 9s in Building and zero in Quality is a risk profile.</p>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-dot"></div>
+        <div>
+          <h4>GAP ANALYSIS</h4>
+          <p>The archetype with the lowest combined team score is your most urgent investment — in hiring, training, or partnerships.</p>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-dot"></div>
+        <div>
+          <h4>RESEARCH-BACKED</h4>
+          <p>Built on established frameworks: Theory of Constraints, Lean, Design Thinking, Kotter's Change Model, Team Topologies, and more.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-banner">
+    <div class="cta-inner">
+      <h2>READY TO FIND YOUR AUTOMATION STRENGTHS?</h2>
+      <p>Take the Archetypes of Automation self-assessment — it takes about 10 minutes and gives you a clear picture of where you and your team stand.</p>
+      <a href="assessment/" class="btn btn-primary">START THE ASSESSMENT</a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="brand">RHINO AUTOMATOR</div>
+    <div class="meta">rhinoautomator.com · Automation · Consulting · Public Speaking</div>
+  </footer>
+
+</body>
+</html>
