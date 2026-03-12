@@ -19,9 +19,9 @@
 
     /* ── Header ── */
     header {
-      background: linear-gradient(135deg, #0C1016 0%, #141B24 100%);
+      background: linear-gradient(135deg, var(--bg) 0%, var(--surface) 100%);
       color: #fff; padding: 20px 32px; display: flex; align-items: center; gap: 16px;
-      border-bottom: 1px solid #243044;
+      border-bottom: 1px solid var(--border);
       box-shadow: 0 2px 16px rgba(0,0,0,0.4);
     }
 header h1 { font-family: var(--ff-display); font-size: var(--fs-assess-h1); font-weight: 400; letter-spacing: 0.05em; }
@@ -186,7 +186,7 @@ header h1 { font-family: var(--ff-display); font-size: var(--fs-assess-h1); font
     /* ── Tab Dropdown ── */
     .tab-dropdown { position: relative; }
     .tab-dropdown .tab-btn { display: flex; align-items: center; gap: 6px; }
-    .tab-dropdown .tab-btn .dropdown-arrow { font-size: 0.6rem; transition: transform 0.2s; }
+    .tab-dropdown .tab-btn .dropdown-arrow { font-size: var(--fs-nav-arrow); transition: transform 0.2s; }
     .tab-dropdown.open .tab-btn .dropdown-arrow { transform: rotate(180deg); }
     .tab-dropdown-menu {
       display: none; position: absolute; top: 100%; left: 0; z-index: 100;
