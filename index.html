@@ -22,21 +22,7 @@
       --radius: 10px;
       --shadow: 0 2px 12px rgba(0,0,0,0.4);
     }
-    html[data-theme="light"] {
-      --bg: #f4f6fb;
-      --surface: #ffffff;
-      --surface-alt: #f0f2f9;
-      --border: #dde3ee;
-      --accent: #3B82F6;
-      --accent-light: rgba(59,130,246,0.08);
-      --accent2: #34D399;
-      --text: #1a1f36;
-      --muted: #6b7394;
-      --silver: #4a5568;
-      --score-0: #e9ecef;
-      --shadow: 0 2px 12px rgba(0,0,0,0.07);
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'Barlow Condensed', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
 
     /* ── Header ── */
@@ -46,16 +32,10 @@
       border-bottom: 1px solid #243044;
       box-shadow: 0 2px 16px rgba(0,0,0,0.4);
     }
-    html[data-theme="light"] header {
-      background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
-      border-bottom: none;
-      box-shadow: 0 2px 16px rgba(59,130,246,0.25);
-    }
-    header h1 { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; font-weight: 400; letter-spacing: 0.05em; }
+header h1 { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; font-weight: 400; letter-spacing: 0.05em; }
     header h1 .brand-silver { color: #D1DCE8; }
     header p { font-family: 'DM Mono', monospace; font-size: 0.72rem; color: #8B9EB8; margin-top: 2px; letter-spacing: 0.05em; }
-    html[data-theme="light"] header p { color: rgba(255,255,255,0.8); }
-    .header-logo { font-size: 2.2rem; }
+.header-logo { font-size: 2.2rem; }
 
     /* ── Tab Nav ── */
     .tabs { display: flex; background: var(--surface); border-bottom: 2px solid var(--border); padding: 0 32px; }
@@ -200,22 +180,8 @@
     }
     .toast.show { transform: translateX(-50%) translateY(0); }
 
-    /* ── Theme Toggle ── */
-    .theme-toggle {
-      margin-left: auto; display: flex; align-items: center; gap: 8px;
-      background: none; border: none; cursor: pointer; color: rgba(255,255,255,0.9); flex-shrink: 0; padding: 4px 0;
-    }
-    .theme-toggle:hover { color: #fff; }
-    .theme-icon { flex-shrink: 0; }
-    .icon-sun  { display: none; }
-    .icon-moon { display: block; }
-    html[data-theme="light"] .icon-sun  { display: block; }
-    html[data-theme="light"] .icon-moon { display: none; }
-    .toggle-track { width: 42px; height: 24px; border-radius: 12px; background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.35); position: relative; flex-shrink: 0; }
-    .toggle-thumb { width: 18px; height: 18px; border-radius: 50%; background: #fff; position: absolute; top: 2px; right: 2px; transition: right 0.2s; }
-    html[data-theme="light"] .toggle-thumb { right: calc(100% - 20px); }
 
-    /* ── About ── */
+/* ── About ── */
     .about-content { max-width: 760px; margin: 32px auto; padding: 0 32px; }
     .about-content h2 { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; font-weight: 400; margin: 24px 0 10px; letter-spacing: 0.05em; }
     .about-content h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.15rem; font-weight: 400; margin: 18px 0 8px; color: var(--text); letter-spacing: 0.04em; }
@@ -275,18 +241,6 @@
     <h1>ARCHETYPES OF AUTOMATION <span class="brand-silver">&#8212; TEAM CAPABILITY ASSESSMENT</span></h1>
     <p>// 8 Dimensions of Automation Readiness &middot; A framework by Brian Simpson &middot; rhinoautomator.com</p>
   </div>
-  <button class="theme-toggle" id="theme-btn" onclick="toggleTheme()" aria-label="Toggle light/dark mode">
-    <svg class="theme-icon icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-      <circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/>
-      <line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/>
-      <line x1="4.93" y1="4.93" x2="7.05" y2="7.05"/><line x1="16.95" y1="16.95" x2="19.07" y2="19.07"/>
-      <line x1="4.93" y1="19.07" x2="7.05" y2="16.95"/><line x1="16.95" y1="7.05" x2="19.07" y2="4.93"/>
-    </svg>
-    <svg class="theme-icon icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-    </svg>
-    <span class="toggle-track"><span class="toggle-thumb"></span></span>
-  </button>
 </header>
 
 <nav class="tabs">
@@ -707,10 +661,9 @@ function drawRadar(canvasId, datasets) {
   var canvas = document.getElementById(canvasId);
   if (!canvas) return;
 
-  var isLight = document.documentElement.getAttribute("data-theme") === "light";
-  var TEXT  = isLight ? "#1a1f36" : "#F0F6FF";
-  var MUTED = isLight ? "#6b7394" : "#8B9EB8";
-  var GRID  = isLight ? "rgba(0,0,0,0.15)" : "rgba(36,48,68,0.8)";
+  var TEXT  = "#F0F6FF";
+  var MUTED = "#8B9EB8";
+  var GRID  = "rgba(36,48,68,0.8)";
 
   var dpr  = window.devicePixelRatio || 1;
   var wrap = canvas.parentElement;
@@ -1121,19 +1074,6 @@ function pickFile(callback) {
   input.click();
 }
 
-function toggleTheme() {
-  var isLight = document.documentElement.getAttribute("data-theme") === "light";
-  if (isLight) {
-    document.documentElement.removeAttribute("data-theme");
-    localStorage.setItem("theme", "dark");
-  } else {
-    document.documentElement.setAttribute("data-theme", "light");
-    localStorage.setItem("theme", "light");
-  }
-  buildIndividualChart();
-  buildTeamChart();
-}
-
 function switchTab(name) {
   var tabs    = document.querySelectorAll(".tab-content");
   var buttons = document.querySelectorAll(".tab-btn");
@@ -1514,12 +1454,6 @@ function buildReportHtml(includeIndiv, depth) {
 
 // ── INIT ──────────────────────────────────────────────────────────────────────
 function _initApp() {
-  // Theme — wrapped in try/catch in case storage is blocked (e.g. VS Code preview, strict CSP)
-  try {
-    var savedTheme = localStorage.getItem("theme");
-    if (savedTheme === "light") document.documentElement.setAttribute("data-theme", "light");
-  } catch(e) {}
-
   // Build UI — script is at end of body, DOM is fully parsed
   try { buildArchetypesList(); } catch(e) {
     var c = document.getElementById("archetypes-list");
