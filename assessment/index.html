@@ -32,20 +32,20 @@
       padding: 14px 32px; display: flex; align-items: center; justify-content: space-between;
     }
     .site-nav .logo {
-      font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 0.07em;
+      font-family: 'Bebas Neue', sans-serif; font-size: 26px; letter-spacing: 0.07em;
       color: var(--text); text-decoration: none;
     }
     .site-nav .logo span { color: var(--silver); }
     .site-nav .links { display: flex; gap: 24px; align-items: center; }
     .site-nav .links a {
-      font-weight: 600; font-size: 13px; letter-spacing: 0.09em; text-transform: uppercase;
+      font-weight: 600; font-size: 15px; letter-spacing: 0.09em; text-transform: uppercase;
       color: var(--muted); transition: color 0.15s;
     }
     .site-nav .links a:hover { color: var(--text); }
     .site-nav .links a.active { color: #34D399; }
     .nav-dropdown { position: relative; }
     .nav-dropdown > a { display: flex; align-items: center; gap: 4px; }
-    .nav-dropdown > a .dd-arrow { font-size: 0.5rem; transition: transform 0.2s; }
+    .nav-dropdown > a .dd-arrow { font-size: 0.6rem; transition: transform 0.2s; }
     .nav-dropdown.open > a .dd-arrow { transform: rotate(180deg); }
     .nav-dropdown-menu {
       display: none; position: absolute; top: calc(100% + 8px); left: 0; z-index: 200;
@@ -54,7 +54,7 @@
     }
     .nav-dropdown.open .nav-dropdown-menu { display: block; }
     .nav-dropdown-menu a {
-      display: block; padding: 10px 18px; font-weight: 600; font-size: 13px;
+      display: block; padding: 10px 18px; font-weight: 600; font-size: 15px;
       letter-spacing: 0.06em; color: var(--muted); transition: all 0.12s; text-transform: uppercase;
     }
     .nav-dropdown-menu a:hover { background: rgba(59,130,246,0.08); color: #34D399; }
@@ -66,15 +66,15 @@
       border-bottom: 1px solid #243044;
       box-shadow: 0 2px 16px rgba(0,0,0,0.4);
     }
-header h1 { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; font-weight: 400; letter-spacing: 0.05em; }
+header h1 { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; font-weight: 400; letter-spacing: 0.05em; }
     header h1 .brand-silver { color: #D1DCE8; }
-    header p { font-family: 'DM Mono', monospace; font-size: 0.72rem; color: #8B9EB8; margin-top: 2px; letter-spacing: 0.05em; }
-.header-logo { font-size: 2.2rem; }
+    header p { font-family: 'DM Mono', monospace; font-size: 0.82rem; color: #8B9EB8; margin-top: 2px; letter-spacing: 0.05em; }
+.header-logo { font-size: 2.4rem; }
 
     /* ── Tab Nav ── */
     .tabs { display: flex; background: var(--surface); border-bottom: 2px solid var(--border); padding: 0 32px; }
     .tab-btn {
-      padding: 14px 24px; font-family: 'Barlow Condensed', sans-serif; font-size: 0.92rem; font-weight: 700; cursor: pointer;
+      padding: 14px 24px; font-family: 'Barlow Condensed', sans-serif; font-size: 1rem; font-weight: 700; cursor: pointer;
       border: none; background: none; color: var(--muted); border-bottom: 3px solid transparent;
       margin-bottom: -2px; transition: all 0.15s; letter-spacing: 0.05em; text-transform: uppercase;
     }
@@ -90,15 +90,15 @@ header h1 { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; font-weigh
     /* ── Card ── */
     .card { background: var(--surface); border-radius: var(--radius); box-shadow: var(--shadow); border: 1px solid var(--border); }
     .card-header { padding: 18px 20px 14px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
-    .card-header h2 { font-family: 'Bebas Neue', sans-serif; font-size: 1.15rem; font-weight: 400; letter-spacing: 0.06em; }
+    .card-header h2 { font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; font-weight: 400; letter-spacing: 0.06em; }
     .card-body { padding: 20px; }
 
     /* ── Name Input ── */
     .name-row { display: flex; gap: 12px; align-items: center; margin-bottom: 20px; flex-wrap: wrap; }
-    .name-row label { font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 0.9rem; white-space: nowrap; }
+    .name-row label { font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 1rem; white-space: nowrap; }
     .name-row input {
       flex: 1; min-width: 200px; padding: 8px 12px; border: 1px solid var(--border); border-radius: 6px;
-      font-size: 0.95rem; font-family: inherit; background: var(--surface); color: var(--text); transition: border 0.15s;
+      font-size: 1rem; font-family: inherit; background: var(--surface); color: var(--text); transition: border 0.15s;
     }
     .name-row input:focus { outline: none; border-color: #3B82F6; box-shadow: 0 0 0 3px rgba(59,130,246,0.15); }
 
@@ -111,13 +111,13 @@ header h1 { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; font-weigh
     .archetype-header:hover { background: var(--accent-light); }
     .archetype-num {
       width: 28px; height: 28px; border-radius: 50%; background: var(--accent); color: #fff;
-      display: flex; align-items: center; justify-content: center; font-family: 'DM Mono', monospace; font-size: 0.75rem; font-weight: 500; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center; font-family: 'DM Mono', monospace; font-size: 0.85rem; font-weight: 500; flex-shrink: 0;
     }
-    .archetype-name { font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 1.05rem; flex: 1; letter-spacing: 0.04em; }
-    .archetype-desc { font-family: 'Barlow Condensed', sans-serif; font-size: 0.78rem; color: var(--muted); margin-top: 2px; }
+    .archetype-name { font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 1.2rem; flex: 1; letter-spacing: 0.04em; }
+    .archetype-desc { font-family: 'Barlow Condensed', sans-serif; font-size: 0.9rem; color: var(--muted); margin-top: 2px; }
     .archetype-score-badge {
       min-width: 36px; height: 36px; border-radius: 8px; background: var(--accent); color: #fff;
-      display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1rem; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.1rem; flex-shrink: 0;
     }
     .expand-icon { font-size: 0.8rem; color: var(--muted); flex-shrink: 0; transition: transform 0.2s; }
     .archetype-section.open .expand-icon { transform: rotate(180deg); }
@@ -134,17 +134,17 @@ header h1 { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; font-weigh
       -webkit-appearance: none; width: 20px; height: 20px; border-radius: 50%;
       background: var(--accent); border: 2px solid var(--surface); cursor: pointer;
     }
-    .slider-labels { display: flex; justify-content: space-between; font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--muted); margin-bottom: 10px; letter-spacing: 0.04em; }
-    .band-hint { font-family: 'DM Mono', monospace; font-size: 0.72rem; color: var(--muted); margin-top: 4px; font-style: normal; letter-spacing: 0.02em; }
+    .slider-labels { display: flex; justify-content: space-between; font-family: 'DM Mono', monospace; font-size: 0.78rem; color: var(--muted); margin-bottom: 10px; letter-spacing: 0.04em; }
+    .band-hint { font-family: 'DM Mono', monospace; font-size: 0.82rem; color: var(--muted); margin-top: 4px; font-style: normal; letter-spacing: 0.02em; }
 
     /* ── Sub-archetypes ── */
     .sub-list { margin-top: 12px; border-top: 1px solid var(--border); padding-top: 12px; }
-    .sub-list-title { font-family: 'DM Mono', monospace; font-size: 0.68rem; font-weight: 500; color: #34D399; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 8px; }
+    .sub-list-title { font-family: 'DM Mono', monospace; font-size: 0.8rem; font-weight: 500; color: #34D399; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 8px; }
     .sub-item { margin-bottom: 7px; padding: 8px 10px; background: var(--surface-alt); border-radius: 6px; border-left: 3px solid var(--accent); }
     .sub-item { border-left-color: #3B82F6; }
-    .sub-item-name { font-family: 'Barlow Condensed', sans-serif; font-size: 0.84rem; font-weight: 700; }
-    .sub-item-desc { font-family: 'Barlow Condensed', sans-serif; font-size: 0.77rem; color: var(--muted); margin-top: 1px; }
-    .sub-item-ref { font-family: 'DM Mono', monospace; font-size: 0.68rem; color: #8B9EB8; margin-top: 2px; font-style: normal; letter-spacing: 0.02em; }
+    .sub-item-name { font-family: 'Barlow Condensed', sans-serif; font-size: 1rem; font-weight: 700; }
+    .sub-item-desc { font-family: 'Barlow Condensed', sans-serif; font-size: 0.9rem; color: var(--muted); margin-top: 1px; }
+    .sub-item-ref { font-family: 'DM Mono', monospace; font-size: 0.8rem; color: #8B9EB8; margin-top: 2px; font-style: normal; letter-spacing: 0.02em; }
 
     /* ── Chart ── */
     .chart-card { position: sticky; top: 24px; }
@@ -154,14 +154,14 @@ header h1 { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; font-weigh
 
     /* ── Score Summary ── */
     .score-summary { margin-top: 16px; }
-    .score-total { font-family: 'Bebas Neue', sans-serif; font-size: 2.4rem; font-weight: 400; color: var(--accent); text-align: center; letter-spacing: 0.04em; }
-    .score-label { font-family: 'DM Mono', monospace; font-size: 0.72rem; color: var(--muted); text-align: center; margin-bottom: 8px; letter-spacing: 0.08em; }
+    .score-total { font-family: 'Bebas Neue', sans-serif; font-size: 2.6rem; font-weight: 400; color: var(--accent); text-align: center; letter-spacing: 0.04em; }
+    .score-label { font-family: 'DM Mono', monospace; font-size: 0.82rem; color: var(--muted); text-align: center; margin-bottom: 8px; letter-spacing: 0.08em; }
     .profile-badge {
-      background: var(--accent-light); color: #34D399; font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 1rem;
+      background: var(--accent-light); color: #34D399; font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 1.1rem;
       text-align: center; padding: 8px 12px; border-radius: 8px; border: 1px solid rgba(52,211,153,0.2); letter-spacing: 0.05em;
     }
     .score-breakdown { margin-top: 14px; display: grid; gap: 5px; }
-    .breakdown-row { display: flex; align-items: center; gap: 8px; font-size: 0.8rem; }
+    .breakdown-row { display: flex; align-items: center; gap: 8px; font-size: 0.92rem; }
     .breakdown-row .b-name { flex: 1; color: var(--muted); }
     .breakdown-bar-wrap { width: 80px; height: 6px; background: var(--score-0); border-radius: 3px; overflow: hidden; }
     .breakdown-bar { height: 100%; border-radius: 3px; transition: width 0.3s; }
@@ -169,7 +169,7 @@ header h1 { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; font-weigh
 
     /* ── Buttons ── */
     .action-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 16px; }
-    .btn { padding: 9px 18px; border-radius: 5px; font-family: 'Barlow Condensed', sans-serif; font-size: 0.85rem; font-weight: 700; cursor: pointer; border: none; transition: all 0.15s; letter-spacing: 0.06em; text-transform: uppercase; }
+    .btn { padding: 9px 18px; border-radius: 5px; font-family: 'Barlow Condensed', sans-serif; font-size: 1rem; font-weight: 700; cursor: pointer; border: none; transition: all 0.15s; letter-spacing: 0.06em; text-transform: uppercase; }
     .btn-primary { background: var(--accent); color: #fff; }
     .btn-primary:hover { background: #2563EB; }
     .btn-secondary { background: transparent; color: var(--silver, #D1DCE8); border: 1.5px solid var(--border); }
@@ -184,24 +184,24 @@ header h1 { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; font-weigh
     @media (max-width: 960px) { .team-layout { grid-template-columns: 1fr; } }
     .member-card { border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; background: var(--surface); margin-bottom: 12px; }
     .member-card-header { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
-    .member-name-display { font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 1.05rem; letter-spacing: 0.04em; }
-    .member-total { font-family: 'DM Mono', monospace; font-size: 0.78rem; color: var(--muted); letter-spacing: 0.04em; }
+    .member-name-display { font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 1.2rem; letter-spacing: 0.04em; }
+    .member-total { font-family: 'DM Mono', monospace; font-size: 0.9rem; color: var(--muted); letter-spacing: 0.04em; }
     .member-scores { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 12px; margin-top: 10px; }
-    .score-chip { display: flex; align-items: center; gap: 8px; padding: 4px 0; font-size: 0.78rem; }
+    .score-chip { display: flex; align-items: center; gap: 8px; padding: 4px 0; font-size: 0.9rem; }
     .score-chip-label { color: var(--muted); flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .score-chip-bar { width: 48px; height: 5px; background: var(--score-0); border-radius: 3px; overflow: hidden; flex-shrink: 0; }
     .score-chip-bar-fill { height: 100%; border-radius: 3px; background: var(--accent); }
-    .score-chip-val { min-width: 18px; text-align: right; font-family: 'DM Mono', monospace; font-weight: 500; color: var(--accent); font-size: 0.75rem; }
+    .score-chip-val { min-width: 18px; text-align: right; font-family: 'DM Mono', monospace; font-weight: 500; color: var(--accent); font-size: 0.85rem; }
     .empty-state { text-align: center; padding: 40px 20px; color: var(--muted); }
     .empty-state .empty-icon { font-size: 2.5rem; margin-bottom: 10px; }
 
     /* ── Gap Analysis ── */
     .gap-item { display: flex; align-items: center; gap: 10px; padding: 8px 0; border-bottom: 1px solid var(--border); }
     .gap-item:last-child { border-bottom: none; }
-    .gap-rank { width: 24px; height: 24px; border-radius: 50%; background: var(--accent); color: #fff; font-family: 'DM Mono', monospace; font-size: 0.72rem; font-weight: 500; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .gap-rank { width: 24px; height: 24px; border-radius: 50%; background: var(--accent); color: #fff; font-family: 'DM Mono', monospace; font-size: 0.82rem; font-weight: 500; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
     .gap-rank.low { background: #ef4444; }
-    .gap-name { flex: 1; font-size: 0.84rem; font-weight: 600; }
-    .gap-avg { font-size: 0.82rem; color: var(--muted); }
+    .gap-name { flex: 1; font-size: 1rem; font-weight: 600; }
+    .gap-avg { font-size: 0.94rem; color: var(--muted); }
     .gap-bar-wrap { width: 80px; height: 6px; background: var(--score-0); border-radius: 3px; overflow: hidden; }
     .gap-bar { height: 100%; border-radius: 3px; transition: width 0.3s; }
 
@@ -209,7 +209,7 @@ header h1 { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; font-weigh
     .toast {
       position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(60px);
       background: #141B24; color: #34D399; padding: 12px 22px; border-radius: 8px; border: 1px solid #243044;
-      font-family: 'DM Mono', monospace; font-size: 0.82rem; font-weight: 400; box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+      font-family: 'DM Mono', monospace; font-size: 0.94rem; font-weight: 400; box-shadow: 0 4px 20px rgba(0,0,0,0.4);
       transition: transform 0.25s ease; z-index: 1000; pointer-events: none; letter-spacing: 0.04em;
     }
     .toast.show { transform: translateX(-50%) translateY(0); }
@@ -217,13 +217,13 @@ header h1 { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; font-weigh
 
 /* ── About ── */
     .about-content { max-width: 760px; margin: 32px auto; padding: 0 32px; }
-    .about-content h2 { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; font-weight: 400; margin: 24px 0 10px; letter-spacing: 0.05em; }
-    .about-content h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.15rem; font-weight: 400; margin: 18px 0 8px; color: var(--text); letter-spacing: 0.04em; }
-    .about-content p { font-size: 0.92rem; color: var(--muted); line-height: 1.65; margin-bottom: 12px; }
-    .about-content ul, .about-content ol { font-size: 0.92rem; color: var(--muted); line-height: 1.65; margin: 0 0 12px 20px; }
+    .about-content h2 { font-family: 'Bebas Neue', sans-serif; font-size: 1.7rem; font-weight: 400; margin: 24px 0 10px; letter-spacing: 0.05em; }
+    .about-content h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; font-weight: 400; margin: 18px 0 8px; color: var(--text); letter-spacing: 0.04em; }
+    .about-content p { font-size: 1rem; color: var(--muted); line-height: 1.65; margin-bottom: 12px; }
+    .about-content ul, .about-content ol { font-size: 1rem; color: var(--muted); line-height: 1.65; margin: 0 0 12px 20px; }
     .about-content li { margin-bottom: 6px; }
-    .about-content table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 12px 0 20px; }
-    .about-content th { background: var(--accent-light); color: var(--accent); padding: 8px 12px; text-align: left; font-family: 'DM Mono', monospace; font-weight: 500; font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; }
+    .about-content table { width: 100%; border-collapse: collapse; font-size: 1rem; margin: 12px 0 20px; }
+    .about-content th { background: var(--accent-light); color: var(--accent); padding: 8px 12px; text-align: left; font-family: 'DM Mono', monospace; font-weight: 500; font-size: 0.85rem; letter-spacing: 0.06em; text-transform: uppercase; }
     .about-content td { padding: 8px 12px; border-bottom: 1px solid var(--border); }
     .about-content tr:last-child td { border-bottom: none; }
     .about-content strong { color: var(--text); }
@@ -240,7 +240,7 @@ header h1 { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; font-weigh
     }
     .tab-dropdown.open .tab-dropdown-menu { display: block; }
     .tab-dropdown-item {
-      display: block; width: 100%; padding: 12px 20px; font-size: 0.88rem; font-weight: 600;
+      display: block; width: 100%; padding: 12px 20px; font-size: 1rem; font-weight: 600;
       cursor: pointer; border: none; background: none; color: var(--muted); text-align: left;
       font-family: 'Barlow Condensed', sans-serif; transition: all 0.12s; letter-spacing: 0.04em;
     }
@@ -252,19 +252,19 @@ header h1 { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; font-weigh
     .modal-overlay.open { display: flex; }
     .modal { background: var(--surface); border-radius: 12px; border: 1px solid var(--border); box-shadow: 0 8px 40px rgba(0,0,0,0.5); width: 500px; max-width: 95vw; }
     .modal-header { padding: 18px 22px 14px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
-    .modal-header h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.15rem; font-weight: 400; letter-spacing: 0.05em; }
+    .modal-header h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; font-weight: 400; letter-spacing: 0.05em; }
     .modal-close { background: none; border: none; font-size: 1.4rem; cursor: pointer; color: var(--muted); line-height: 1; padding: 0 4px; }
     .modal-close:hover { color: var(--text); }
     .modal-body { padding: 20px 22px; }
     .modal-footer { padding: 14px 22px 18px; border-top: 1px solid var(--border); display: flex; justify-content: flex-end; gap: 10px; }
     .opt-group { margin-bottom: 18px; }
     .opt-group:last-child { margin-bottom: 0; }
-    .opt-group-label { font-family: 'DM Mono', monospace; font-weight: 500; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); margin-bottom: 10px; }
+    .opt-group-label { font-family: 'DM Mono', monospace; font-weight: 500; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); margin-bottom: 10px; }
     .opt-row { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; }
     .opt-row:last-child { margin-bottom: 0; }
     .opt-row input { margin-top: 3px; flex-shrink: 0; accent-color: var(--accent); cursor: pointer; }
-    .opt-label-text strong { display: block; font-size: 0.88rem; color: var(--text); cursor: pointer; }
-    .opt-label-text span { font-size: 0.8rem; color: var(--muted); line-height: 1.45; }
+    .opt-label-text strong { display: block; font-size: 1rem; color: var(--text); cursor: pointer; }
+    .opt-label-text span { font-size: 0.92rem; color: var(--muted); line-height: 1.45; }
   </style>
 </head>
 <body>

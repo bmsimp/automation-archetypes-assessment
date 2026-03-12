@@ -65,6 +65,104 @@
   }
 })();
 
+// Intrapage navigation — auto-generated from h2[id] elements
+// Usage: Add <div id="page-nav"></div> anywhere on the page.
+// The script scans for all h2 elements with an id attribute and builds a sticky
+// right-side table of contents. Active state updates on scroll.
+(function () {
+  var container = document.getElementById('page-nav');
+  if (!container) return;
+
+  // Inject page-nav styles once
+  var style = document.createElement('style');
+  style.textContent =
+    '.page-nav-wrapper { display: flex; gap: 32px; }' +
+    '.page-nav-wrapper > :first-child { flex: 1; min-width: 0; }' +
+    '.page-nav { position: sticky; top: 24px; width: 180px; flex-shrink: 0; max-height: calc(100vh - 48px); overflow-y: auto; }' +
+    '.page-nav ul { list-style: none; margin: 0; padding: 0; border-left: 1px solid #243044; }' +
+    '.page-nav li { margin: 0; }' +
+    '.page-nav a { display: block; padding: 6px 14px; font-family: "Barlow Condensed", sans-serif; font-size: 14px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #8B9EB8; text-decoration: none; border-left: 2px solid transparent; margin-left: -1px; transition: all 0.15s; line-height: 1.4; }' +
+    '.page-nav a:hover { color: #F0F6FF; }' +
+    '.page-nav a.active { color: #34D399; border-left-color: #34D399; }' +
+    '@media (max-width: 960px) { .page-nav { display: none; } .page-nav-wrapper { display: block; } }';
+  document.head.appendChild(style);
+
+  function build() {
+    // Collect h1[id], h2[id], h3[id] elements and any element with data-nav-label
+    var hTags = document.querySelectorAll('h1[id], h2[id], h3[id]');
+    var labeled = document.querySelectorAll('[data-nav-label]');
+    // Merge into a single ordered list by document position
+    var all = [];
+    for (var a = 0; a < hTags.length; a++) {
+      var tag = hTags[a].tagName;
+      all.push({ el: hTags[a], label: hTags[a].textContent, id: hTags[a].id, indent: tag === 'H3' });
+    }
+    for (var b = 0; b < labeled.length; b++) {
+      var el = labeled[b];
+      all.push({ el: el, label: el.getAttribute('data-nav-label'), id: el.id, indent: el.hasAttribute('data-nav-indent') });
+    }
+    all.sort(function (x, y) {
+      var pos = x.el.compareDocumentPosition(y.el);
+      return pos & Node.DOCUMENT_POSITION_FOLLOWING ? -1 : 1;
+    });
+    var headings = all;
+    if (!headings.length) return;
+
+    var nav = document.createElement('nav');
+    nav.className = 'page-nav';
+    nav.setAttribute('aria-label', 'Page sections');
+    var ul = document.createElement('ul');
+
+    for (var i = 0; i < headings.length; i++) {
+      var h = headings[i];
+      var li = document.createElement('li');
+      var a = document.createElement('a');
+      a.href = '#' + h.id;
+      a.textContent = h.label;
+      a.setAttribute('data-target', h.id);
+      if (h.indent) a.style.paddingLeft = '24px';
+      if (h.indent) a.style.fontSize = '13px';
+      li.appendChild(a);
+      ul.appendChild(li);
+    }
+    nav.appendChild(ul);
+    container.appendChild(nav);
+
+    // Scroll-spy: highlight the link whose section is currently in view
+    var links = nav.querySelectorAll('a');
+    var ticking = false;
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () {
+        var current = '';
+        for (var j = 0; j < headings.length; j++) {
+          if (headings[j].el.getBoundingClientRect().top <= 120) {
+            current = headings[j].id;
+          }
+        }
+        for (var k = 0; k < links.length; k++) {
+          if (links[k].getAttribute('data-target') === current) {
+            links[k].classList.add('active');
+          } else {
+            links[k].classList.remove('active');
+          }
+        }
+        ticking = false;
+      });
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+
+  // Build after a short delay so other components (nav/footer injection) finish first
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function () { setTimeout(build, 50); });
+  } else {
+    setTimeout(build, 50);
+  }
+})();
+
 // Nav dropdown toggle — global so the onclick in nav.html can call it
 function toggleNavDropdown(e) {
   e.preventDefault();

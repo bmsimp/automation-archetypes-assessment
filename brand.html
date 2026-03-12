@@ -10,30 +10,30 @@
   body { font-family: 'Barlow Condensed', sans-serif; background: #0C1016; color: #F0F6FF; }
   .swatch { cursor: pointer; transition: transform 0.12s; }
   .swatch:hover { transform: scale(1.02); }
-  .toast { position:fixed;bottom:20px;right:20px;padding:8px 16px;border-radius:6px;font-family:'DM Mono',monospace;font-size:12px;z-index:999;pointer-events:none;opacity:0;transition:opacity 0.2s; }
+  .toast { position:fixed;bottom:20px;right:20px;padding:8px 16px;border-radius:6px;font-family:'DM Mono',monospace;font-size:16px;z-index:999;pointer-events:none;opacity:0;transition:opacity 0.2s; }
   .toast.show { opacity:1; }
-  .section-label { font-family:'DM Mono',monospace;font-size:9px;color:#8B9EB8;letter-spacing:0.18em;text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:10px; }
+  .section-label { font-family:'DM Mono',monospace;font-size:16px;color:#8B9EB8;letter-spacing:0.18em;text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:10px; }
   .section-label::after { content:'';flex:1;height:1px;background:#243044; }
-  h2 { font-family:'Bebas Neue';font-size:28px;letter-spacing:0.06em;color:#F0F6FF;margin-bottom:6px; }
+  h2 { font-family:'Bebas Neue';font-size:32px;letter-spacing:0.06em;color:#F0F6FF;margin-bottom:6px; }
 
   /* Nav */
   .site-nav {
     background: #0C1016; border-bottom: 1px solid #243044;
     padding: 14px 24px; display: flex; align-items: center; justify-content: space-between;
-    max-width: 1000px; margin: 0 auto;
+    max-width: 1200px; margin: 0 auto;
   }
-  .site-nav .logo { font-family: 'Bebas Neue'; font-size: 20px; letter-spacing: 0.07em; color: #F0F6FF; text-decoration: none; }
+  .site-nav .logo { font-family: 'Bebas Neue'; font-size: 26px; letter-spacing: 0.07em; color: #F0F6FF; text-decoration: none; }
   .site-nav .logo span { color: #D1DCE8; }
   .site-nav .links { display: flex; gap: 20px; }
   .site-nav .links a {
-    font-weight: 600; font-size: 12px; letter-spacing: 0.09em; text-transform: uppercase;
+    font-weight: 600; font-size: 15px; letter-spacing: 0.09em; text-transform: uppercase;
     color: #8B9EB8; text-decoration: none; transition: color 0.15s;
   }
   .site-nav .links a:hover { color: #F0F6FF; }
   .site-nav .links a.active { color: #34D399; }
   .nav-dropdown { position: relative; }
   .nav-dropdown > a { display: flex; align-items: center; gap: 4px; }
-  .nav-dropdown > a .dd-arrow { font-size: 0.5rem; transition: transform 0.2s; }
+  .nav-dropdown > a .dd-arrow { font-size: 0.6rem; transition: transform 0.2s; }
   .nav-dropdown.open > a .dd-arrow { transform: rotate(180deg); }
   .nav-dropdown-menu {
     display: none; position: absolute; top: calc(100% + 8px); left: 0; z-index: 200;
@@ -42,7 +42,7 @@
   }
   .nav-dropdown.open .nav-dropdown-menu { display: block; }
   .nav-dropdown-menu a {
-    display: block; padding: 10px 18px; font-weight: 600; font-size: 12px;
+    display: block; padding: 10px 18px; font-weight: 600; font-size: 15px;
     letter-spacing: 0.06em; color: #8B9EB8; transition: all 0.12s; text-transform: uppercase;
   }
   .nav-dropdown-menu a:hover { background: rgba(59,130,246,0.08); color: #34D399; }
@@ -51,21 +51,23 @@
 <body>
 
 <!-- Nav (loaded from _includes/) -->
-<div style="max-width:1000px;margin:0 auto;">
+<div style="max-width:1200px;margin:0 auto;">
   <div id="site-nav" data-base="." data-active="brand"></div>
 </div>
 
-<div style="max-width:1000px;margin:0 auto;padding:32px 24px;">
+<div style="max-width:1200px;margin:0 auto;padding:32px 24px;">
+<div class="page-nav-wrapper">
+<div>
 
   <!-- Header -->
   <div style="border-bottom:1px solid #243044;padding-bottom:24px;margin-bottom:36px;display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:12px">
     <div>
-      <div style="font-family:'DM Mono',monospace;font-size:10px;color:#34D399;letter-spacing:0.2em;margin-bottom:8px">BRAND GUIDELINES · V1.0</div>
+      <div style="font-family:'DM Mono',monospace;font-size:16px;color:#34D399;letter-spacing:0.2em;margin-bottom:8px">BRAND GUIDELINES · V1.0</div>
       <div style="font-family:'Bebas Neue';font-size:52px;letter-spacing:0.05em;line-height:0.9;color:#F0F6FF">RHINO<br/><span style="color:#D1DCE8">AUTOMATOR</span></div>
     </div>
     <div style="text-align:right">
-      <div style="font-family:'DM Mono',monospace;font-size:10px;color:#8B9EB8;margin-bottom:4px">rhinoautomator.com</div>
-      <div style="font-family:'DM Mono',monospace;font-size:10px;color:#8B9EB8">Automation Enthusiast · Community Engagement & Education</div>
+      <div style="font-family:'DM Mono',monospace;font-size:16px;color:#8B9EB8;margin-bottom:4px">rhinoautomator.com</div>
+      <div style="font-family:'DM Mono',monospace;font-size:16px;color:#8B9EB8">Automation Enthusiast · Community Engagement & Education</div>
     </div>
   </div>
 
@@ -73,45 +75,45 @@
   <!-- COLORS -->
   <div style="margin-bottom:48px">
     <div class="section-label">01 — Color System</div>
-    <h2>COLOR PALETTE</h2>
-    <p style="font-size:14px;color:#8B9EB8;line-height:1.6;max-width:600px;margin-bottom:28px">Three-color system. Cobalt is the primary brand anchor — used for structural elements, nav, and brand presence. Silver references the rhino directly and carries headings and accent moments. Emerald provides contrast and energy for CTAs, interactive elements, and highlights.</p>
+    <h2 id="colors">COLOR PALETTE</h2>
+    <p style="font-size:16px;color:#8B9EB8;line-height:1.6;max-width:600px;margin-bottom:28px">Three-color system. Cobalt is the primary brand anchor — used for structural elements, nav, and brand presence. Silver references the rhino directly and carries headings and accent moments. Emerald provides contrast and energy for CTAs, interactive elements, and highlights.</p>
 
     <!-- Primary row -->
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:12px">
 
       <div class="swatch" onclick="copyHex('#3B82F6')" style="background:#141B24;border:1px solid #243044;border-radius:10px;overflow:hidden">
         <div style="height:100px;background:#3B82F6;display:flex;align-items:flex-end;padding:10px">
-          <span style="font-family:'DM Mono',monospace;font-size:8px;background:rgba(0,0,0,0.4);color:#fff;padding:2px 6px;border-radius:2px;letter-spacing:0.08em">PRIMARY</span>
+          <span style="font-family:'DM Mono',monospace;font-size:16px;background:rgba(0,0,0,0.4);color:#fff;padding:2px 6px;border-radius:2px;letter-spacing:0.08em">PRIMARY</span>
         </div>
         <div style="padding:14px 16px">
           <div style="font-family:'Bebas Neue';font-size:18px;letter-spacing:0.06em;color:#F0F6FF;margin-bottom:2px">Cobalt</div>
-          <div style="font-family:'DM Mono',monospace;font-size:12px;color:#3B82F6;margin-bottom:6px">#3B82F6</div>
-          <div style="font-family:'DM Mono',monospace;font-size:10px;color:#8B9EB8;margin-bottom:2px">RGB 59 · 130 · 246</div>
-          <div style="font-size:12px;color:#8B9EB8;margin-top:8px;line-height:1.5">Nav, backgrounds, structural brand elements, primary buttons</div>
+          <div style="font-family:'DM Mono',monospace;font-size:16px;color:#3B82F6;margin-bottom:6px">#3B82F6</div>
+          <div style="font-family:'DM Mono',monospace;font-size:16px;color:#8B9EB8;margin-bottom:2px">RGB 59 · 130 · 246</div>
+          <div style="font-size:16px;color:#8B9EB8;margin-top:8px;line-height:1.5">Nav, backgrounds, structural brand elements, primary buttons</div>
         </div>
       </div>
 
       <div class="swatch" onclick="copyHex('#D1DCE8')" style="background:#141B24;border:1px solid #243044;border-radius:10px;overflow:hidden">
         <div style="height:100px;background:#D1DCE8;display:flex;align-items:flex-end;padding:10px">
-          <span style="font-family:'DM Mono',monospace;font-size:8px;background:rgba(0,0,0,0.3);color:#111;padding:2px 6px;border-radius:2px;letter-spacing:0.08em">SECONDARY</span>
+          <span style="font-family:'DM Mono',monospace;font-size:16px;background:rgba(0,0,0,0.3);color:#111;padding:2px 6px;border-radius:2px;letter-spacing:0.08em">SECONDARY</span>
         </div>
         <div style="padding:14px 16px">
           <div style="font-family:'Bebas Neue';font-size:18px;letter-spacing:0.06em;color:#F0F6FF;margin-bottom:2px">Silver</div>
-          <div style="font-family:'DM Mono',monospace;font-size:12px;color:#D1DCE8;margin-bottom:6px">#D1DCE8</div>
-          <div style="font-family:'DM Mono',monospace;font-size:10px;color:#8B9EB8;margin-bottom:2px">RGB 209 · 220 · 232</div>
-          <div style="font-size:12px;color:#8B9EB8;margin-top:8px;line-height:1.5">Headings, logo mark, high-value accent moments. References the rhino's color directly.</div>
+          <div style="font-family:'DM Mono',monospace;font-size:16px;color:#D1DCE8;margin-bottom:6px">#D1DCE8</div>
+          <div style="font-family:'DM Mono',monospace;font-size:16px;color:#8B9EB8;margin-bottom:2px">RGB 209 · 220 · 232</div>
+          <div style="font-size:16px;color:#8B9EB8;margin-top:8px;line-height:1.5">Headings, logo mark, high-value accent moments. References the rhino's color directly.</div>
         </div>
       </div>
 
       <div class="swatch" onclick="copyHex('#34D399')" style="background:#141B24;border:1px solid #243044;border-radius:10px;overflow:hidden">
         <div style="height:100px;background:#34D399;display:flex;align-items:flex-end;padding:10px">
-          <span style="font-family:'DM Mono',monospace;font-size:8px;background:rgba(0,0,0,0.3);color:#111;padding:2px 6px;border-radius:2px;letter-spacing:0.08em">TERTIARY</span>
+          <span style="font-family:'DM Mono',monospace;font-size:16px;background:rgba(0,0,0,0.3);color:#111;padding:2px 6px;border-radius:2px;letter-spacing:0.08em">TERTIARY</span>
         </div>
         <div style="padding:14px 16px">
           <div style="font-family:'Bebas Neue';font-size:18px;letter-spacing:0.06em;color:#F0F6FF;margin-bottom:2px">Emerald</div>
-          <div style="font-family:'DM Mono',monospace;font-size:12px;color:#34D399;margin-bottom:6px">#34D399</div>
-          <div style="font-family:'DM Mono',monospace;font-size:10px;color:#8B9EB8;margin-bottom:2px">RGB 52 · 211 · 153</div>
-          <div style="font-size:12px;color:#8B9EB8;margin-top:8px;line-height:1.5">CTAs, links, active states, highlights. Contrasts cobalt and silver without aggression.</div>
+          <div style="font-family:'DM Mono',monospace;font-size:16px;color:#34D399;margin-bottom:6px">#34D399</div>
+          <div style="font-family:'DM Mono',monospace;font-size:16px;color:#8B9EB8;margin-bottom:2px">RGB 52 · 211 · 153</div>
+          <div style="font-size:16px;color:#8B9EB8;margin-top:8px;line-height:1.5">CTAs, links, active states, highlights. Contrasts cobalt and silver without aggression.</div>
         </div>
       </div>
     </div>
@@ -121,94 +123,94 @@
       <div class="swatch" onclick="copyHex('#0C1016')" style="background:#141B24;border:1px solid #243044;border-radius:8px;overflow:hidden">
         <div style="height:36px;background:#0C1016;border-bottom:1px solid #243044"></div>
         <div style="padding:9px 11px">
-          <div style="font-size:12px;font-weight:600;color:#F0F6FF;margin-bottom:1px">Background</div>
-          <div style="font-family:'DM Mono',monospace;font-size:10px;color:#8B9EB8;margin-bottom:3px">#0C1016</div>
-          <div style="font-size:10px;color:#8B9EB8">Page background</div>
+          <div style="font-size:16px;font-weight:600;color:#F0F6FF;margin-bottom:1px">Background</div>
+          <div style="font-family:'DM Mono',monospace;font-size:16px;color:#8B9EB8;margin-bottom:3px">#0C1016</div>
+          <div style="font-size:16px;color:#8B9EB8">Page background</div>
         </div>
       </div>
       <div class="swatch" onclick="copyHex('#141B24')" style="background:#141B24;border:1px solid #243044;border-radius:8px;overflow:hidden">
         <div style="height:36px;background:#141B24;border-bottom:1px solid #243044"></div>
         <div style="padding:9px 11px">
-          <div style="font-size:12px;font-weight:600;color:#F0F6FF;margin-bottom:1px">Surface</div>
-          <div style="font-family:'DM Mono',monospace;font-size:10px;color:#8B9EB8;margin-bottom:3px">#141B24</div>
-          <div style="font-size:10px;color:#8B9EB8">Cards, panels, nav</div>
+          <div style="font-size:16px;font-weight:600;color:#F0F6FF;margin-bottom:1px">Surface</div>
+          <div style="font-family:'DM Mono',monospace;font-size:16px;color:#8B9EB8;margin-bottom:3px">#141B24</div>
+          <div style="font-size:16px;color:#8B9EB8">Cards, panels, nav</div>
         </div>
       </div>
       <div class="swatch" onclick="copyHex('#1A2333')" style="background:#141B24;border:1px solid #243044;border-radius:8px;overflow:hidden">
         <div style="height:36px;background:#1A2333;border-bottom:1px solid #243044"></div>
         <div style="padding:9px 11px">
-          <div style="font-size:12px;font-weight:600;color:#F0F6FF;margin-bottom:1px">Card</div>
-          <div style="font-family:'DM Mono',monospace;font-size:10px;color:#8B9EB8;margin-bottom:3px">#1A2333</div>
-          <div style="font-size:10px;color:#8B9EB8">Elevated surfaces</div>
+          <div style="font-size:16px;font-weight:600;color:#F0F6FF;margin-bottom:1px">Card</div>
+          <div style="font-family:'DM Mono',monospace;font-size:16px;color:#8B9EB8;margin-bottom:3px">#1A2333</div>
+          <div style="font-size:16px;color:#8B9EB8">Elevated surfaces</div>
         </div>
       </div>
       <div class="swatch" onclick="copyHex('#243044')" style="background:#141B24;border:1px solid #243044;border-radius:8px;overflow:hidden">
         <div style="height:36px;background:#243044;border-bottom:1px solid #243044"></div>
         <div style="padding:9px 11px">
-          <div style="font-size:12px;font-weight:600;color:#F0F6FF;margin-bottom:1px">Border</div>
-          <div style="font-family:'DM Mono',monospace;font-size:10px;color:#8B9EB8;margin-bottom:3px">#243044</div>
-          <div style="font-size:10px;color:#8B9EB8">Dividers, outlines</div>
+          <div style="font-size:16px;font-weight:600;color:#F0F6FF;margin-bottom:1px">Border</div>
+          <div style="font-family:'DM Mono',monospace;font-size:16px;color:#8B9EB8;margin-bottom:3px">#243044</div>
+          <div style="font-size:16px;color:#8B9EB8">Dividers, outlines</div>
         </div>
       </div>
       <div class="swatch" onclick="copyHex('#F0F6FF')" style="background:#141B24;border:1px solid #243044;border-radius:8px;overflow:hidden">
         <div style="height:36px;background:#F0F6FF;border-bottom:1px solid #243044"></div>
         <div style="padding:9px 11px">
-          <div style="font-size:12px;font-weight:600;color:#F0F6FF;margin-bottom:1px">Text Primary</div>
-          <div style="font-family:'DM Mono',monospace;font-size:10px;color:#8B9EB8;margin-bottom:3px">#F0F6FF</div>
-          <div style="font-size:10px;color:#8B9EB8">Headlines, body copy</div>
+          <div style="font-size:16px;font-weight:600;color:#F0F6FF;margin-bottom:1px">Text Primary</div>
+          <div style="font-family:'DM Mono',monospace;font-size:16px;color:#8B9EB8;margin-bottom:3px">#F0F6FF</div>
+          <div style="font-size:16px;color:#8B9EB8">Headlines, body copy</div>
         </div>
       </div>
       <div class="swatch" onclick="copyHex('#8B9EB8')" style="background:#141B24;border:1px solid #243044;border-radius:8px;overflow:hidden">
         <div style="height:36px;background:#8B9EB8;border-bottom:1px solid #243044"></div>
         <div style="padding:9px 11px">
-          <div style="font-size:12px;font-weight:600;color:#F0F6FF;margin-bottom:1px">Text Sub</div>
-          <div style="font-family:'DM Mono',monospace;font-size:10px;color:#8B9EB8;margin-bottom:3px">#8B9EB8</div>
-          <div style="font-size:10px;color:#8B9EB8">Captions, metadata</div>
+          <div style="font-size:16px;font-weight:600;color:#F0F6FF;margin-bottom:1px">Text Sub</div>
+          <div style="font-family:'DM Mono',monospace;font-size:16px;color:#8B9EB8;margin-bottom:3px">#8B9EB8</div>
+          <div style="font-size:16px;color:#8B9EB8">Captions, metadata</div>
         </div>
       </div>
     </div>
 
     <!-- Usage rules -->
     <div style="background:#141B24;border:1px solid #243044;border-radius:10px;padding:18px 20px">
-      <div style="font-family:'DM Mono',monospace;font-size:9px;color:#8B9EB8;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:14px">Usage Rules</div>
+      <div style="font-family:'DM Mono',monospace;font-size:16px;color:#8B9EB8;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:14px">Usage Rules</div>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px">
           <div>
             <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
               <div style="width:10px;height:10px;border-radius:2px;background:#3B82F6"></div>
-              <div style="font-family:'Bebas Neue';font-size:15px;letter-spacing:0.06em;color:#3B82F6">Cobalt</div>
+              <div style="font-family:'Bebas Neue';font-size:16px;letter-spacing:0.06em;color:#3B82F6">Cobalt</div>
             </div>
             <ul style="list-style:none;display:flex;flex-direction:column;gap:5px">
-              <li style="font-size:12px;color:#8B9EB8;padding-left:12px;position:relative;line-height:1.4"><span style="position:absolute;left:0;color:#3B82F6">·</span>Navigation background</li>
-              <li style="font-size:12px;color:#8B9EB8;padding-left:12px;position:relative;line-height:1.4"><span style="position:absolute;left:0;color:#3B82F6">·</span>Primary buttons (filled)</li>
-              <li style="font-size:12px;color:#8B9EB8;padding-left:12px;position:relative;line-height:1.4"><span style="position:absolute;left:0;color:#3B82F6">·</span>Structural brand elements</li>
-              <li style="font-size:12px;color:#8B9EB8;padding-left:12px;position:relative;line-height:1.4"><span style="position:absolute;left:0;color:#3B82F6">·</span>Icon backgrounds</li>
-              <li style="font-size:12px;color:#8B9EB8;padding-left:12px;position:relative;line-height:1.4"><span style="position:absolute;left:0;color:#3B82F6">·</span>Active tab indicators</li>
+              <li style="font-size:16px;color:#8B9EB8;padding-left:12px;position:relative;line-height:1.4"><span style="position:absolute;left:0;color:#3B82F6">·</span>Navigation background</li>
+              <li style="font-size:16px;color:#8B9EB8;padding-left:12px;position:relative;line-height:1.4"><span style="position:absolute;left:0;color:#3B82F6">·</span>Primary buttons (filled)</li>
+              <li style="font-size:16px;color:#8B9EB8;padding-left:12px;position:relative;line-height:1.4"><span style="position:absolute;left:0;color:#3B82F6">·</span>Structural brand elements</li>
+              <li style="font-size:16px;color:#8B9EB8;padding-left:12px;position:relative;line-height:1.4"><span style="position:absolute;left:0;color:#3B82F6">·</span>Icon backgrounds</li>
+              <li style="font-size:16px;color:#8B9EB8;padding-left:12px;position:relative;line-height:1.4"><span style="position:absolute;left:0;color:#3B82F6">·</span>Active tab indicators</li>
             </ul>
           </div>
           <div>
             <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
               <div style="width:10px;height:10px;border-radius:2px;background:#D1DCE8"></div>
-              <div style="font-family:'Bebas Neue';font-size:15px;letter-spacing:0.06em;color:#D1DCE8">Silver</div>
+              <div style="font-family:'Bebas Neue';font-size:16px;letter-spacing:0.06em;color:#D1DCE8">Silver</div>
             </div>
             <ul style="list-style:none;display:flex;flex-direction:column;gap:5px">
-              <li style="font-size:12px;color:#8B9EB8;padding-left:12px;position:relative;line-height:1.4"><span style="position:absolute;left:0;color:#D1DCE8">·</span>Page headlines &amp; hero text</li>
-              <li style="font-size:12px;color:#8B9EB8;padding-left:12px;position:relative;line-height:1.4"><span style="position:absolute;left:0;color:#D1DCE8">·</span>Logo wordmark</li>
-              <li style="font-size:12px;color:#8B9EB8;padding-left:12px;position:relative;line-height:1.4"><span style="position:absolute;left:0;color:#D1DCE8">·</span>Outlined button borders</li>
-              <li style="font-size:12px;color:#8B9EB8;padding-left:12px;position:relative;line-height:1.4"><span style="position:absolute;left:0;color:#D1DCE8">·</span>Section divider accents</li>
-              <li style="font-size:12px;color:#8B9EB8;padding-left:12px;position:relative;line-height:1.4"><span style="position:absolute;left:0;color:#D1DCE8">·</span>Tag/badge text on dark backgrounds</li>
+              <li style="font-size:16px;color:#8B9EB8;padding-left:12px;position:relative;line-height:1.4"><span style="position:absolute;left:0;color:#D1DCE8">·</span>Page headlines &amp; hero text</li>
+              <li style="font-size:16px;color:#8B9EB8;padding-left:12px;position:relative;line-height:1.4"><span style="position:absolute;left:0;color:#D1DCE8">·</span>Logo wordmark</li>
+              <li style="font-size:16px;color:#8B9EB8;padding-left:12px;position:relative;line-height:1.4"><span style="position:absolute;left:0;color:#D1DCE8">·</span>Outlined button borders</li>
+              <li style="font-size:16px;color:#8B9EB8;padding-left:12px;position:relative;line-height:1.4"><span style="position:absolute;left:0;color:#D1DCE8">·</span>Section divider accents</li>
+              <li style="font-size:16px;color:#8B9EB8;padding-left:12px;position:relative;line-height:1.4"><span style="position:absolute;left:0;color:#D1DCE8">·</span>Tag/badge text on dark backgrounds</li>
             </ul>
           </div>
           <div>
             <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
               <div style="width:10px;height:10px;border-radius:2px;background:#34D399"></div>
-              <div style="font-family:'Bebas Neue';font-size:15px;letter-spacing:0.06em;color:#34D399">Emerald</div>
+              <div style="font-family:'Bebas Neue';font-size:16px;letter-spacing:0.06em;color:#34D399">Emerald</div>
             </div>
             <ul style="list-style:none;display:flex;flex-direction:column;gap:5px">
-              <li style="font-size:12px;color:#8B9EB8;padding-left:12px;position:relative;line-height:1.4"><span style="position:absolute;left:0;color:#34D399">·</span>CTAs that need urgency</li>
-              <li style="font-size:12px;color:#8B9EB8;padding-left:12px;position:relative;line-height:1.4"><span style="position:absolute;left:0;color:#34D399">·</span>Links &amp; hover states</li>
-              <li style="font-size:12px;color:#8B9EB8;padding-left:12px;position:relative;line-height:1.4"><span style="position:absolute;left:0;color:#34D399">·</span>Active/success indicators</li>
-              <li style="font-size:12px;color:#8B9EB8;padding-left:12px;position:relative;line-height:1.4"><span style="position:absolute;left:0;color:#34D399">·</span>Code syntax highlights</li>
-              <li style="font-size:12px;color:#8B9EB8;padding-left:12px;position:relative;line-height:1.4"><span style="position:absolute;left:0;color:#34D399">·</span>Keynote slide accent moments</li>
+              <li style="font-size:16px;color:#8B9EB8;padding-left:12px;position:relative;line-height:1.4"><span style="position:absolute;left:0;color:#34D399">·</span>CTAs that need urgency</li>
+              <li style="font-size:16px;color:#8B9EB8;padding-left:12px;position:relative;line-height:1.4"><span style="position:absolute;left:0;color:#34D399">·</span>Links &amp; hover states</li>
+              <li style="font-size:16px;color:#8B9EB8;padding-left:12px;position:relative;line-height:1.4"><span style="position:absolute;left:0;color:#34D399">·</span>Active/success indicators</li>
+              <li style="font-size:16px;color:#8B9EB8;padding-left:12px;position:relative;line-height:1.4"><span style="position:absolute;left:0;color:#34D399">·</span>Code syntax highlights</li>
+              <li style="font-size:16px;color:#8B9EB8;padding-left:12px;position:relative;line-height:1.4"><span style="position:absolute;left:0;color:#34D399">·</span>Keynote slide accent moments</li>
             </ul>
           </div>
       </div>
@@ -219,41 +221,41 @@
   <!-- TYPOGRAPHY -->
   <div style="margin-bottom:48px">
     <div class="section-label">02 — Typography</div>
-    <h2>TYPE SYSTEM</h2>
-    <p style="font-size:14px;color:#8B9EB8;line-height:1.6;max-width:600px;margin-bottom:28px">Three-font stack chosen for range — commanding headline presence, readable body copy, and technical credibility. All three are available free via Google Fonts.</p>
+    <h2 id="typography">TYPE SYSTEM</h2>
+    <p style="font-size:16px;color:#8B9EB8;line-height:1.6;max-width:600px;margin-bottom:28px">Three-font stack chosen for range — commanding headline presence, readable body copy, and technical credibility. All three are available free via Google Fonts.</p>
 
     <div style="display:flex;flex-direction:column;gap:12px">
 
       <div style="background:#141B24;border:1px solid #243044;border-radius:10px;padding:22px 24px">
         <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;margin-bottom:16px">
           <div>
-            <div style="font-family:'DM Mono',monospace;font-size:9px;color:#34D399;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:3px">Display · Headlines · Brand Name</div>
-            <div style="font-family:'DM Mono',monospace;font-size:11px;color:#8B9EB8">Bebas Neue · Regular 400 · Google Fonts</div>
+            <div style="font-family:'DM Mono',monospace;font-size:16px;color:#34D399;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:3px">Display · Headlines · Brand Name</div>
+            <div style="font-family:'DM Mono',monospace;font-size:16px;color:#8B9EB8">Bebas Neue · Regular 400 · Google Fonts</div>
           </div>
-          <a href="https://fonts.google.com/specimen/Bebas+Neue" target="_blank" style="font-family:'DM Mono',monospace;font-size:9px;color:#8B9EB8;border:1px solid #243044;padding:3px 8px;border-radius:3px;text-decoration:none;letter-spacing:0.08em">↗ GOOGLE FONTS</a>
+          <a href="https://fonts.google.com/specimen/Bebas+Neue" target="_blank" style="font-family:'DM Mono',monospace;font-size:16px;color:#8B9EB8;border:1px solid #243044;padding:3px 8px;border-radius:3px;text-decoration:none;letter-spacing:0.08em">↗ GOOGLE FONTS</a>
         </div>
         <div style="font-family:'Bebas Neue';font-size:52px;letter-spacing:0.05em;color:#F0F6FF;line-height:0.95;margin-bottom:4px">BUILDING AUTOMATION MUSCLE</div>
         <div style="font-family:'Bebas Neue';font-size:28px;letter-spacing:0.05em;color:#D1DCE8;margin-bottom:16px">WITHOUT A DEV TEAM</div>
         <div style="border-top:1px solid #243044;padding-top:14px;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:8px">
           <div style="display:flex;justify-content:space-between;align-items:baseline">
-            <span style="font-size:12px;color:#8B9EB8">H1</span>
-            <span style="font-family:'DM Mono',monospace;font-size:10px;color:#8B9EB8">56px / 4.8rem</span>
+            <span style="font-size:16px;color:#8B9EB8">H1</span>
+            <span style="font-family:'DM Mono',monospace;font-size:16px;color:#8B9EB8">56–80px / 3.5–5rem</span>
           </div>
           <div style="display:flex;justify-content:space-between;align-items:baseline">
-            <span style="font-size:12px;color:#8B9EB8">H2</span>
-            <span style="font-family:'DM Mono',monospace;font-size:10px;color:#8B9EB8">42px / 3.5rem</span>
+            <span style="font-size:16px;color:#8B9EB8">H2</span>
+            <span style="font-family:'DM Mono',monospace;font-size:16px;color:#8B9EB8">32–48px / 2–3rem</span>
           </div>
           <div style="display:flex;justify-content:space-between;align-items:baseline">
-            <span style="font-size:12px;color:#8B9EB8">H3</span>
-            <span style="font-family:'DM Mono',monospace;font-size:10px;color:#8B9EB8">32px / 2.7rem</span>
+            <span style="font-size:16px;color:#8B9EB8">H3</span>
+            <span style="font-family:'DM Mono',monospace;font-size:16px;color:#8B9EB8">24–28px / 1.5–1.75rem</span>
           </div>
           <div style="display:flex;justify-content:space-between;align-items:baseline">
-            <span style="font-size:12px;color:#8B9EB8">H4</span>
-            <span style="font-family:'DM Mono',monospace;font-size:10px;color:#8B9EB8">24px / 2rem</span>
+            <span style="font-size:16px;color:#8B9EB8">H4</span>
+            <span style="font-family:'DM Mono',monospace;font-size:16px;color:#8B9EB8">20–24px / 1.25–1.5rem</span>
           </div>
           <div style="display:flex;justify-content:space-between;align-items:baseline">
-            <span style="font-size:12px;color:#8B9EB8">Nav / UI Labels</span>
-            <span style="font-family:'DM Mono',monospace;font-size:10px;color:#8B9EB8">14–16px / 1.1–1.3rem</span>
+            <span style="font-size:16px;color:#8B9EB8">Nav / UI Labels</span>
+            <span style="font-family:'DM Mono',monospace;font-size:16px;color:#8B9EB8">15–16px / ~1rem</span>
           </div>
         </div>
       </div>
@@ -261,29 +263,29 @@
       <div style="background:#141B24;border:1px solid #243044;border-radius:10px;padding:22px 24px">
         <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;margin-bottom:16px">
           <div>
-            <div style="font-family:'DM Mono',monospace;font-size:9px;color:#34D399;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:3px">Body · Navigation · UI Copy</div>
-            <div style="font-family:'DM Mono',monospace;font-size:11px;color:#8B9EB8">Barlow Condensed · Regular 400 / SemiBold 600 / Bold 700 · Google Fonts</div>
+            <div style="font-family:'DM Mono',monospace;font-size:16px;color:#34D399;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:3px">Body · Navigation · UI Copy</div>
+            <div style="font-family:'DM Mono',monospace;font-size:16px;color:#8B9EB8">Barlow Condensed · Regular 400 / SemiBold 600 / Bold 700 · Google Fonts</div>
           </div>
-          <a href="https://fonts.google.com/specimen/Barlow+Condensed" target="_blank" style="font-family:'DM Mono',monospace;font-size:9px;color:#8B9EB8;border:1px solid #243044;padding:3px 8px;border-radius:3px;text-decoration:none;letter-spacing:0.08em">↗ GOOGLE FONTS</a>
+          <a href="https://fonts.google.com/specimen/Barlow+Condensed" target="_blank" style="font-family:'DM Mono',monospace;font-size:16px;color:#8B9EB8;border:1px solid #243044;padding:3px 8px;border-radius:3px;text-decoration:none;letter-spacing:0.08em">↗ GOOGLE FONTS</a>
         </div>
-        <div style="font-family:'Barlow Condensed',sans-serif;font-weight:400;font-size:15px;color:#8B9EB8;line-height:1.65;max-width:600px;margin-bottom:12px">Helping MSPs and IT teams build automation muscle without needing a dedicated dev team. Practical frameworks, real workflows, and a methodology anyone can contribute to — regardless of technical background.</div>
-        <div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:13px;color:#F0F6FF;letter-spacing:0.1em;text-transform:uppercase">SERVICES · COMMUNITY · BLOG · CONTACT</div>
+        <div style="font-family:'Barlow Condensed',sans-serif;font-weight:400;font-size:16px;color:#8B9EB8;line-height:1.65;max-width:600px;margin-bottom:12px">Helping MSPs and IT teams build automation muscle without needing a dedicated dev team. Practical frameworks, real workflows, and a methodology anyone can contribute to — regardless of technical background.</div>
+        <div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:16px;color:#F0F6FF;letter-spacing:0.1em;text-transform:uppercase">SERVICES · COMMUNITY · BLOG · CONTACT</div>
       </div>
 
       <div style="background:#141B24;border:1px solid #243044;border-radius:10px;padding:22px 24px">
         <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;margin-bottom:16px">
           <div>
-            <div style="font-family:'DM Mono',monospace;font-size:9px;color:#34D399;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:3px">Technical · Code · Metadata · Tags</div>
-            <div style="font-family:'DM Mono',monospace;font-size:11px;color:#8B9EB8">DM Mono · Regular 400 / Medium 500 · Google Fonts</div>
+            <div style="font-family:'DM Mono',monospace;font-size:16px;color:#34D399;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:3px">Technical · Code · Metadata · Tags</div>
+            <div style="font-family:'DM Mono',monospace;font-size:16px;color:#8B9EB8">DM Mono · Regular 400 / Medium 500 · Google Fonts</div>
           </div>
-          <a href="https://fonts.google.com/specimen/DM+Mono" target="_blank" style="font-family:'DM Mono',monospace;font-size:9px;color:#8B9EB8;border:1px solid #243044;padding:3px 8px;border-radius:3px;text-decoration:none;letter-spacing:0.08em">↗ GOOGLE FONTS</a>
+          <a href="https://fonts.google.com/specimen/DM+Mono" target="_blank" style="font-family:'DM Mono',monospace;font-size:16px;color:#8B9EB8;border:1px solid #243044;padding:3px 8px;border-radius:3px;text-decoration:none;letter-spacing:0.08em">↗ GOOGLE FONTS</a>
         </div>
         <div style="background:#0C1016;border-radius:6px;padding:14px 16px;border:1px solid #243044;border-left:2px solid #3B82F6;margin-bottom:12px">
-          <div style="font-family:'DM Mono',monospace;font-size:13px;color:#34D399">workflow.execute()</div>
-          <div style="font-family:'DM Mono',monospace;font-size:13px;color:#8B9EB8">// trigger: form_submitted</div>
-          <div style="font-family:'DM Mono',monospace;font-size:13px;color:#3B82F6">status: <span style="color:#34D399">success</span></div>
+          <div style="font-family:'DM Mono',monospace;font-size:16px;color:#34D399">workflow.execute()</div>
+          <div style="font-family:'DM Mono',monospace;font-size:16px;color:#8B9EB8">// trigger: form_submitted</div>
+          <div style="font-family:'DM Mono',monospace;font-size:16px;color:#3B82F6">status: <span style="color:#34D399">success</span></div>
         </div>
-        <div style="font-size:12px;color:#8B9EB8;line-height:1.5">Use for: hex color values, code snippets, session metadata, tags, timestamps, API endpoints, and any place where "I actually build things" needs to be signalled without explanation.</div>
+        <div style="font-size:16px;color:#8B9EB8;line-height:1.5">Use for: hex color values, code snippets, session metadata, tags, timestamps, API endpoints, and any place where "I actually build things" needs to be signalled without explanation.</div>
       </div>
 
     </div>
@@ -293,21 +295,21 @@
   <!-- BRAND STORY -->
   <div style="margin-bottom:48px">
     <div class="section-label">03 — Voice & Positioning</div>
-    <h2>BRAND STORY</h2>
+    <h2 id="voice">BRAND STORY</h2>
 
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px">
       <div style="background:#141B24;border:1px solid #243044;border-radius:10px;padding:20px">
-        <div style="font-family:'DM Mono',monospace;font-size:9px;color:#34D399;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:10px">Color Story</div>
-        <div style="font-size:13px;color:#8B9EB8;line-height:1.65">Cobalt and silver with an emerald edge. The silver references the rhino directly — it's not a neutral, it's a deliberate callback to the animal. Cobalt grounds it in the technical and professional. Emerald provides the energy of automation: the color of a successful script run, a green checkmark, work that got done.</div>
+        <div style="font-family:'DM Mono',monospace;font-size:16px;color:#34D399;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:10px">Color Story</div>
+        <div style="font-size:16px;color:#8B9EB8;line-height:1.65">Cobalt and silver with an emerald edge. The silver references the rhino directly — it's not a neutral, it's a deliberate callback to the animal. Cobalt grounds it in the technical and professional. Emerald provides the energy of automation: the color of a successful script run, a green checkmark, work that got done.</div>
       </div>
       <div style="background:#141B24;border:1px solid #243044;border-radius:10px;padding:20px">
-        <div style="font-family:'DM Mono',monospace;font-size:9px;color:#34D399;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:10px">Positioning</div>
-        <div style="font-size:13px;color:#8B9EB8;line-height:1.65">Not a dev shop. Not a vendor. A practitioner who builds automation and teaches others to participate — regardless of technical background. The rhino signals power and resilience; the automation framing signals pragmatism. Built for MSPs and IT teams who want to move faster without hiring a dev team.</div>
+        <div style="font-family:'DM Mono',monospace;font-size:16px;color:#34D399;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:10px">Positioning</div>
+        <div style="font-size:16px;color:#8B9EB8;line-height:1.65">Not a dev shop. Not a vendor. A practitioner who builds automation and teaches others to participate — regardless of technical background. The rhino signals power and resilience; the automation framing signals pragmatism. Built for MSPs and IT teams who want to move faster without hiring a dev team.</div>
       </div>
     </div>
 
     <div style="background:#141B24;border:1px solid #243044;border-radius:10px;padding:20px;margin-bottom:14px">
-      <div style="font-family:'DM Mono',monospace;font-size:9px;color:#34D399;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:14px">Taglines — Use Freely</div>
+      <div style="font-family:'DM Mono',monospace;font-size:16px;color:#34D399;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:14px">Taglines — Use Freely</div>
       <div style="display:flex;flex-direction:column;gap:8px">
           <div style="display:flex;align-items:baseline;gap:10px">
             <div style="width:4px;height:4px;border-radius:50%;background:#34D399;flex-shrink:0;margin-top:6px"></div>
@@ -337,30 +339,30 @@
   <!-- PREVIEW -->
   <div style="margin-bottom:48px">
     <div class="section-label">04 — In Context</div>
-    <h2>BRAND IN USE</h2>
-    <p style="font-size:14px;color:#8B9EB8;line-height:1.6;max-width:600px;margin-bottom:28px">Reference compositions for web, social, and speaking contexts.</p>
+    <h2 id="in-context">BRAND IN USE</h2>
+    <p style="font-size:16px;color:#8B9EB8;line-height:1.6;max-width:600px;margin-bottom:28px">Reference compositions for web, social, and speaking contexts.</p>
 
     <!-- Website nav + hero -->
     <div style="background:#141B24;border:1px solid #243044;border-radius:10px;overflow:hidden;margin-bottom:14px">
-      <div style="font-family:'DM Mono',monospace;font-size:9px;color:#8B9EB8;letter-spacing:0.14em;text-transform:uppercase;padding:12px 18px;border-bottom:1px solid #243044">Website Header + Hero</div>
+      <div style="font-family:'DM Mono',monospace;font-size:16px;color:#8B9EB8;letter-spacing:0.14em;text-transform:uppercase;padding:12px 18px;border-bottom:1px solid #243044">Website Header + Hero</div>
       <div style="background:#0C1016;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;border-bottom:1px solid #243044">
         <div style="font-family:'Bebas Neue';font-size:20px;letter-spacing:0.07em">RHINO <span style="color:#D1DCE8">AUTOMATOR</span></div>
         <div style="display:flex;gap:20px">
-          <span style="font-weight:600;font-size:12px;letter-spacing:0.09em;text-transform:uppercase;color:#8B9EB8">Services</span>
-          <span style="font-weight:600;font-size:12px;letter-spacing:0.09em;text-transform:uppercase;color:#8B9EB8">Community</span>
-          <span style="font-weight:600;font-size:12px;letter-spacing:0.09em;text-transform:uppercase;color:#8B9EB8">Blog</span>
-          <span style="font-weight:600;font-size:12px;letter-spacing:0.09em;text-transform:uppercase;color:#34D399">Contact</span>
+          <span style="font-weight:600;font-size:16px;letter-spacing:0.09em;text-transform:uppercase;color:#8B9EB8">Services</span>
+          <span style="font-weight:600;font-size:16px;letter-spacing:0.09em;text-transform:uppercase;color:#8B9EB8">Community</span>
+          <span style="font-weight:600;font-size:16px;letter-spacing:0.09em;text-transform:uppercase;color:#8B9EB8">Blog</span>
+          <span style="font-weight:600;font-size:16px;letter-spacing:0.09em;text-transform:uppercase;color:#34D399">Contact</span>
         </div>
       </div>
       <div style="padding:36px 28px;background:linear-gradient(140deg,#0C1016 0%,#141B24 100%)">
-        <div style="font-family:'DM Mono',monospace;font-size:9px;color:#34D399;letter-spacing:0.16em;margin-bottom:10px">// AUTOMATION ENTHUSIAST · COMMUNITY ENGAGEMENT & EDUCATION</div>
+        <div style="font-family:'DM Mono',monospace;font-size:16px;color:#34D399;letter-spacing:0.16em;margin-bottom:10px">// AUTOMATION ENTHUSIAST · COMMUNITY ENGAGEMENT & EDUCATION</div>
         <div style="font-family:'Bebas Neue';font-size:48px;letter-spacing:0.04em;line-height:0.92;color:#F0F6FF;margin-bottom:4px">MAKING AUTOMATION</div>
         <div style="font-family:'Bebas Neue';font-size:48px;letter-spacing:0.04em;line-height:0.92;color:#D1DCE8;margin-bottom:16px">ACCESSIBLE.</div>
-        <div style="font-family:'Barlow Condensed',sans-serif;font-size:15px;color:#8B9EB8;max-width:440px;line-height:1.6;margin-bottom:22px">Helping MSPs and IT teams build automation muscle — without needing a dedicated dev team.</div>
+        <div style="font-family:'Barlow Condensed',sans-serif;font-size:16px;color:#8B9EB8;max-width:440px;line-height:1.6;margin-bottom:22px">Helping MSPs and IT teams build automation muscle — without needing a dedicated dev team.</div>
         <div style="display:flex;gap:10px;flex-wrap:wrap">
-          <div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;padding:10px 22px;background:#3B82F6;color:#fff;border-radius:4px">WORK WITH ME</div>
-          <div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;padding:10px 22px;background:transparent;color:#34D399;border:1.5px solid #34D399;border-radius:4px">COMMUNITY & EDUCATION</div>
-          <div style="font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;padding:10px 22px;background:transparent;color:#D1DCE8;border:1.5px solid #243044;border-radius:4px">LEARN MORE</div>
+          <div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:16px;letter-spacing:0.1em;text-transform:uppercase;padding:10px 22px;background:#3B82F6;color:#fff;border-radius:4px">WORK WITH ME</div>
+          <div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:16px;letter-spacing:0.1em;text-transform:uppercase;padding:10px 22px;background:transparent;color:#34D399;border:1.5px solid #34D399;border-radius:4px">COMMUNITY & EDUCATION</div>
+          <div style="font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:16px;letter-spacing:0.1em;text-transform:uppercase;padding:10px 22px;background:transparent;color:#D1DCE8;border:1.5px solid #243044;border-radius:4px">LEARN MORE</div>
         </div>
       </div>
     </div>
@@ -369,19 +371,19 @@
 
       <!-- Social profile -->
       <div style="background:#141B24;border:1px solid #243044;border-radius:10px;padding:18px">
-        <div style="font-family:'DM Mono',monospace;font-size:9px;color:#8B9EB8;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:14px">Social Profile</div>
+        <div style="font-family:'DM Mono',monospace;font-size:16px;color:#8B9EB8;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:14px">Social Profile</div>
         <div style="display:flex;gap:14px;align-items:center">
           <div style="width:64px;height:64px;border-radius:50%;background:#3B82F622;border:2.5px solid #3B82F6;display:flex;align-items:center;justify-content:center;flex-shrink:0">
             <div style="font-family:'Bebas Neue';font-size:20px;color:#D1DCE8;letter-spacing:0.04em">RA</div>
           </div>
           <div>
             <div style="font-family:'Bebas Neue';font-size:20px;letter-spacing:0.05em;line-height:1;color:#F0F6FF">RHINO AUTOMATOR</div>
-            <div style="font-family:'DM Mono',monospace;font-size:9px;color:#34D399;margin-top:4px">@rhinoautomator</div>
-            <div style="font-family:'Barlow Condensed',sans-serif;font-size:13px;color:#8B9EB8;margin-top:5px;line-height:1.4">Automation enthusiast · Community engagement & education · MSP nerd</div>
+            <div style="font-family:'DM Mono',monospace;font-size:16px;color:#34D399;margin-top:4px">@rhinoautomator</div>
+            <div style="font-family:'Barlow Condensed',sans-serif;font-size:16px;color:#8B9EB8;margin-top:5px;line-height:1.4">Automation enthusiast · Community engagement & education · MSP nerd</div>
             <div style="margin-top:8px;display:flex;gap:5px;flex-wrap:wrap">
-              <span style="font-family:'DM Mono',monospace;font-size:8px;padding:2px 7px;border:1px solid #3B82F644;border-radius:3px;color:#3B82F6">Rewst</span>
-              <span style="font-family:'DM Mono',monospace;font-size:8px;padding:2px 7px;border:1px solid #D1DCE844;border-radius:3px;color:#D1DCE8">M365</span>
-              <span style="font-family:'DM Mono',monospace;font-size:8px;padding:2px 7px;border:1px solid #34D39944;border-radius:3px;color:#34D399">MSP</span>
+              <span style="font-family:'DM Mono',monospace;font-size:16px;padding:2px 7px;border:1px solid #3B82F644;border-radius:3px;color:#3B82F6">Rewst</span>
+              <span style="font-family:'DM Mono',monospace;font-size:16px;padding:2px 7px;border:1px solid #D1DCE844;border-radius:3px;color:#D1DCE8">M365</span>
+              <span style="font-family:'DM Mono',monospace;font-size:16px;padding:2px 7px;border:1px solid #34D39944;border-radius:3px;color:#34D399">MSP</span>
             </div>
           </div>
         </div>
@@ -389,34 +391,34 @@
 
       <!-- Speaker card -->
       <div style="background:#141B24;border:1px solid #243044;border-radius:10px;padding:18px">
-        <div style="font-family:'DM Mono',monospace;font-size:9px;color:#8B9EB8;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:14px">Conference Speaker Card</div>
+        <div style="font-family:'DM Mono',monospace;font-size:16px;color:#8B9EB8;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:14px">Conference Speaker Card</div>
         <div style="background:#0C1016;border-radius:8px;padding:16px;border:1px solid #243044">
           <div style="display:flex;gap:12px;margin-bottom:12px;align-items:center">
             <div style="width:46px;height:46px;border-radius:8px;background:#3B82F6;display:flex;align-items:center;justify-content:center;flex-shrink:0">
               <div style="font-family:'Bebas Neue';font-size:17px;color:#D1DCE8;letter-spacing:0.04em">RA</div>
             </div>
             <div>
-              <div style="font-family:'DM Mono',monospace;font-size:8px;color:#34D399;letter-spacing:0.1em;text-transform:uppercase">Speaker</div>
+              <div style="font-family:'DM Mono',monospace;font-size:16px;color:#34D399;letter-spacing:0.1em;text-transform:uppercase">Speaker</div>
               <div style="font-family:'Bebas Neue';font-size:19px;letter-spacing:0.04em;line-height:1.1;color:#F0F6FF">RHINO AUTOMATOR</div>
-              <div style="font-family:'Barlow Condensed',sans-serif;font-size:12px;color:#8B9EB8">Automation Consultant · MSP Strategist</div>
+              <div style="font-family:'Barlow Condensed',sans-serif;font-size:16px;color:#8B9EB8">Automation Consultant · MSP Strategist</div>
             </div>
           </div>
-          <div style="font-family:'Bebas Neue';font-size:15px;color:#34D399;letter-spacing:0.05em">BUILDING AUTOMATION MUSCLE</div>
-          <div style="font-family:'Bebas Neue';font-size:15px;color:#D1DCE8;letter-spacing:0.05em;margin-bottom:8px">WITHOUT A DEV TEAM</div>
-          <div style="font-family:'Barlow Condensed',sans-serif;font-size:12px;color:#8B9EB8;line-height:1.5">How non-technical people become meaningful contributors to your automation practice</div>
-          <div style="margin-top:10px;font-family:'DM Mono',monospace;font-size:8px;color:#243044">rhinoautomator.com</div>
+          <div style="font-family:'Bebas Neue';font-size:16px;color:#34D399;letter-spacing:0.05em">BUILDING AUTOMATION MUSCLE</div>
+          <div style="font-family:'Bebas Neue';font-size:16px;color:#D1DCE8;letter-spacing:0.05em;margin-bottom:8px">WITHOUT A DEV TEAM</div>
+          <div style="font-family:'Barlow Condensed',sans-serif;font-size:16px;color:#8B9EB8;line-height:1.5">How non-technical people become meaningful contributors to your automation practice</div>
+          <div style="margin-top:10px;font-family:'DM Mono',monospace;font-size:16px;color:#243044">rhinoautomator.com</div>
         </div>
       </div>
     </div>
 
     <!-- Code block -->
     <div style="background:#141B24;border:1px solid #243044;border-radius:10px;padding:18px">
-      <div style="font-family:'DM Mono',monospace;font-size:9px;color:#8B9EB8;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:14px">Code / Technical Context</div>
+      <div style="font-family:'DM Mono',monospace;font-size:16px;color:#8B9EB8;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:14px">Code / Technical Context</div>
       <div style="background:#0C1016;border-radius:6px;padding:16px;border:1px solid #243044;border-left:3px solid #3B82F6">
-        <div style="font-family:'DM Mono',monospace;font-size:13px;color:#8B9EB8;margin-bottom:4px">// Rhino Automator — Rewst Workflow</div>
-        <div style="font-family:'DM Mono',monospace;font-size:13px;color:#F0F6FF;margin-bottom:4px">workflow.<span style="color:#34D399">execute</span>(<span style="color:#D1DCE8">'onboard_user'</span>)</div>
-        <div style="font-family:'DM Mono',monospace;font-size:13px;color:#8B9EB8;margin-bottom:4px">trigger: <span style="color:#3B82F6">form_submitted</span></div>
-        <div style="font-family:'DM Mono',monospace;font-size:13px;color:#8B9EB8">status: <span style="color:#34D399">✓ success</span> · 142ms</div>
+        <div style="font-family:'DM Mono',monospace;font-size:16px;color:#8B9EB8;margin-bottom:4px">// Rhino Automator — Rewst Workflow</div>
+        <div style="font-family:'DM Mono',monospace;font-size:16px;color:#F0F6FF;margin-bottom:4px">workflow.<span style="color:#34D399">execute</span>(<span style="color:#D1DCE8">'onboard_user'</span>)</div>
+        <div style="font-family:'DM Mono',monospace;font-size:16px;color:#8B9EB8;margin-bottom:4px">trigger: <span style="color:#3B82F6">form_submitted</span></div>
+        <div style="font-family:'DM Mono',monospace;font-size:16px;color:#8B9EB8">status: <span style="color:#34D399">✓ success</span> · 142ms</div>
       </div>
     </div>
   </div>
@@ -425,90 +427,94 @@
   <!-- QUICK REF -->
   <div style="margin-bottom:48px">
     <div class="section-label">05 — Quick Reference</div>
-    <h2>AT A GLANCE</h2>
+    <h2 id="quick-ref">AT A GLANCE</h2>
 
     <div style="background:#141B24;border:1px solid #243044;border-radius:10px;padding:22px 24px">
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px">
         <div>
-          <div style="font-family:'DM Mono',monospace;font-size:9px;color:#34D399;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:10px">Colors</div>
+          <div style="font-family:'DM Mono',monospace;font-size:16px;color:#34D399;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:10px">Colors</div>
           <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:7px;cursor:pointer" onclick="copyHex('#3B82F6')" title="Copy #3B82F6">
-            <div style="display:flex;align-items:center;gap:7px"><div style="width:10px;height:10px;border-radius:2px;background:#3B82F6"></div><span style="font-size:12px;color:#8B9EB8">Cobalt (Primary)</span></div>
-            <span style="font-family:'DM Mono',monospace;font-size:10px;color:#3B82F6">#3B82F6</span>
+            <div style="display:flex;align-items:center;gap:7px"><div style="width:10px;height:10px;border-radius:2px;background:#3B82F6"></div><span style="font-size:16px;color:#8B9EB8">Cobalt (Primary)</span></div>
+            <span style="font-family:'DM Mono',monospace;font-size:16px;color:#3B82F6">#3B82F6</span>
           </div>
           <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:7px;cursor:pointer" onclick="copyHex('#D1DCE8')" title="Copy #D1DCE8">
-            <div style="display:flex;align-items:center;gap:7px"><div style="width:10px;height:10px;border-radius:2px;background:#D1DCE8"></div><span style="font-size:12px;color:#8B9EB8">Silver (Secondary)</span></div>
-            <span style="font-family:'DM Mono',monospace;font-size:10px;color:#3B82F6">#D1DCE8</span>
+            <div style="display:flex;align-items:center;gap:7px"><div style="width:10px;height:10px;border-radius:2px;background:#D1DCE8"></div><span style="font-size:16px;color:#8B9EB8">Silver (Secondary)</span></div>
+            <span style="font-family:'DM Mono',monospace;font-size:16px;color:#3B82F6">#D1DCE8</span>
           </div>
           <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:7px;cursor:pointer" onclick="copyHex('#34D399')" title="Copy #34D399">
-            <div style="display:flex;align-items:center;gap:7px"><div style="width:10px;height:10px;border-radius:2px;background:#34D399"></div><span style="font-size:12px;color:#8B9EB8">Emerald (Tertiary)</span></div>
-            <span style="font-family:'DM Mono',monospace;font-size:10px;color:#3B82F6">#34D399</span>
+            <div style="display:flex;align-items:center;gap:7px"><div style="width:10px;height:10px;border-radius:2px;background:#34D399"></div><span style="font-size:16px;color:#8B9EB8">Emerald (Tertiary)</span></div>
+            <span style="font-family:'DM Mono',monospace;font-size:16px;color:#3B82F6">#34D399</span>
           </div>
           <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:7px;cursor:pointer" onclick="copyHex('#0C1016')" title="Copy #0C1016">
-            <div style="display:flex;align-items:center;gap:7px"><div style="width:10px;height:10px;border-radius:2px;background:#0C1016;border:1px solid #243044"></div><span style="font-size:12px;color:#8B9EB8">Background</span></div>
-            <span style="font-family:'DM Mono',monospace;font-size:10px;color:#3B82F6">#0C1016</span>
+            <div style="display:flex;align-items:center;gap:7px"><div style="width:10px;height:10px;border-radius:2px;background:#0C1016;border:1px solid #243044"></div><span style="font-size:16px;color:#8B9EB8">Background</span></div>
+            <span style="font-family:'DM Mono',monospace;font-size:16px;color:#3B82F6">#0C1016</span>
           </div>
           <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:7px;cursor:pointer" onclick="copyHex('#141B24')" title="Copy #141B24">
-            <div style="display:flex;align-items:center;gap:7px"><div style="width:10px;height:10px;border-radius:2px;background:#141B24;border:1px solid #243044"></div><span style="font-size:12px;color:#8B9EB8">Surface</span></div>
-            <span style="font-family:'DM Mono',monospace;font-size:10px;color:#3B82F6">#141B24</span>
+            <div style="display:flex;align-items:center;gap:7px"><div style="width:10px;height:10px;border-radius:2px;background:#141B24;border:1px solid #243044"></div><span style="font-size:16px;color:#8B9EB8">Surface</span></div>
+            <span style="font-family:'DM Mono',monospace;font-size:16px;color:#3B82F6">#141B24</span>
           </div>
           <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:7px;cursor:pointer" onclick="copyHex('#F0F6FF')" title="Copy #F0F6FF">
-            <div style="display:flex;align-items:center;gap:7px"><div style="width:10px;height:10px;border-radius:2px;background:#F0F6FF"></div><span style="font-size:12px;color:#8B9EB8">Text</span></div>
-            <span style="font-family:'DM Mono',monospace;font-size:10px;color:#3B82F6">#F0F6FF</span>
+            <div style="display:flex;align-items:center;gap:7px"><div style="width:10px;height:10px;border-radius:2px;background:#F0F6FF"></div><span style="font-size:16px;color:#8B9EB8">Text</span></div>
+            <span style="font-family:'DM Mono',monospace;font-size:16px;color:#3B82F6">#F0F6FF</span>
           </div>
         </div>
         <div>
-          <div style="font-family:'DM Mono',monospace;font-size:9px;color:#34D399;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:10px">Typography</div>
+          <div style="font-family:'DM Mono',monospace;font-size:16px;color:#34D399;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:10px">Typography</div>
           <div style="margin-bottom:10px">
-            <div style="font-size:11px;color:#34D399;font-family:'DM Mono',monospace;letter-spacing:0.08em;margin-bottom:2px">Display</div>
-            <div style="font-size:13px;color:#F0F6FF;font-weight:600">Bebas Neue</div>
-            <div style="font-family:'DM Mono',monospace;font-size:10px;color:#8B9EB8">Regular 400</div>
+            <div style="font-size:16px;color:#34D399;font-family:'DM Mono',monospace;letter-spacing:0.08em;margin-bottom:2px">Display</div>
+            <div style="font-size:16px;color:#F0F6FF;font-weight:600">Bebas Neue</div>
+            <div style="font-family:'DM Mono',monospace;font-size:16px;color:#8B9EB8">Regular 400</div>
           </div>
           <div style="margin-bottom:10px">
-            <div style="font-size:11px;color:#34D399;font-family:'DM Mono',monospace;letter-spacing:0.08em;margin-bottom:2px">Body / UI</div>
-            <div style="font-size:13px;color:#F0F6FF;font-weight:600">Barlow Condensed</div>
-            <div style="font-family:'DM Mono',monospace;font-size:10px;color:#8B9EB8">400 / 600 / 700</div>
+            <div style="font-size:16px;color:#34D399;font-family:'DM Mono',monospace;letter-spacing:0.08em;margin-bottom:2px">Body / UI</div>
+            <div style="font-size:16px;color:#F0F6FF;font-weight:600">Barlow Condensed</div>
+            <div style="font-family:'DM Mono',monospace;font-size:16px;color:#8B9EB8">400 / 600 / 700</div>
           </div>
           <div style="margin-bottom:10px">
-            <div style="font-size:11px;color:#34D399;font-family:'DM Mono',monospace;letter-spacing:0.08em;margin-bottom:2px">Technical</div>
-            <div style="font-size:13px;color:#F0F6FF;font-weight:600">DM Mono</div>
-            <div style="font-family:'DM Mono',monospace;font-size:10px;color:#8B9EB8">Regular 400 / Medium 500</div>
+            <div style="font-size:16px;color:#34D399;font-family:'DM Mono',monospace;letter-spacing:0.08em;margin-bottom:2px">Technical</div>
+            <div style="font-size:16px;color:#F0F6FF;font-weight:600">DM Mono</div>
+            <div style="font-family:'DM Mono',monospace;font-size:16px;color:#8B9EB8">Regular 400 / Medium 500</div>
           </div>
         </div>
         <div>
-          <div style="font-family:'DM Mono',monospace;font-size:9px;color:#34D399;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:10px">Identity</div>
+          <div style="font-family:'DM Mono',monospace;font-size:16px;color:#34D399;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:10px">Identity</div>
           <div style="margin-bottom:7px">
-            <div style="font-family:'DM Mono',monospace;font-size:9px;color:#8B9EB8;letter-spacing:0.08em">Brand Name</div>
-            <div style="font-size:12px;color:#F0F6FF;margin-top:1px">Rhino Automator</div>
+            <div style="font-family:'DM Mono',monospace;font-size:16px;color:#8B9EB8;letter-spacing:0.08em">Brand Name</div>
+            <div style="font-size:16px;color:#F0F6FF;margin-top:1px">Rhino Automator</div>
           </div>
           <div style="margin-bottom:7px">
-            <div style="font-family:'DM Mono',monospace;font-size:9px;color:#8B9EB8;letter-spacing:0.08em">Domain</div>
-            <div style="font-size:12px;color:#F0F6FF;margin-top:1px">rhinoautomator.com</div>
+            <div style="font-family:'DM Mono',monospace;font-size:16px;color:#8B9EB8;letter-spacing:0.08em">Domain</div>
+            <div style="font-size:16px;color:#F0F6FF;margin-top:1px">rhinoautomator.com</div>
           </div>
           <div style="margin-bottom:7px">
-            <div style="font-family:'DM Mono',monospace;font-size:9px;color:#8B9EB8;letter-spacing:0.08em">Handle</div>
-            <div style="font-size:12px;color:#F0F6FF;margin-top:1px">@rhinoautomator</div>
+            <div style="font-family:'DM Mono',monospace;font-size:16px;color:#8B9EB8;letter-spacing:0.08em">Handle</div>
+            <div style="font-size:16px;color:#F0F6FF;margin-top:1px">@rhinoautomator</div>
           </div>
           <div style="margin-bottom:7px">
-            <div style="font-family:'DM Mono',monospace;font-size:9px;color:#8B9EB8;letter-spacing:0.08em">Pillars</div>
-            <div style="font-size:12px;color:#F0F6FF;margin-top:1px">Automation Enthusiast · Community Engagement & Education</div>
+            <div style="font-family:'DM Mono',monospace;font-size:16px;color:#8B9EB8;letter-spacing:0.08em">Pillars</div>
+            <div style="font-size:16px;color:#F0F6FF;margin-top:1px">Automation Enthusiast · Community Engagement & Education</div>
           </div>
           <div style="margin-bottom:7px">
-            <div style="font-family:'DM Mono',monospace;font-size:9px;color:#8B9EB8;letter-spacing:0.08em">Tone</div>
-            <div style="font-size:12px;color:#F0F6FF;margin-top:1px">Direct, practical, builder</div>
+            <div style="font-family:'DM Mono',monospace;font-size:16px;color:#8B9EB8;letter-spacing:0.08em">Tone</div>
+            <div style="font-size:16px;color:#F0F6FF;margin-top:1px">Direct, practical, builder</div>
           </div>
           <div style="margin-bottom:7px">
-            <div style="font-family:'DM Mono',monospace;font-size:9px;color:#8B9EB8;letter-spacing:0.08em">Avoid</div>
-            <div style="font-size:12px;color:#F0F6FF;margin-top:1px">Orange tones, navy BG, Gilroy font</div>
+            <div style="font-family:'DM Mono',monospace;font-size:16px;color:#8B9EB8;letter-spacing:0.08em">Avoid</div>
+            <div style="font-size:16px;color:#F0F6FF;margin-top:1px">Orange tones, navy BG, Gilroy font</div>
           </div>
         </div>
       </div>
     </div>
   </div>
 
+</div><!-- end main column -->
+<div id="page-nav"></div>
+</div><!-- end page-nav-wrapper -->
+
   <!-- Footer -->
   <div style="border-top:1px solid #243044;padding-top:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
     <div style="font-family:'Bebas Neue';font-size:16px;letter-spacing:0.06em;color:#243044">RHINO AUTOMATOR · BRAND GUIDELINES V1.0</div>
-    <div style="font-family:'DM Mono',monospace;font-size:9px;color:#243044">rhinoautomator.com · Click any hex to copy</div>
+    <div style="font-family:'DM Mono',monospace;font-size:16px;color:#243044">rhinoautomator.com · Click any hex to copy</div>
   </div>
 
 </div>

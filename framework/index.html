@@ -28,20 +28,20 @@
       max-width: 1100px; margin: 0 auto;
     }
     .site-nav .logo {
-      font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 0.07em;
+      font-family: 'Bebas Neue', sans-serif; font-size: 26px; letter-spacing: 0.07em;
       color: var(--text); text-decoration: none;
     }
     .site-nav .logo span { color: var(--silver); }
     .site-nav .links { display: flex; gap: 24px; align-items: center; }
     .site-nav .links a {
-      font-weight: 600; font-size: 13px; letter-spacing: 0.09em; text-transform: uppercase;
+      font-weight: 600; font-size: 15px; letter-spacing: 0.09em; text-transform: uppercase;
       color: var(--muted); transition: color 0.15s;
     }
     .site-nav .links a:hover { color: var(--text); }
     .site-nav .links a.active { color: var(--emerald); }
     .nav-dropdown { position: relative; }
     .nav-dropdown > a { display: flex; align-items: center; gap: 4px; }
-    .nav-dropdown > a .dd-arrow { font-size: 0.5rem; transition: transform 0.2s; }
+    .nav-dropdown > a .dd-arrow { font-size: 0.6rem; transition: transform 0.2s; }
     .nav-dropdown.open > a .dd-arrow { transform: rotate(180deg); }
     .nav-dropdown-menu {
       display: none; position: absolute; top: calc(100% + 8px); left: 0; z-index: 200;
@@ -50,65 +50,84 @@
     }
     .nav-dropdown.open .nav-dropdown-menu { display: block; }
     .nav-dropdown-menu a {
-      display: block; padding: 10px 18px; font-weight: 600; font-size: 13px;
+      display: block; padding: 10px 18px; font-weight: 600; font-size: 15px;
       letter-spacing: 0.06em; color: var(--muted); transition: all 0.12s; text-transform: uppercase;
     }
     .nav-dropdown-menu a:hover { background: rgba(59,130,246,0.08); color: var(--emerald); }
 
     /* Content */
-    .content { max-width: 800px; margin: 0 auto; padding: 48px 32px 64px; }
+    .content { max-width: 1100px; margin: 0 auto; padding: 48px 32px 64px; }
     .content h1 {
-      font-family: 'Bebas Neue', sans-serif; font-size: 48px; letter-spacing: 0.04em;
+      font-family: 'Bebas Neue', sans-serif; font-size: 56px; letter-spacing: 0.04em;
       line-height: 0.95; color: var(--text); margin-bottom: 8px;
     }
     .content h1 .silver { color: var(--silver); }
     .content .subtitle {
-      font-family: 'DM Mono', monospace; font-size: 11px; color: var(--emerald);
+      font-family: 'DM Mono', monospace; font-size: 13px; color: var(--emerald);
       letter-spacing: 0.14em; margin-bottom: 32px;
     }
     .content h2 {
-      font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 0.05em;
+      font-family: 'Bebas Neue', sans-serif; font-size: 32px; letter-spacing: 0.05em;
       color: var(--text); margin: 36px 0 12px; padding-bottom: 6px;
       border-bottom: 2px solid var(--cobalt);
     }
     .content h3 {
-      font-family: 'Bebas Neue', sans-serif; font-size: 20px; letter-spacing: 0.04em;
+      font-family: 'Bebas Neue', sans-serif; font-size: 24px; letter-spacing: 0.04em;
       color: var(--text); margin: 24px 0 8px;
     }
-    .content p { font-size: 15px; color: var(--muted); line-height: 1.65; margin-bottom: 14px; }
+    .content p { font-size: 16px; color: var(--muted); line-height: 1.65; margin-bottom: 14px; }
     .content strong { color: var(--text); }
-    .content table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 14px 0 24px; }
+    .content table { width: 100%; border-collapse: collapse; font-size: 16px; margin: 14px 0 24px; }
     .content th {
       background: rgba(59,130,246,0.08); color: var(--cobalt); padding: 8px 12px; text-align: left;
-      font-family: 'DM Mono', monospace; font-weight: 500; font-size: 11px;
+      font-family: 'DM Mono', monospace; font-weight: 500; font-size: 13px;
       letter-spacing: 0.08em; text-transform: uppercase;
     }
     .content td { padding: 8px 12px; border-bottom: 1px solid var(--border); color: var(--muted); }
     .content tr:last-child td { border-bottom: none; }
 
-    /* Archetype cards */
+    /* Archetype cards — collapsible */
     .arch-card {
       background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
-      padding: 20px 22px; margin-bottom: 14px;
+      margin-bottom: 14px; overflow: hidden; transition: border-color 0.2s;
     }
-    .arch-card-header { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+    .arch-card:hover { border-color: rgba(59,130,246,0.35); }
+    .arch-card-trigger {
+      padding: 20px 22px; cursor: pointer; display: flex; align-items: center;
+      justify-content: space-between; gap: 12px; user-select: none;
+    }
+    .arch-card-trigger:hover { background: rgba(59,130,246,0.04); }
+    .arch-card-left { display: flex; align-items: center; gap: 12px; flex: 1; min-width: 0; }
     .arch-num {
-      width: 32px; height: 32px; border-radius: 50%; background: var(--cobalt); color: #fff;
+      width: 36px; height: 36px; border-radius: 50%; background: var(--cobalt); color: #fff;
       display: flex; align-items: center; justify-content: center;
-      font-family: 'DM Mono', monospace; font-size: 14px; font-weight: 500; flex-shrink: 0;
+      font-family: 'DM Mono', monospace; font-size: 16px; font-weight: 500; flex-shrink: 0;
     }
-    .arch-card-header h3 { margin: 0; font-size: 22px; }
-    .arch-card-desc { font-size: 14px; color: var(--muted); margin-bottom: 12px; line-height: 1.5; }
-    .sub-list { display: flex; flex-direction: column; gap: 6px; }
+    .arch-title-wrap { flex: 1; min-width: 0; }
+    .arch-title-wrap h3 { margin: 0; font-size: 26px; }
+    .arch-card-desc { font-size: 16px; color: var(--muted); line-height: 1.5; margin-top: 2px; }
+    .arch-chevron {
+      font-size: 20px; color: var(--muted); transition: transform 0.25s; flex-shrink: 0;
+    }
+    .arch-card.open .arch-chevron { transform: rotate(180deg); }
+    .arch-card.open .arch-chevron { color: var(--cobalt); }
+    .arch-body {
+      max-height: 0; overflow: hidden; transition: max-height 0.35s ease;
+    }
+    .arch-body-inner { padding: 0 22px 22px; }
+    .arch-intro { font-size: 16px; color: var(--muted); line-height: 1.65; margin-bottom: 16px; }
+    .sub-list { display: flex; flex-direction: column; gap: 10px; }
     .sub-item {
-      padding: 8px 12px; background: var(--surface-alt); border-radius: 6px;
+      padding: 14px 16px; background: var(--surface-alt); border-radius: 8px;
       border-left: 3px solid var(--cobalt);
     }
-    .sub-name { font-weight: 700; font-size: 14px; color: var(--text); }
-    .sub-desc { font-size: 13px; color: var(--muted); margin-top: 2px; }
+    .sub-name { font-weight: 700; font-size: 17px; color: var(--text); margin-bottom: 6px; }
+    .sub-desc { font-size: 15px; color: var(--muted); line-height: 1.55; }
+    .sub-desc ul { margin: 4px 0 0 16px; list-style: disc; }
+    .sub-desc ul li { margin-bottom: 3px; }
     .sub-ref {
-      font-family: 'DM Mono', monospace; font-size: 11px; color: #8B9EB8;
-      margin-top: 2px; font-style: italic;
+      font-family: 'DM Mono', monospace; font-size: 13px; color: #8B9EB8;
+      margin-top: 8px; font-style: italic; line-height: 1.4;
     }
 
     /* CTA */
@@ -119,7 +138,7 @@
     .cta h2 { border: none; margin: 0 0 8px; }
     .cta p { margin-bottom: 20px; }
     .btn {
-      font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 14px;
+      font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 16px;
       letter-spacing: 0.1em; text-transform: uppercase; padding: 12px 28px;
       border-radius: 4px; display: inline-block; background: var(--cobalt); color: #fff;
       transition: background 0.15s;
@@ -133,14 +152,14 @@
       display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;
     }
     .site-footer .brand {
-      font-family: 'Bebas Neue', sans-serif; font-size: 16px; letter-spacing: 0.06em; color: var(--border);
+      font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 0.06em; color: var(--border);
     }
     .site-footer .meta {
-      font-family: 'DM Mono', monospace; font-size: 9px; color: var(--border);
+      font-family: 'DM Mono', monospace; font-size: 11px; color: var(--border);
     }
 
     @media (max-width: 600px) {
-      .content h1 { font-size: 36px; }
+      .content h1 { font-size: 42px; }
       .content { padding: 32px 20px 48px; }
     }
   </style>
@@ -151,150 +170,538 @@
   <div id="site-nav" data-base=".." data-active="framework-about"></div>
 
   <div class="content">
+   <div class="page-nav-wrapper">
+    <div>
     <div class="subtitle">// THE ARCHETYPES OF AUTOMATION FRAMEWORK</div>
     <h1>8 DIMENSIONS OF<br/><span class="silver">AUTOMATION CAPABILITY</span></h1>
     <p>This framework helps teams identify their collective strengths and gaps across <strong>8 dimensions of automation capability</strong> &mdash; regardless of industry, size, or technical maturity.</p>
     <p>The core insight: the biggest barrier to automation is not technical skill &mdash; it is process thinking, team composition, and role awareness. No single person covers all eight archetypes. Teams assess collectively and use the gap analysis to guide hiring, training, or partnership decisions.</p>
     <p>Like a sports roster, each team member brings a unique combination of strengths. The radar chart visualization makes it easy to see where coverage is strong and where critical gaps exist. Two people scoring 9 in Building but zero in Quality is a risk profile &mdash; and one this framework is designed to surface.</p>
 
-    <h2>THE 8 ARCHETYPES</h2>
+    <h2 id="archetypes">THE 8 ARCHETYPES</h2>
+    <p>Click any archetype to explore its sub-roles, descriptions, and the established frameworks behind each one.</p>
 
-    <div class="arch-card">
-      <div class="arch-card-header">
-        <div class="arch-num">1</div>
-        <h3>PROCESS &amp; KNOWLEDGE HOLDING</h3>
+    <!-- 1. Process & Knowledge Holding -->
+    <div class="arch-card" id="arch-1" data-nav-label="1. Process & Knowledge" data-nav-indent>
+      <div class="arch-card-trigger" onclick="toggleArch('arch-1')">
+        <div class="arch-card-left">
+          <div class="arch-num">1</div>
+          <div class="arch-title-wrap">
+            <h3>PROCESS &amp; KNOWLEDGE HOLDING</h3>
+            <div class="arch-card-desc">Understanding, retaining, and communicating how work actually happens</div>
+          </div>
+        </div>
+        <div class="arch-chevron">&#9660;</div>
       </div>
-      <div class="arch-card-desc">Understanding, retaining, and communicating how work actually happens</div>
-      <div class="sub-list">
-        <div class="sub-item"><div class="sub-name">The Tribal Knowledge Keeper</div><div class="sub-desc">Holds undocumented real process knowledge</div><div class="sub-ref">Nonaka &amp; Takeuchi</div></div>
-        <div class="sub-item"><div class="sub-name">The Exception Whisperer</div><div class="sub-desc">Knows every edge case</div><div class="sub-ref">FMEA; Agile edge case testing</div></div>
-        <div class="sub-item"><div class="sub-name">The Process Archaeologist</div><div class="sub-desc">Understands why processes exist</div><div class="sub-ref">Root Cause Analysis; Toyota 5 Whys</div></div>
-        <div class="sub-item"><div class="sub-name">The Documenter</div><div class="sub-desc">Translates processes into structured written steps</div><div class="sub-ref">BPM standards; Systemology</div></div>
+      <div class="arch-body">
+        <div class="arch-body-inner">
+          <div class="arch-intro">Every automation starts with understanding the process it replaces. This archetype cluster covers the people who hold that knowledge &mdash; often undocumented, frequently locked in one person&rsquo;s head, and always more complex than it appears on paper. Without these roles, teams automate what they <em>think</em> the process is, not what it <em>actually</em> is.</div>
+          <div class="sub-list">
+            <div class="sub-item">
+              <div class="sub-name">The Tribal Knowledge Keeper</div>
+              <div class="sub-desc">
+                <ul>
+                  <li>Holds the undocumented &ldquo;real&rdquo; version of how things work</li>
+                  <li>Critical to interview before building anything</li>
+                  <li>Often resistant to change but invaluable for accuracy</li>
+                </ul>
+              </div>
+              <div class="sub-ref">Nonaka &amp; Takeuchi, <em>The Knowledge-Creating Company</em> &mdash; tacit vs. explicit knowledge</div>
+            </div>
+            <div class="sub-item">
+              <div class="sub-name">The Exception Whisperer</div>
+              <div class="sub-desc">
+                <ul>
+                  <li>Knows every edge case and every &ldquo;but sometimes it works differently because&hellip;&rdquo; scenario</li>
+                  <li>Will immediately break your demo by thinking of the one situation you didn&rsquo;t plan for</li>
+                  <li>Essential for QA</li>
+                </ul>
+              </div>
+              <div class="sub-ref">Failure Mode and Effects Analysis (FMEA); Agile edge case testing practices</div>
+            </div>
+            <div class="sub-item">
+              <div class="sub-name">The Process Archaeologist</div>
+              <div class="sub-desc">
+                <ul>
+                  <li>Can trace back why a process exists the way it does</li>
+                  <li>Understands the organizational history behind current workflows</li>
+                  <li>Helps the team avoid automating something that should just be eliminated</li>
+                </ul>
+              </div>
+              <div class="sub-ref">Root Cause Analysis (RCA); &ldquo;5 Whys&rdquo; methodology (Toyota Production System)</div>
+            </div>
+            <div class="sub-item">
+              <div class="sub-name">The Documenter</div>
+              <div class="sub-desc">
+                <ul>
+                  <li>Naturally inclined to write things down</li>
+                  <li>Comfortable translating verbal or observed processes into structured written steps</li>
+                  <li>Serves as connective tissue between all other archetypes</li>
+                </ul>
+              </div>
+              <div class="sub-ref">Business Process Management (BPM) documentation standards; Systemology (Jenyns)</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
-    <div class="arch-card">
-      <div class="arch-card-header">
-        <div class="arch-num">2</div>
-        <h3>PROBLEM DEFINITION</h3>
+    <!-- 2. Problem Definition -->
+    <div class="arch-card" id="arch-2" data-nav-label="2. Problem Definition" data-nav-indent>
+      <div class="arch-card-trigger" onclick="toggleArch('arch-2')">
+        <div class="arch-card-left">
+          <div class="arch-num">2</div>
+          <div class="arch-title-wrap">
+            <h3>PROBLEM DEFINITION</h3>
+            <div class="arch-card-desc">Identifying, articulating, and prioritizing what is worth automating</div>
+          </div>
+        </div>
+        <div class="arch-chevron">&#9660;</div>
       </div>
-      <div class="arch-card-desc">Identifying, articulating, and prioritizing what is worth automating</div>
-      <div class="sub-list">
-        <div class="sub-item"><div class="sub-name">The Friction Finder</div><div class="sub-desc">Identifies where work is slow or painful</div><div class="sub-ref">Lean Muda; Making Work Visible</div></div>
-        <div class="sub-item"><div class="sub-name">The Bottleneck Spotter</div><div class="sub-desc">Sees constraints in flow</div><div class="sub-ref">Theory of Constraints</div></div>
-        <div class="sub-item"><div class="sub-name">The Scope Realist</div><div class="sub-desc">Prevents over-engineering</div><div class="sub-ref">Agile MVP; Walking Skeleton</div></div>
-        <div class="sub-item"><div class="sub-name">The Problem Reframer</div><div class="sub-desc">Challenges whether the stated problem is the real problem</div><div class="sub-ref">Design Thinking; Jobs To Be Done</div></div>
-      </div>
-    </div>
-
-    <div class="arch-card">
-      <div class="arch-card-header">
-        <div class="arch-num">3</div>
-        <h3>DESIGN &amp; LOGIC THINKING</h3>
-      </div>
-      <div class="arch-card-desc">Translating real-world processes into explicit logic before touching any tool</div>
-      <div class="sub-list">
-        <div class="sub-item"><div class="sub-name">The Decision Tree Builder</div><div class="sub-desc">Thinks in if/then/else without coding</div><div class="sub-ref">Decision Theory; BPMN</div></div>
-        <div class="sub-item"><div class="sub-name">The Data Modeler</div><div class="sub-desc">Thinks about data flowing through a process</div><div class="sub-ref">Data Flow Diagrams; ER modeling</div></div>
-        <div class="sub-item"><div class="sub-name">The Workflow Choreographer</div><div class="sub-desc">Thinks in sequences and dependencies</div><div class="sub-ref">Critical Path Method; PMBOK</div></div>
-        <div class="sub-item"><div class="sub-name">The Edge Case Hunter</div><div class="sub-desc">Proactively hunts failure modes</div><div class="sub-ref">FMEA; Pre-Mortem analysis</div></div>
-        <div class="sub-item"><div class="sub-name">The Simplicity Advocate</div><div class="sub-desc">Enforces maintainability</div><div class="sub-ref">KISS Principle; Lean</div></div>
-      </div>
-    </div>
-
-    <div class="arch-card">
-      <div class="arch-card-header">
-        <div class="arch-num">4</div>
-        <h3>COMMUNICATION &amp; TRANSLATION</h3>
-      </div>
-      <div class="arch-card-desc">Bridging the gap between process owners and builders</div>
-      <div class="sub-list">
-        <div class="sub-item"><div class="sub-name">The Bridge Builder</div><div class="sub-desc">Translates between technical and non-technical</div><div class="sub-ref">Team Topologies; T-shaped skills</div></div>
-        <div class="sub-item"><div class="sub-name">The Stakeholder Whisperer</div><div class="sub-desc">Manages the political side of automation</div><div class="sub-ref">Kotter's 8-Step; Prosci ADKAR</div></div>
-        <div class="sub-item"><div class="sub-name">The Requirements Articulator</div><div class="sub-desc">Converts vague requests into testable requirements</div><div class="sub-ref">Agile User Stories; INVEST</div></div>
-        <div class="sub-item"><div class="sub-name">The Trainer</div><div class="sub-desc">Ensures work outlives its creator</div><div class="sub-ref">Kirkpatrick Model</div></div>
-      </div>
-    </div>
-
-    <div class="arch-card">
-      <div class="arch-card-header">
-        <div class="arch-num">5</div>
-        <h3>BUILDING &amp; IMPLEMENTATION</h3>
-      </div>
-      <div class="arch-card-desc">Constructing automations using tools, AI, or both</div>
-      <div class="sub-list">
-        <div class="sub-item"><div class="sub-name">The Rapid Prototyper</div><div class="sub-desc">Gets something working fast to test assumptions</div><div class="sub-ref">Lean Startup; Fail Fast</div></div>
-        <div class="sub-item"><div class="sub-name">The Finisher</div><div class="sub-desc">Completes the last 20%</div><div class="sub-ref">Pareto Principle; Agile Definition of Done</div></div>
-        <div class="sub-item"><div class="sub-name">The Tool Native</div><div class="sub-desc">Picks up new platforms intuitively</div><div class="sub-ref">Diffusion of Innovations</div></div>
-        <div class="sub-item"><div class="sub-name">The AI Whisperer</div><div class="sub-desc">Uses AI as a design and building partner</div><div class="sub-ref">Co-Intelligence; Prompt Engineering</div></div>
-        <div class="sub-item"><div class="sub-name">The Integration Thinker</div><div class="sub-desc">Thinks across system boundaries</div><div class="sub-ref">Zachman Framework; API-first</div></div>
-      </div>
-    </div>
-
-    <div class="arch-card">
-      <div class="arch-card-header">
-        <div class="arch-num">6</div>
-        <h3>QUALITY &amp; OVERSIGHT</h3>
-      </div>
-      <div class="arch-card-desc">Verifying automations work correctly, including failure scenarios</div>
-      <div class="sub-list">
-        <div class="sub-item"><div class="sub-name">The QA Mindset</div><div class="sub-desc">Tests with intent to break</div><div class="sub-ref">Software Testing; TDD</div></div>
-        <div class="sub-item"><div class="sub-name">The Auditor</div><div class="sub-desc">Builds in logging, monitoring, checkpoints</div><div class="sub-ref">COBIT; SOC 2; Observability</div></div>
-        <div class="sub-item"><div class="sub-name">The Risk Modeler</div><div class="sub-desc">Evaluates failure impact before deploying</div><div class="sub-ref">Risk Matrix; FMEA; ISO 31000</div></div>
+      <div class="arch-body">
+        <div class="arch-body-inner">
+          <div class="arch-intro">Before anyone touches a tool, someone needs to define the problem clearly. These sub-archetypes focus on identifying friction, spotting bottlenecks, keeping scope realistic, and &mdash; critically &mdash; questioning whether the stated problem is even the real one. Skipping this step is the fastest path to building the wrong thing.</div>
+          <div class="sub-list">
+            <div class="sub-item">
+              <div class="sub-name">The Friction Finder</div>
+              <div class="sub-desc">
+                <ul>
+                  <li>Acutely aware of where work feels slow, annoying, or repetitive</li>
+                  <li>Often the one who initiates the &ldquo;we should automate this&rdquo; conversation</li>
+                  <li>May not know <em>how</em> but is excellent at identifying <em>what</em></li>
+                </ul>
+              </div>
+              <div class="sub-ref">Lean Manufacturing &ldquo;waste&rdquo; identification (Muda); Making Work Visible (DeGrandis)</div>
+            </div>
+            <div class="sub-item">
+              <div class="sub-name">The Bottleneck Spotter</div>
+              <div class="sub-desc">
+                <ul>
+                  <li>Thinks in flow and throughput</li>
+                  <li>Can identify where work piles up or waits</li>
+                  <li>Reads a process map and immediately sees the constraint</li>
+                </ul>
+              </div>
+              <div class="sub-ref">Theory of Constraints (Goldratt, <em>The Goal</em>); Drum-Buffer-Rope scheduling</div>
+            </div>
+            <div class="sub-item">
+              <div class="sub-name">The Scope Realist</div>
+              <div class="sub-desc">
+                <ul>
+                  <li>Keeps the team from boiling the ocean</li>
+                  <li>Asks &ldquo;what&rsquo;s the smallest version of this that still solves the problem?&rdquo;</li>
+                  <li>Prevents over-engineering</li>
+                </ul>
+              </div>
+              <div class="sub-ref">Agile/Scrum MVP concept; &ldquo;Walking Skeleton&rdquo; pattern in software design</div>
+            </div>
+            <div class="sub-item">
+              <div class="sub-name">The Problem Reframer</div>
+              <div class="sub-desc">
+                <ul>
+                  <li>Challenges whether the stated problem is the actual problem</li>
+                  <li>Asks &ldquo;why are we doing this at all?&rdquo; before asking how to automate it</li>
+                  <li>Saves enormous rework</li>
+                </ul>
+              </div>
+              <div class="sub-ref">Design Thinking (Stanford d.school / IDEO) &ldquo;reframe the problem&rdquo; principle; Jobs To Be Done theory (Christensen)</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
-    <div class="arch-card">
-      <div class="arch-card-header">
-        <div class="arch-num">7</div>
-        <h3>HUMAN &amp; ORGANIZATIONAL AWARENESS</h3>
+    <!-- 3. Design & Logic Thinking -->
+    <div class="arch-card" id="arch-3" data-nav-label="3. Design & Logic" data-nav-indent>
+      <div class="arch-card-trigger" onclick="toggleArch('arch-3')">
+        <div class="arch-card-left">
+          <div class="arch-num">3</div>
+          <div class="arch-title-wrap">
+            <h3>DESIGN &amp; LOGIC THINKING</h3>
+            <div class="arch-card-desc">Translating real-world processes into explicit logic before touching any tool</div>
+          </div>
+        </div>
+        <div class="arch-chevron">&#9660;</div>
       </div>
-      <div class="arch-card-desc">Managing adoption, resistance, ownership, and compliance</div>
-      <div class="sub-list">
-        <div class="sub-item"><div class="sub-name">The Change Champion</div><div class="sub-desc">Drives adoption</div><div class="sub-ref">Kotter; Prosci ADKAR</div></div>
-        <div class="sub-item"><div class="sub-name">The Skeptic</div><div class="sub-desc">Healthy devil's advocate</div><div class="sub-ref">Red Team/Blue Team; Pre-Mortem</div></div>
-        <div class="sub-item"><div class="sub-name">The Reluctant Participant</div><div class="sub-desc">Represents the average user; their confusion is signal</div><div class="sub-ref">Rogers Late Majority; UAT</div></div>
-        <div class="sub-item"><div class="sub-name">The Compliance Voice</div><div class="sub-desc">Asks whether this is allowed</div><div class="sub-ref">GDPR/HIPAA/SOC 2; Privacy by Design</div></div>
-        <div class="sub-item"><div class="sub-name">The Ownership Taker</div><div class="sub-desc">Maintains automations post-launch</div><div class="sub-ref">RACI; DevOps You Build It You Run It</div></div>
+      <div class="arch-body">
+        <div class="arch-body-inner">
+          <div class="arch-intro">This is where process knowledge becomes automation logic. These sub-archetypes think in structures &mdash; conditions, sequences, data flows, and failure modes &mdash; without necessarily writing code. They turn vague verbal descriptions into explicit, testable logic that a builder can implement. This is the bridge between &ldquo;we know how it works&rdquo; and &ldquo;we can automate it.&rdquo;</div>
+          <div class="sub-list">
+            <div class="sub-item">
+              <div class="sub-name">The Decision Tree Builder</div>
+              <div class="sub-desc">
+                <ul>
+                  <li>Naturally thinks in if/then/else structures</li>
+                  <li>Can take a vague verbal description of a process and map it to explicit conditional logic without needing to code</li>
+                </ul>
+              </div>
+              <div class="sub-ref">Decision Theory; Business Process Model and Notation (BPMN) standards</div>
+            </div>
+            <div class="sub-item">
+              <div class="sub-name">The Data Modeler</div>
+              <div class="sub-desc">
+                <ul>
+                  <li>Thinks about what information flows through a process &mdash; what it looks like coming in and what it needs to look like going out</li>
+                  <li>Cares about field naming and consistency across systems</li>
+                </ul>
+              </div>
+              <div class="sub-ref">Data Flow Diagrams (DFD); Entity-Relationship modeling; &ldquo;Garbage In, Garbage Out&rdquo; principle</div>
+            </div>
+            <div class="sub-item">
+              <div class="sub-name">The Workflow Choreographer</div>
+              <div class="sub-desc">
+                <ul>
+                  <li>Sees automation as a sequence of steps with dependencies</li>
+                  <li>Naturally thinks about order of operations, parallel vs. sequential work, and timing</li>
+                </ul>
+              </div>
+              <div class="sub-ref">Critical Path Method (CPM); PERT charts; Project Management Body of Knowledge (PMBOK)</div>
+            </div>
+            <div class="sub-item">
+              <div class="sub-name">The Edge Case Hunter</div>
+              <div class="sub-desc">
+                <ul>
+                  <li>Systematically asks &ldquo;what could go wrong?&rdquo; at every step before building rather than after</li>
+                  <li>Designs for resilience proactively</li>
+                </ul>
+              </div>
+              <div class="sub-ref">FMEA (Failure Mode and Effects Analysis); Defensive Programming; Pre-Mortem analysis (Gary Klein)</div>
+            </div>
+            <div class="sub-item">
+              <div class="sub-name">The Simplicity Advocate</div>
+              <div class="sub-desc">
+                <ul>
+                  <li>Allergic to complexity</li>
+                  <li>Always asking &ldquo;can we do this with fewer steps?&rdquo;</li>
+                  <li>Ensures maintainability over time</li>
+                </ul>
+              </div>
+              <div class="sub-ref">KISS Principle (&ldquo;Keep It Simple, Stupid&rdquo;) &mdash; US Navy design doctrine; Occam&rsquo;s Razor; Lean &ldquo;eliminate waste&rdquo; philosophy</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
-    <div class="arch-card">
-      <div class="arch-card-header">
-        <div class="arch-num">8</div>
-        <h3>STRATEGIC &amp; VISION THINKING</h3>
+    <!-- 4. Communication & Translation -->
+    <div class="arch-card" id="arch-4" data-nav-label="4. Communication" data-nav-indent>
+      <div class="arch-card-trigger" onclick="toggleArch('arch-4')">
+        <div class="arch-card-left">
+          <div class="arch-num">4</div>
+          <div class="arch-title-wrap">
+            <h3>COMMUNICATION &amp; TRANSLATION</h3>
+            <div class="arch-card-desc">Bridging the gap between process owners and builders</div>
+          </div>
+        </div>
+        <div class="arch-chevron">&#9660;</div>
       </div>
-      <div class="arch-card-desc">Connecting automation work to measurable business outcomes</div>
-      <div class="sub-list">
-        <div class="sub-item"><div class="sub-name">The ROI Tracker</div><div class="sub-desc">Measures impact</div><div class="sub-ref">OKR Framework; Lean ROI</div></div>
-        <div class="sub-item"><div class="sub-name">The Automation Evangelist</div><div class="sub-desc">Drives organizational will</div><div class="sub-ref">Diffusion of Innovations</div></div>
-        <div class="sub-item"><div class="sub-name">The Systems Thinker</div><div class="sub-desc">Sees the larger connected whole</div><div class="sub-ref">Thinking in Systems; Cynefin</div></div>
+      <div class="arch-body">
+        <div class="arch-body-inner">
+          <div class="arch-intro">Automation projects fail politically as often as they fail technically. This cluster covers the people who translate between worlds &mdash; turning business language into technical requirements, managing stakeholder expectations, and making sure the work outlives its creator through training and documentation.</div>
+          <div class="sub-list">
+            <div class="sub-item">
+              <div class="sub-name">The Bridge Builder</div>
+              <div class="sub-desc">
+                <ul>
+                  <li>Translates between technical and non-technical team members</li>
+                  <li>Can explain a workflow to a developer and then explain the same thing in plain English to a business owner</li>
+                </ul>
+              </div>
+              <div class="sub-ref">Team Topologies (Skelton &amp; Pais) &ldquo;enabling team&rdquo; concept; T-shaped skills model</div>
+            </div>
+            <div class="sub-item">
+              <div class="sub-name">The Stakeholder Whisperer</div>
+              <div class="sub-desc">
+                <ul>
+                  <li>Understands that automation projects fail politically as often as technically</li>
+                  <li>Manages expectations and keeps affected parties from becoming the automation&rsquo;s enemies</li>
+                </ul>
+              </div>
+              <div class="sub-ref">Kotter&rsquo;s 8-Step Change Model; Prosci ADKAR Model (Awareness, Desire, Knowledge, Ability, Reinforcement)</div>
+            </div>
+            <div class="sub-item">
+              <div class="sub-name">The Requirements Articulator</div>
+              <div class="sub-desc">
+                <ul>
+                  <li>Converts vague requests (&ldquo;make this easier&rdquo;) into specific, testable requirements</li>
+                  <li>Knows how to ask the right clarifying questions</li>
+                </ul>
+              </div>
+              <div class="sub-ref">Agile User Story format (&ldquo;As a [user], I want [action] so that [outcome]&rdquo;); INVEST criteria for requirements</div>
+            </div>
+            <div class="sub-item">
+              <div class="sub-name">The Trainer</div>
+              <div class="sub-desc">
+                <ul>
+                  <li>Not just able to use the automation once built, but capable of explaining it to others, writing the how-to, and onboarding new team members</li>
+                  <li>Ensures the work outlives its creator</li>
+                </ul>
+              </div>
+              <div class="sub-ref">Kirkpatrick Training Evaluation Model; &ldquo;See One, Do One, Teach One&rdquo; medical education framework</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
-    <h2>SCORING BANDS</h2>
-    <p>Each archetype is scored on a 0&ndash;10 scale. Use these bands to calibrate your assessment:</p>
-    <table>
-      <tr><th>Score</th><th>Meaning</th></tr>
-      <tr><td>0&ndash;2</td><td>No demonstrated capability in this area</td></tr>
-      <tr><td>3&ndash;4</td><td>Emerging &mdash; shows instinct but no consistent, structured practice</td></tr>
-      <tr><td>5&ndash;6</td><td>Functional &mdash; can contribute meaningfully, but with notable gaps</td></tr>
-      <tr><td>7&ndash;8</td><td>Strong &mdash; reliable and practiced; others lean on them here</td></tr>
-      <tr><td>9&ndash;10</td><td>Exceptional &mdash; a defining strength; sets the standard</td></tr>
-    </table>
+    <!-- 5. Building & Implementation -->
+    <div class="arch-card" id="arch-5" data-nav-label="5. Building" data-nav-indent>
+      <div class="arch-card-trigger" onclick="toggleArch('arch-5')">
+        <div class="arch-card-left">
+          <div class="arch-num">5</div>
+          <div class="arch-title-wrap">
+            <h3>BUILDING &amp; IMPLEMENTATION</h3>
+            <div class="arch-card-desc">Constructing automations using tools, AI, or both</div>
+          </div>
+        </div>
+        <div class="arch-chevron">&#9660;</div>
+      </div>
+      <div class="arch-body">
+        <div class="arch-body-inner">
+          <div class="arch-intro">This is where the actual construction happens. But &ldquo;building&rdquo; in automation is broader than just coding &mdash; it includes rapid prototyping to test ideas, finishing the unglamorous last 20%, picking up new tools intuitively, leveraging AI as a building partner, and thinking across system boundaries. Not every builder writes code; many use low-code/no-code platforms and AI tools.</div>
+          <div class="sub-list">
+            <div class="sub-item">
+              <div class="sub-name">The Rapid Prototyper</div>
+              <div class="sub-desc">
+                <ul>
+                  <li>Gets something working quickly, even imperfectly, to test assumptions</li>
+                  <li>Values speed of learning over perfection</li>
+                  <li>Generates momentum and surfaces real problems early</li>
+                </ul>
+              </div>
+              <div class="sub-ref">Agile Sprint methodology; &ldquo;Fail Fast&rdquo; principle; Eric Ries, <em>The Lean Startup</em> Build-Measure-Learn loop</div>
+            </div>
+            <div class="sub-item">
+              <div class="sub-name">The Finisher</div>
+              <div class="sub-desc">
+                <ul>
+                  <li>Completes and polishes what the Rapid Prototyper leaves behind</li>
+                  <li>Gets the last 20% done</li>
+                  <li>Comfortable with unglamorous detail work</li>
+                </ul>
+              </div>
+              <div class="sub-ref">Pareto Principle (the 80/20 rule inverted &mdash; the last 20% takes 80% of the effort); Agile &ldquo;Definition of Done&rdquo;</div>
+            </div>
+            <div class="sub-item">
+              <div class="sub-name">The Tool Native</div>
+              <div class="sub-desc">
+                <ul>
+                  <li>Picks up new software quickly and intuitively</li>
+                  <li>Comfortable exploring platforms without step-by-step instruction</li>
+                  <li>Often self-taught and learns by doing</li>
+                </ul>
+              </div>
+              <div class="sub-ref">Technology Adoption Lifecycle (Rogers, <em>Diffusion of Innovations</em>) &mdash; Early Adopter profile</div>
+            </div>
+            <div class="sub-item">
+              <div class="sub-name">The AI Whisperer</div>
+              <div class="sub-desc">
+                <ul>
+                  <li>Knows how to get useful output from AI tools</li>
+                  <li>Understands prompt construction, context-setting, and iteration</li>
+                  <li>Uses AI as a thought partner rather than a search engine</li>
+                </ul>
+              </div>
+              <div class="sub-ref">Co-Intelligence (Mollick); Prompt Engineering as an emerging discipline; &ldquo;Centaur&rdquo; model of human-AI collaboration</div>
+            </div>
+            <div class="sub-item">
+              <div class="sub-name">The Integration Thinker</div>
+              <div class="sub-desc">
+                <ul>
+                  <li>Sees every tool as a potential data source or action target</li>
+                  <li>Thinks across system boundaries rather than within a single tool</li>
+                  <li>Naturally asks &ldquo;what does this connect to?&rdquo;</li>
+                </ul>
+              </div>
+              <div class="sub-ref">Enterprise Architecture (Zachman Framework); API-first design thinking; Event-Driven Architecture patterns</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-    <h2>CAPABILITY PROFILES</h2>
-    <p>After scoring all 8 archetypes (0&ndash;10 each), the total out of 80 maps to an overall capability profile:</p>
-    <table>
-      <tr><th>Total (out of 80)</th><th>Profile</th><th>What It Means</th></tr>
-      <tr><td>0&ndash;20</td><td>Automation Newcomer</td><td>New to structured automation thinking; building foundational awareness</td></tr>
-      <tr><td>21&ndash;35</td><td>Developing Contributor</td><td>Shows instinct in some areas; developing consistent practice</td></tr>
-      <tr><td>36&ndash;50</td><td>Capable Generalist</td><td>Contributes meaningfully across several dimensions with some gaps</td></tr>
-      <tr><td>51&ndash;65</td><td>Strong Practitioner</td><td>Reliable and practiced; others lean on this person across multiple areas</td></tr>
-      <tr><td>66&ndash;80</td><td>Automation All-Rounder</td><td>Exceptional breadth; a defining strength across nearly all dimensions</td></tr>
-    </table>
+    <!-- 6. Quality & Oversight -->
+    <div class="arch-card" id="arch-6" data-nav-label="6. Quality & Oversight" data-nav-indent>
+      <div class="arch-card-trigger" onclick="toggleArch('arch-6')">
+        <div class="arch-card-left">
+          <div class="arch-num">6</div>
+          <div class="arch-title-wrap">
+            <h3>QUALITY &amp; OVERSIGHT</h3>
+            <div class="arch-card-desc">Verifying automations work correctly, including failure scenarios</div>
+          </div>
+        </div>
+        <div class="arch-chevron">&#9660;</div>
+      </div>
+      <div class="arch-body">
+        <div class="arch-body-inner">
+          <div class="arch-intro">Building an automation is only half the work. This archetype cluster covers the people who make sure it actually works &mdash; not just on the happy path, but with bad data, missing inputs, and unexpected failures. They also ensure there&rsquo;s visibility into what&rsquo;s running so problems don&rsquo;t fail silently.</div>
+          <div class="sub-list">
+            <div class="sub-item">
+              <div class="sub-name">The QA Mindset</div>
+              <div class="sub-desc">
+                <ul>
+                  <li>Tests with the intent to break things</li>
+                  <li>Creates test cases that include bad data, missing data, and unexpected inputs</li>
+                  <li>Uncomfortable shipping anything without trying to make it fail first</li>
+                </ul>
+              </div>
+              <div class="sub-ref">Software Testing fundamentals; Equivalence Partitioning and Boundary Value Analysis; Agile Test-Driven Development (TDD)</div>
+            </div>
+            <div class="sub-item">
+              <div class="sub-name">The Auditor</div>
+              <div class="sub-desc">
+                <ul>
+                  <li>Asks &ldquo;how do we know this is working correctly?&rdquo; and &ldquo;how will we know when it&rsquo;s not?&rdquo;</li>
+                  <li>Builds in logging, notifications, and checkpoints</li>
+                  <li>Thinks about accountability and visibility</li>
+                </ul>
+              </div>
+              <div class="sub-ref">COBIT (Control Objectives for Information Technologies); SOC 2 audit principles; Observability practices in DevOps</div>
+            </div>
+            <div class="sub-item">
+              <div class="sub-name">The Risk Modeler</div>
+              <div class="sub-desc">
+                <ul>
+                  <li>Evaluates what happens if an automation fails mid-run</li>
+                  <li>Thinks about rollback, error handling, and the cost of a broken automation vs. manual work</li>
+                </ul>
+              </div>
+              <div class="sub-ref">Risk Matrix (Probability &times; Impact); FMEA; ISO 31000 Risk Management standard</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-    <h2>FRAMEWORK CITATIONS</h2>
+    <!-- 7. Human & Organizational Awareness -->
+    <div class="arch-card" id="arch-7" data-nav-label="7. Human & Org" data-nav-indent>
+      <div class="arch-card-trigger" onclick="toggleArch('arch-7')">
+        <div class="arch-card-left">
+          <div class="arch-num">7</div>
+          <div class="arch-title-wrap">
+            <h3>HUMAN &amp; ORGANIZATIONAL AWARENESS</h3>
+            <div class="arch-card-desc">Managing adoption, resistance, ownership, and compliance</div>
+          </div>
+        </div>
+        <div class="arch-chevron">&#9660;</div>
+      </div>
+      <div class="arch-body">
+        <div class="arch-body-inner">
+          <div class="arch-intro">The most technically perfect automation fails if no one uses it, if it violates a policy, or if no one maintains it after launch. This cluster covers the human side &mdash; the champions who drive adoption, the skeptics who improve outcomes by pushing back, the reluctant users whose confusion is a signal, the compliance voice who prevents regulatory disasters, and the ownership taker who keeps things running.</div>
+          <div class="sub-list">
+            <div class="sub-item">
+              <div class="sub-name">The Change Champion</div>
+              <div class="sub-desc">
+                <ul>
+                  <li>Enthusiastic early adopter who brings others along through energy and example</li>
+                  <li>Helps normalize new workflows and tools within team culture</li>
+                </ul>
+              </div>
+              <div class="sub-ref">Kotter&rsquo;s 8-Step Change Model (Step 1: Create Urgency + Step 4: Enlist a Volunteer Army); Prosci ADKAR</div>
+            </div>
+            <div class="sub-item">
+              <div class="sub-name">The Skeptic</div>
+              <div class="sub-desc">
+                <ul>
+                  <li>Questions whether automation is the right answer</li>
+                  <li>Plays devil&rsquo;s advocate on ROI, complexity, and unintended consequences</li>
+                  <li>A healthy skeptic improves outcomes &mdash; not the same as a blocker</li>
+                </ul>
+              </div>
+              <div class="sub-ref">Red Team / Blue Team methodology; &ldquo;Premortem&rdquo; analysis (Gary Klein); Critical Thinking frameworks</div>
+            </div>
+            <div class="sub-item">
+              <div class="sub-name">The Reluctant Participant</div>
+              <div class="sub-desc">
+                <ul>
+                  <li>Will use automation once it&rsquo;s proven but won&rsquo;t help build it</li>
+                  <li>Represents the average user, not the enthusiast</li>
+                  <li>Their confusion during testing is signal, not noise</li>
+                </ul>
+              </div>
+              <div class="sub-ref">Technology Adoption Lifecycle (Rogers) &mdash; Late Majority profile; User Acceptance Testing (UAT) stakeholder role</div>
+            </div>
+            <div class="sub-item">
+              <div class="sub-name">The Compliance Voice</div>
+              <div class="sub-desc">
+                <ul>
+                  <li>Asks &ldquo;is this allowed?&rdquo; and &ldquo;what does this do with data?&rdquo;</li>
+                  <li>Keeps the team from building something that violates a policy, regulation, or client agreement</li>
+                </ul>
+              </div>
+              <div class="sub-ref">GDPR / HIPAA / SOC 2 compliance frameworks; Privacy by Design principles (Cavoukian)</div>
+            </div>
+            <div class="sub-item">
+              <div class="sub-name">The Ownership Taker</div>
+              <div class="sub-desc">
+                <ul>
+                  <li>Assumes responsibility for an automation after it&rsquo;s built</li>
+                  <li>Monitors it, maintains it, fields questions</li>
+                  <li>Without this archetype, automations become orphaned and break silently</li>
+                </ul>
+              </div>
+              <div class="sub-ref">RACI Matrix &mdash; &ldquo;Accountable&rdquo; role; DevOps &ldquo;You Build It, You Run It&rdquo; principle (Werner Vogels, Amazon)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 8. Strategic & Vision Thinking -->
+    <div class="arch-card" id="arch-8" data-nav-label="8. Strategic & Vision" data-nav-indent>
+      <div class="arch-card-trigger" onclick="toggleArch('arch-8')">
+        <div class="arch-card-left">
+          <div class="arch-num">8</div>
+          <div class="arch-title-wrap">
+            <h3>STRATEGIC &amp; VISION THINKING</h3>
+            <div class="arch-card-desc">Connecting automation work to measurable business outcomes</div>
+          </div>
+        </div>
+        <div class="arch-chevron">&#9660;</div>
+      </div>
+      <div class="arch-body">
+        <div class="arch-body-inner">
+          <div class="arch-intro">Automation without strategy is just busywork. This cluster covers the people who connect individual automations to measurable business outcomes, drive organizational will, and see the big picture &mdash; how individual workflows fit into a larger connected system. Without these roles, teams build impressive automations that don&rsquo;t move the needle.</div>
+          <div class="sub-list">
+            <div class="sub-item">
+              <div class="sub-name">The ROI Tracker</div>
+              <div class="sub-desc">
+                <ul>
+                  <li>Connects automation work to measurable outcomes</li>
+                  <li>Asks &ldquo;how much time does this save?&rdquo; and &ldquo;how do we know?&rdquo;</li>
+                  <li>Keeps the team focused on value rather than building for its own sake</li>
+                </ul>
+              </div>
+              <div class="sub-ref">OKR Framework (Doerr, <em>Measure What Matters</em>); Lean ROI measurement; Time-on-Task analysis</div>
+            </div>
+            <div class="sub-item">
+              <div class="sub-name">The Automation Evangelist</div>
+              <div class="sub-desc">
+                <ul>
+                  <li>Sees automation potential everywhere</li>
+                  <li>Energizes teams and sells the vision internally</li>
+                  <li>Drives ambition and organizational will &mdash; but needs a Scope Realist as a counterbalance</li>
+                </ul>
+              </div>
+              <div class="sub-ref">Diffusion of Innovations (Rogers) &mdash; Innovator profile; Kotter Change Model coalition building</div>
+            </div>
+            <div class="sub-item">
+              <div class="sub-name">The Systems Thinker</div>
+              <div class="sub-desc">
+                <ul>
+                  <li>Sees individual automations as part of a larger connected whole</li>
+                  <li>Thinks about how workflows interact, where data flows across systems, and what the architecture looks like at scale</li>
+                  <li>Prevents local optimization that creates global problems</li>
+                </ul>
+              </div>
+              <div class="sub-ref">Thinking in Systems (Meadows); Cynefin Framework (Snowden); Systems Dynamics (Forrester/MIT)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h2 id="citations">FRAMEWORK CITATIONS</h2>
     <p>The sub-archetypes are grounded in 16 established management, systems, and process frameworks:</p>
     <table>
       <tr><th>Framework</th><th>Source</th></tr>
@@ -316,6 +723,10 @@
       <tr><td>Pre-Mortem Analysis</td><td>Gary Klein, <em>HBR</em> (2007)</td></tr>
     </table>
 
+    </div><!-- end main column -->
+    <div id="page-nav"></div>
+   </div><!-- end page-nav-wrapper -->
+
     <div class="cta">
       <h2>READY TO ASSESS YOUR TEAM?</h2>
       <p>Take the Archetypes of Automation self-assessment &mdash; it takes about 10 minutes and gives you a clear picture of where you and your team stand.</p>
@@ -327,5 +738,18 @@
   <div id="site-footer" data-base=".."></div>
 
 <script src="../_includes/components.js"></script>
+<script>
+function toggleArch(id) {
+  var card = document.getElementById(id);
+  var body = card.querySelector('.arch-body');
+  if (card.classList.contains('open')) {
+    body.style.maxHeight = '0';
+    card.classList.remove('open');
+  } else {
+    card.classList.add('open');
+    body.style.maxHeight = body.scrollHeight + 'px';
+  }
+}
+</script>
 </body>
 </html>
