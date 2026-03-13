@@ -225,13 +225,13 @@ header h1 { font-family: var(--ff-display); font-size: var(--fs-assess-h1); font
     </div>
     <div>
       <div class="card" style="margin-bottom:16px">
-        <div class="card-header"><h2>Perspectives Radar</h2></div>
+        <div class="card-header"><h2>Perspectives Radar <button class="info-btn" onclick="openInterpretModal()" aria-label="Interpreting results">i</button></h2></div>
         <div class="card-body chart-wrap-body">
           <div class="chart-wrap"><canvas id="team-chart"></canvas></div>
         </div>
       </div>
       <div class="card">
-        <div class="card-header"><h2>Gap Analysis <button class="info-btn" onclick="openBandsModal()" aria-label="Scoring Bands">i</button></h2><span style="font-size:0.78rem;color:var(--muted)">Lowest to Highest avg</span></div>
+        <div class="card-header"><h2>Gap Analysis <button class="info-btn" onclick="openBandsModal()" aria-label="Reading the Gap Analysis">i</button></h2><span style="font-size:0.78rem;color:var(--muted)">Lowest to Highest avg</span></div>
         <div class="card-body" id="gap-analysis"></div>
       </div>
     </div>
@@ -323,20 +323,6 @@ header h1 { font-family: var(--ff-display); font-size: var(--fs-assess-h1); font
         <li>Repeat for each team member.</li>
       </ol>
 
-      <h3>Reviewing Results</h3>
-      <ol>
-        <li>The <strong>Perspectives Radar</strong> overlays all evaluators on a single chart.</li>
-        <li>Review the <strong>Gap Analysis</strong> card &#8212; it ranks archetypes from lowest to highest average score.</li>
-        <li>You can also <strong>Import</strong> previously exported <code>.json</code> files to add assessments.</li>
-      </ol>
-
-      <h3>Interpreting Team Results</h3>
-      <ul>
-        <li>Where radars <strong>diverge</strong> on an archetype, that disagreement is worth discussing &#8212; it may indicate unclear expectations or hidden strengths.</li>
-        <li>Where all evaluators score an archetype <strong>low</strong>, that is your most urgent gap to address through hiring, training, or partnerships.</li>
-        <li>The archetype with the lowest combined team score represents your most urgent investment area.</li>
-      </ul>
-
       <h3>Saving &amp; Importing Team Results</h3>
       <ul>
         <li>Click <strong>Export</strong> on the Team Assessment tab to save the full team dataset as a <code>.json</code> file.</li>
@@ -354,23 +340,37 @@ header h1 { font-family: var(--ff-display); font-size: var(--fs-assess-h1); font
   </div>
 </div>
 
+<!-- Interpreting Results Modal -->
+<div class="modal-overlay" id="interpret-modal">
+  <div class="modal">
+    <div class="modal-header">
+      <h3>Interpreting Team Results</h3>
+      <button class="modal-close" onclick="closeInterpretModal()" aria-label="Close">&times;</button>
+    </div>
+    <div class="modal-body about-content" style="margin:0;padding:20px 22px;max-width:none">
+      <ul>
+        <li>Where radars <strong>diverge</strong> on an archetype, that disagreement is worth discussing &#8212; it may indicate unclear expectations or hidden strengths.</li>
+        <li>Where all evaluators score an archetype <strong>low</strong>, that is your most urgent gap to address through hiring, training, or partnerships.</li>
+        <li>The archetype with the lowest combined team score represents your most urgent investment area.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
 <!-- Scoring Bands Modal -->
 <div class="modal-overlay" id="bands-modal">
   <div class="modal">
     <div class="modal-header">
-      <h3>Scoring Bands</h3>
+      <h3>Reading the Gap Analysis</h3>
       <button class="modal-close" onclick="closeBandsModal()" aria-label="Close">&times;</button>
     </div>
-    <div class="modal-body">
-      <p style="color:var(--muted);font-size:0.85rem;margin:0 0 14px">Each archetype is scored on a 0&#8211;10 scale. Use these bands to calibrate:</p>
-      <table>
-        <tr><th>Score</th><th>Meaning</th></tr>
-        <tr><td>0&#8211;2</td><td>No demonstrated capability in this area</td></tr>
-        <tr><td>3&#8211;4</td><td>Emerging &#8212; shows instinct but no consistent, structured practice</td></tr>
-        <tr><td>5&#8211;6</td><td>Functional &#8212; can contribute meaningfully, but with notable gaps</td></tr>
-        <tr><td>7&#8211;8</td><td>Strong &#8212; reliable and practiced; others lean on them here</td></tr>
-        <tr><td>9&#8211;10</td><td>Exceptional &#8212; a defining strength; sets the standard</td></tr>
-      </table>
+    <div class="modal-body about-content" style="margin:0;padding:20px 22px;max-width:none">
+      <ul>
+        <li>Archetypes are ranked from <strong>lowest to highest</strong> average score across all evaluators.</li>
+        <li>The top of the list represents your team&#8217;s <strong>biggest capability gaps</strong> &#8212; these are the areas most urgently needing investment through hiring, training, or partnerships.</li>
+        <li>The bottom of the list shows your team&#8217;s <strong>strongest areas</strong> &#8212; leverage these as anchors when planning automation initiatives.</li>
+        <li>Look for <strong>clusters</strong> of low-scoring archetypes &#8212; multiple adjacent gaps can compound risk.</li>
+      </ul>
     </div>
   </div>
 </div>
@@ -1013,6 +1013,15 @@ function openPdfModal() {
 function closePdfModal() {
   document.getElementById("pdf-modal").classList.remove("open");
 }
+function openInterpretModal() {
+  document.getElementById("interpret-modal").classList.add("open");
+}
+function closeInterpretModal() {
+  document.getElementById("interpret-modal").classList.remove("open");
+}
+document.getElementById("interpret-modal").addEventListener("click", function(e) {
+  if (e.target === this) closeInterpretModal();
+});
 function openBandsModal() {
   document.getElementById("bands-modal").classList.add("open");
 }
