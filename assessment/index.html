@@ -29,22 +29,7 @@ header h1 { font-family: var(--ff-display); font-size: var(--fs-assess-h1); font
     header p { font-family: var(--ff-mono); font-size: var(--fs-assess-subtitle); color: var(--muted); margin-top: 2px; letter-spacing: 0.05em; }
 .header-logo { font-size: var(--fs-assess-logo); }
 
-    /* ── Tab Nav ── */
-    .tabs { display: flex; background: var(--surface); border-bottom: 2px solid var(--border); padding: 0 32px; }
-    .tab-btn {
-      padding: 14px 24px; font-family: var(--ff-body); font-size: var(--fs-assess-tab); font-weight: 700; cursor: pointer;
-      border: none; background: none; color: var(--muted); border-bottom: 3px solid transparent;
-      margin-bottom: -2px; transition: all 0.15s; letter-spacing: 0.05em; text-transform: uppercase;
-    }
-    .tab-btn.active { color: var(--emerald); border-bottom-color: var(--emerald); }
-    .tab-btn:hover:not(.active) { color: var(--text); }
-
     /* ── Layout ── */
-    .tab-content { display: none; }
-    .tab-content.active { display: block; }
-    .layout { display: grid; grid-template-columns: 1fr 500px; gap: 24px; padding: 24px 32px; align-items: start; }
-    @media (max-width: 960px) { .layout { grid-template-columns: 1fr; } }
-
     /* ── Card ── */
     .card { background: var(--surface); border-radius: var(--radius); box-shadow: var(--shadow); border: 1px solid var(--border); }
     .card-header { padding: 18px 20px 14px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
@@ -60,28 +45,14 @@ header h1 { font-family: var(--ff-display); font-size: var(--fs-assess-h1); font
     }
     .name-row input:focus { outline: none; border-color: var(--cobalt); box-shadow: 0 0 0 3px rgba(59,130,246,0.15); }
 
-    /* ── Archetype Section ── */
-    .archetype-section { border: 1px solid var(--border); border-radius: 8px; margin-bottom: 14px; overflow: hidden; }
-    .archetype-header {
-      display: flex; align-items: center; gap: 12px; padding: 14px 16px;
-      cursor: pointer; user-select: none; background: var(--surface-alt);
-    }
-    .archetype-header:hover { background: var(--accent-light); }
-    .archetype-num {
-      width: 28px; height: 28px; border-radius: 50%; background: var(--accent); color: #fff;
-      display: flex; align-items: center; justify-content: center; font-family: var(--ff-mono); font-size: var(--fs-assess-chip-val); font-weight: 500; flex-shrink: 0;
-    }
+    /* ── Archetype ── */
     .archetype-name { font-family: var(--ff-display); font-weight: 400; font-size: var(--fs-assess-name); flex: 1; letter-spacing: 0.04em; }
     .archetype-desc { font-family: var(--ff-body); font-size: var(--fs-assess-desc); color: var(--muted); margin-top: 2px; }
     .archetype-score-badge {
       min-width: 36px; height: 36px; border-radius: 8px; background: var(--accent); color: #fff;
       display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: var(--fs-assess-badge); flex-shrink: 0;
     }
-    .expand-icon { font-size: var(--fs-assess-mono-sm); color: var(--muted); flex-shrink: 0; transition: transform 0.2s; }
-    .archetype-section.open .expand-icon { transform: rotate(180deg); }
-
     /* ── Slider Area ── */
-    .archetype-body { padding: 14px 16px 16px; border-top: 1px solid var(--border); background: var(--surface); }
     .slider-row { display: flex; align-items: center; gap: 12px; margin-bottom: 4px; }
     .slider-row input[type=range] {
       flex: 1; -webkit-appearance: none; appearance: none; height: 6px; border-radius: 3px;
@@ -105,25 +76,9 @@ header h1 { font-family: var(--ff-display); font-size: var(--fs-assess-h1); font
     .sub-item-ref { font-family: var(--ff-mono); font-size: var(--fs-assess-mono-sm); color: var(--muted); margin-top: 2px; font-style: normal; letter-spacing: 0.02em; }
 
     /* ── Chart ── */
-    .chart-card { position: sticky; top: 24px; }
     .chart-wrap-body { padding: 8px 0; }
     .chart-wrap { width: 100%; margin: 0 auto; }
     .chart-wrap canvas { display: block; width: 100%; height: auto; }
-
-    /* ── Score Summary ── */
-    .score-summary { margin-top: 16px; }
-    .score-total { font-family: var(--ff-display); font-size: var(--fs-assess-score); font-weight: 400; color: var(--accent); text-align: center; letter-spacing: 0.04em; }
-    .score-label { font-family: var(--ff-mono); font-size: var(--fs-assess-hint); color: var(--muted); text-align: center; margin-bottom: 8px; letter-spacing: 0.08em; }
-    .profile-badge {
-      background: var(--accent-light); color: var(--emerald); font-family: var(--ff-display); font-weight: 400; font-size: var(--fs-assess-badge);
-      text-align: center; padding: 8px 12px; border-radius: 8px; border: 1px solid rgba(52,211,153,0.2); letter-spacing: 0.05em;
-    }
-    .score-breakdown { margin-top: 14px; display: grid; gap: 5px; }
-    .breakdown-row { display: flex; align-items: center; gap: 8px; font-size: var(--fs-assess-breakdown); }
-    .breakdown-row .b-name { flex: 1; color: var(--muted); }
-    .breakdown-bar-wrap { width: 80px; height: 6px; background: var(--score-0); border-radius: 3px; overflow: hidden; }
-    .breakdown-bar { height: 100%; border-radius: 3px; transition: width 0.3s; }
-    .breakdown-val { width: 22px; text-align: right; font-weight: 600; color: var(--text); }
 
     /* ── Buttons ── */
     .action-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 16px; }
@@ -137,16 +92,28 @@ header h1 { font-family: var(--ff-display); font-size: var(--fs-assess-h1); font
     /* ── Team Tab ── */
     .team-layout { display: grid; grid-template-columns: 1fr 440px; gap: 24px; padding: 24px 32px; align-items: start; }
     @media (max-width: 960px) { .team-layout { grid-template-columns: 1fr; } }
-    .member-card { border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; background: var(--surface); margin-bottom: 12px; }
+    #team-member-list { display: grid; grid-template-columns: 1fr; gap: 12px; }
+    #team-member-list.multi-col { grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); }
+    .member-card { border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; background: var(--surface); }
     .member-card-header { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
     .member-name-display { font-family: var(--ff-display); font-weight: 400; font-size: var(--fs-assess-name); letter-spacing: 0.04em; }
     .member-total { font-family: var(--ff-mono); font-size: var(--fs-assess-desc); color: var(--muted); letter-spacing: 0.04em; }
-    .member-scores { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 12px; margin-top: 10px; }
+    .member-scores { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 2px 12px; margin-top: 8px; }
     .score-chip { display: flex; align-items: center; gap: 8px; padding: 4px 0; font-size: var(--fs-assess-chip); }
-    .score-chip-label { color: var(--muted); flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .score-chip-label { color: var(--muted); flex: 1; }
     .score-chip-bar { width: 48px; height: 5px; background: var(--score-0); border-radius: 3px; overflow: hidden; flex-shrink: 0; }
     .score-chip-bar-fill { height: 100%; border-radius: 3px; background: var(--accent); }
     .score-chip-val { min-width: 18px; text-align: right; font-family: var(--ff-mono); font-weight: 500; color: var(--accent); font-size: var(--fs-assess-chip-val); }
+    .member-profile { font-family: var(--ff-mono); font-size: var(--fs-assess-desc); color: var(--accent); position: relative; cursor: default; border-bottom: 1px dotted var(--accent); }
+    .member-profile:hover::after { content: attr(data-tooltip); position: absolute; left: 50%; transform: translateX(-50%); bottom: calc(100% + 6px); background: var(--card); color: var(--text); border: 1px solid var(--border); border-radius: 6px; padding: 6px 10px; font-family: var(--ff-body); font-size: 0.8rem; white-space: nowrap; z-index: 10; pointer-events: none; }
+    .member-card.disabled { opacity: 0.45; }
+    .member-toggle { position: relative; width: 36px; height: 20px; flex-shrink: 0; cursor: pointer; }
+    .member-toggle:hover::before { content: attr(data-tooltip); position: absolute; right: 0; bottom: calc(100% + 6px); background: var(--card); color: var(--text); border: 1px solid var(--border); border-radius: 6px; padding: 6px 10px; font-family: var(--ff-body); font-size: 0.8rem; white-space: nowrap; z-index: 10; pointer-events: none; }
+    .member-toggle input { opacity: 0; width: 0; height: 0; }
+    .member-toggle .toggle-track { position: absolute; inset: 0; background: var(--border); border-radius: 10px; cursor: pointer; transition: background 0.2s; }
+    .member-toggle .toggle-track::after { content: ""; position: absolute; top: 2px; left: 2px; width: 16px; height: 16px; background: var(--text); border-radius: 50%; transition: transform 0.2s; }
+    .member-toggle input:checked + .toggle-track { background: var(--accent); }
+    .member-toggle input:checked + .toggle-track::after { transform: translateX(16px); }
     .empty-state { text-align: center; padding: 40px 20px; color: var(--muted); }
     .empty-state .empty-icon { font-size: 2.5rem; margin-bottom: 10px; }
 
@@ -170,9 +137,8 @@ header h1 { font-family: var(--ff-display); font-size: var(--fs-assess-h1); font
     .toast.show { transform: translateX(-50%) translateY(0); }
 
 
-/* ── About ── */
+/* ── Modal content typography ── */
     .about-content { max-width: 760px; margin: 32px auto; padding: 0 32px; }
-    .about-content h2 { font-family: var(--ff-display); font-size: var(--fs-assess-h2-about); font-weight: 400; margin: 24px 0 10px; letter-spacing: 0.05em; }
     .about-content h3 { font-family: var(--ff-display); font-size: var(--fs-assess-h3); font-weight: 400; margin: 18px 0 8px; color: var(--text); letter-spacing: 0.04em; }
     .about-content p { font-size: var(--fs-assess-body); color: var(--muted); line-height: 1.65; margin-bottom: 12px; }
     .about-content ul, .about-content ol { font-size: var(--fs-assess-body); color: var(--muted); line-height: 1.65; margin: 0 0 12px 20px; }
@@ -183,26 +149,12 @@ header h1 { font-family: var(--ff-display); font-size: var(--fs-assess-h1); font
     .about-content tr:last-child td { border-bottom: none; }
     .about-content strong { color: var(--text); }
 
-    /* ── Tab Dropdown ── */
-    .tab-dropdown { position: relative; }
-    .tab-dropdown .tab-btn { display: flex; align-items: center; gap: 6px; }
-    .tab-dropdown .tab-btn .dropdown-arrow { font-size: var(--fs-nav-arrow); transition: transform 0.2s; }
-    .tab-dropdown.open .tab-btn .dropdown-arrow { transform: rotate(180deg); }
-    .tab-dropdown-menu {
-      display: none; position: absolute; top: 100%; left: 0; z-index: 100;
-      background: var(--surface); border: 1px solid var(--border); border-radius: 0 0 8px 8px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.25); min-width: 220px; overflow: hidden;
-    }
-    .tab-dropdown.open .tab-dropdown-menu { display: block; }
-    .tab-dropdown-item {
-      display: block; width: 100%; padding: 12px 20px; font-size: var(--fs-assess-body); font-weight: 600;
-      cursor: pointer; border: none; background: none; color: var(--muted); text-align: left;
-      font-family: var(--ff-body); transition: all 0.12s; letter-spacing: 0.04em;
-    }
-    .tab-dropdown-item:hover { background: var(--accent-light); color: var(--emerald); }
-    .tab-dropdown-item.active { color: var(--emerald); font-weight: 700; background: var(--accent-light); }
+    /* ── Modal (shared) ── */
+    .info-btn { background: none; border: 1px solid var(--border); border-radius: 50%; width: 22px; height: 22px; font-family: var(--ff-body); font-size: 0.75rem; font-weight: 700; font-style: italic; color: var(--muted); cursor: pointer; display: inline-flex; align-items: center; justify-content: center; line-height: 1; transition: all 0.15s; }
+    .info-btn:hover { color: var(--accent); border-color: var(--accent); }
+    .modal-scrollable { max-height: 80vh; display: flex; flex-direction: column; }
+    .modal-scrollable .modal-body { overflow-y: auto; flex: 1; }
 
-    /* ── PDF Modal ── */
     .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.6); display: none; align-items: center; justify-content: center; z-index: 2000; }
     .modal-overlay.open { display: flex; }
     .modal { background: var(--surface); border-radius: 12px; border: 1px solid var(--border); box-shadow: 0 8px 40px rgba(0,0,0,0.5); width: 500px; max-width: 95vw; }
@@ -212,6 +164,21 @@ header h1 { font-family: var(--ff-display); font-size: var(--fs-assess-h1); font
     .modal-close:hover { color: var(--text); }
     .modal-body { padding: 20px 22px; }
     .modal-footer { padding: 14px 22px 18px; border-top: 1px solid var(--border); display: flex; justify-content: flex-end; gap: 10px; }
+
+    /* ── Wizard Modal ── */
+    .wizard-modal { width: 600px; max-height: 90vh; display: flex; flex-direction: column; }
+    .wizard-modal .modal-body { overflow-y: auto; flex: 1; }
+    .wizard-step { display: none; }
+    .wizard-step.active { display: block; }
+    .wizard-progress { display: flex; gap: 4px; padding: 0 22px 12px; }
+    .wizard-progress-dot {
+      flex: 1; height: 4px; border-radius: 2px; background: var(--score-0); transition: background 0.2s;
+    }
+    .wizard-progress-dot.done { background: var(--emerald); }
+    .wizard-progress-dot.current { background: var(--accent); }
+    .wizard-step-label { font-family: var(--ff-mono); font-size: var(--fs-assess-hint); color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 14px; }
+    .wizard-footer { display: flex; justify-content: space-between; align-items: center; }
+    .wizard-footer-right { display: flex; gap: 10px; }
     .opt-group { margin-bottom: 18px; }
     .opt-group:last-child { margin-bottom: 0; }
     .opt-group-label { font-family: var(--ff-mono); font-weight: 500; font-size: var(--fs-assess-hint); text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); margin-bottom: 10px; }
@@ -231,78 +198,26 @@ header h1 { font-family: var(--ff-display); font-size: var(--fs-assess-h1); font
   <div class="header-logo">&#129423;</div>
   <div>
     <h1>ARCHETYPES OF AUTOMATION <span class="brand-silver">&#8212; TEAM CAPABILITY ASSESSMENT</span></h1>
-    <p>// 8 Dimensions of Automation Readiness &middot; A framework by Brian Simpson &middot; rhinoautomator.com</p>
+    <p>// 8 Dimensions of Automation Readiness &middot; A framework by Brian Simpson &middot; <a href="https://github.com/bmsimp/rhinoautomator-dot-com" target="_blank" rel="noopener" style="color:var(--muted);text-decoration:underline">rhinoautomator.com</a></p>
   </div>
 </header>
 
-<nav class="tabs">
-  <button class="tab-btn active" data-tab="individual" onclick="switchTab('individual')">Individual Assessment</button>
-  <button class="tab-btn" data-tab="team" onclick="switchTab('team')">Team Assessment</button>
-  <div class="tab-dropdown" id="about-dropdown">
-    <button class="tab-btn" data-tab="about" onclick="toggleAboutDropdown(event)">About <span class="dropdown-arrow">&#9660;</span></button>
-    <div class="tab-dropdown-menu">
-      <button class="tab-dropdown-item" data-tab="about-framework" onclick="switchTab('about-framework')">About the Framework</button>
-      <button class="tab-dropdown-item" data-tab="about-howto" onclick="switchTab('about-howto')">How to Use This Tool</button>
-    </div>
-  </div>
-</nav>
-
-<div id="tab-individual" class="tab-content active">
-  <div class="layout">
-    <div>
-      <div class="card" style="margin-bottom:0">
-        <div class="card-header">
-          <h2>Individual Assessment</h2>
-          <div class="action-row" style="margin:0">
-            <button class="btn btn-secondary" onclick="importJSON()">&#8679; Import</button>
-            <button class="btn btn-primary" onclick="exportJSON()">&#8681; Export</button>
-            <button class="btn btn-success" onclick="addToTeam()">+ Add to Team Assessment</button>
-          </div>
-        </div>
-        <div class="card-body">
-          <div class="name-row">
-            <label for="assessor-name">Person being assessed:</label>
-            <input type="text" id="assessor-name" placeholder="e.g. Jane Smith, Operations Lead" oninput="updateChart(); saveState()" />
-          </div>
-          <div id="archetypes-list"></div>
-        </div>
-      </div>
-    </div>
-    <div class="chart-card">
-      <div class="card" style="margin-bottom:16px">
-        <div class="card-header"><h2>Capability Radar</h2></div>
-        <div class="card-body chart-wrap-body">
-          <div class="chart-wrap"><canvas id="individual-chart"></canvas></div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-header"><h2>Score Summary</h2></div>
-        <div class="card-body">
-          <div class="score-summary">
-            <div class="score-total" id="total-display">0</div>
-            <div class="score-label">out of 80</div>
-            <div class="profile-badge" id="profile-display">Early-Stage Team</div>
-            <div class="score-breakdown" id="breakdown-display"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div id="tab-team" class="tab-content">
+<div>
   <div class="team-layout">
     <div>
-      <div class="card">
+      <div class="card" style="margin-bottom:16px">
         <div class="card-header">
-          <h2>Assessment Perspectives</h2>
+          <h2>Assessment Control <button class="info-btn" onclick="openHowtoModal()" aria-label="How to use this tool">i</button></h2>
           <div class="action-row" style="margin:0">
+            <button class="btn btn-success" onclick="openWizard()">+ Add Assessment</button>
             <button class="btn btn-secondary" onclick="importTeamJSON()">&#8679; Import</button>
             <button class="btn btn-primary" onclick="exportTeamJSON()">&#8681; Export</button>
             <button class="btn btn-danger" onclick="clearTeam()">Clear All</button>
             <button class="btn" style="background:#34D399;color:#0C1016" onclick="openPdfModal()">&#128438; Generate Report</button>
           </div>
         </div>
+      </div>
+      <div class="card" style="margin-bottom:16px">
         <div class="card-body">
           <div id="team-member-list"></div>
         </div>
@@ -316,148 +231,35 @@ header h1 { font-family: var(--ff-display); font-size: var(--fs-assess-h1); font
         </div>
       </div>
       <div class="card">
-        <div class="card-header"><h2>Gap Analysis</h2><span style="font-size:0.78rem;color:var(--muted)">Lowest to Highest avg</span></div>
+        <div class="card-header"><h2>Gap Analysis <button class="info-btn" onclick="openBandsModal()" aria-label="Scoring Bands">i</button></h2><span style="font-size:0.78rem;color:var(--muted)">Lowest to Highest avg</span></div>
         <div class="card-body" id="gap-analysis"></div>
       </div>
     </div>
   </div>
 </div>
 
-<div id="tab-about-framework" class="tab-content">
-  <div class="about-content">
-    <h2>The Archetypes of Automation Framework</h2>
-    <p>This framework helps teams identify their collective strengths and gaps across <strong>8 dimensions of automation capability</strong> &#8212; regardless of industry, size, or technical maturity.</p>
-    <p>The core insight: the biggest barrier to automation is not technical skill &#8212; it is process thinking, team composition, and role awareness. No single person covers all eight archetypes. Teams assess collectively and use the gap analysis to guide hiring, training, or partnership decisions.</p>
-    <p>Like a sports roster, each team member brings a unique combination of strengths. The radar chart visualization makes it easy to see where coverage is strong and where critical gaps exist. Two people scoring 9 in Building but zero in Quality is a risk profile &#8212; and one this framework is designed to surface.</p>
-
-    <h3>The 8 Archetypes</h3>
-    <table>
-      <tr><th>#</th><th>Archetype</th><th>What It Covers</th></tr>
-      <tr><td>1</td><td>Process &amp; Knowledge Holding</td><td>Understanding, retaining, and communicating how work actually happens</td></tr>
-      <tr><td>2</td><td>Problem Definition</td><td>Identifying, articulating, and prioritizing what is worth automating</td></tr>
-      <tr><td>3</td><td>Design &amp; Logic Thinking</td><td>Translating real-world processes into explicit logic before touching any tool</td></tr>
-      <tr><td>4</td><td>Communication &amp; Translation</td><td>Bridging the gap between process owners and builders</td></tr>
-      <tr><td>5</td><td>Building &amp; Implementation</td><td>Constructing automations using tools, AI, or both</td></tr>
-      <tr><td>6</td><td>Quality &amp; Oversight</td><td>Verifying automations work correctly, including failure scenarios</td></tr>
-      <tr><td>7</td><td>Human &amp; Organizational Awareness</td><td>Managing adoption, resistance, ownership, and compliance</td></tr>
-      <tr><td>8</td><td>Strategic &amp; Vision Thinking</td><td>Connecting automation work to measurable business outcomes</td></tr>
-    </table>
-    <p>Each archetype contains 3&#8211;5 named <strong>sub-archetypes</strong> &#8212; specific roles or mindsets grounded in established frameworks. Expand any archetype in the Individual Assessment tab to explore its sub-archetypes and calibrate your score.</p>
-
-    <h2>Individual Capability Profiles</h2>
-    <p>After scoring all 8 archetypes (0&#8211;10 each), the total out of 80 maps to an overall capability profile:</p>
-    <table>
-      <tr><th>Total (out of 80)</th><th>Profile</th><th>What It Means</th></tr>
-      <tr><td>0&#8211;20</td><td>Automation Newcomer</td><td>New to structured automation thinking; building foundational awareness</td></tr>
-      <tr><td>21&#8211;35</td><td>Developing Contributor</td><td>Shows instinct in some areas; developing consistent practice</td></tr>
-      <tr><td>36&#8211;50</td><td>Capable Generalist</td><td>Contributes meaningfully across several dimensions with some gaps</td></tr>
-      <tr><td>51&#8211;65</td><td>Strong Practitioner</td><td>Reliable and practiced; others lean on this person across multiple areas</td></tr>
-      <tr><td>66&#8211;80</td><td>Automation All-Rounder</td><td>Exceptional breadth; a defining strength across nearly all dimensions</td></tr>
-    </table>
-
-    <h2>Scoring Bands</h2>
-    <p>Each archetype is scored on a 0&#8211;10 scale. Use these bands to calibrate your assessment:</p>
-    <table>
-      <tr><th>Score</th><th>Meaning</th></tr>
-      <tr><td>0&#8211;2</td><td>No demonstrated capability in this area</td></tr>
-      <tr><td>3&#8211;4</td><td>Emerging &#8212; shows instinct but no consistent, structured practice</td></tr>
-      <tr><td>5&#8211;6</td><td>Functional &#8212; can contribute meaningfully, but with notable gaps</td></tr>
-      <tr><td>7&#8211;8</td><td>Strong &#8212; reliable and practiced; others lean on them here</td></tr>
-      <tr><td>9&#8211;10</td><td>Exceptional &#8212; a defining strength; sets the standard</td></tr>
-    </table>
-
-    <h2>Framework Citations</h2>
-    <p>The sub-archetypes are grounded in 16 established management, systems, and process frameworks:</p>
-    <table>
-      <tr><th>Framework</th><th>Source</th></tr>
-      <tr><td>Theory of Constraints</td><td>Eliyahu M. Goldratt &amp; Jeff Cox, <em>The Goal: A Process of Ongoing Improvement</em> (1984)</td></tr>
-      <tr><td>Lean / Toyota Production System</td><td>Taiichi Ohno, <em>Toyota Production System: Beyond Large-Scale Production</em> (1988); James P. Womack &amp; Daniel T. Jones, <em>Lean Thinking</em> (1996)</td></tr>
-      <tr><td>Design Thinking</td><td>IDEO, <a href="https://www.designkit.org/" target="_blank" rel="noopener">The Field Guide to Human-Centered Design</a>; Stanford d.school, <a href="https://dschool.stanford.edu/resources" target="_blank" rel="noopener">Design Thinking Resources</a></td></tr>
-      <tr><td>Agile / Scrum</td><td>Beck et al., <a href="https://agilemanifesto.org/" target="_blank" rel="noopener">Manifesto for Agile Software Development</a> (2001); Jeff Sutherland &amp; Ken Schwaber, <a href="https://scrumguides.org/" target="_blank" rel="noopener">The Scrum Guide</a></td></tr>
-      <tr><td>Diffusion of Innovations</td><td>Everett M. Rogers, <em>Diffusion of Innovations</em> (5th ed., 2003)</td></tr>
-      <tr><td>Kotter&#8217;s 8-Step Change Model</td><td>John P. Kotter, <em>Leading Change</em> (1996)</td></tr>
-      <tr><td>Prosci ADKAR</td><td>Jeff Hiatt, <em>ADKAR: A Model for Change in Business, Government and Our Community</em> (2006); <a href="https://www.prosci.com/methodology/adkar" target="_blank" rel="noopener">Prosci ADKAR Model Overview</a></td></tr>
-      <tr><td>RACI Matrix</td><td>Project Management Institute, <em>A Guide to the Project Management Body of Knowledge (PMBOK Guide)</em></td></tr>
-      <tr><td>Team Topologies</td><td>Matthew Skelton &amp; Manuel Pais, <em>Team Topologies: Organizing Business and Technology Teams for Fast Flow</em> (2019); <a href="https://teamtopologies.com/" target="_blank" rel="noopener">teamtopologies.com</a></td></tr>
-      <tr><td>Cynefin Framework</td><td>Dave Snowden &amp; Mary Boone, <a href="https://hbr.org/2007/11/a-leaders-framework-for-decision-making" target="_blank" rel="noopener">&#8220;A Leader&#8217;s Framework for Decision Making&#8221;</a> (<em>Harvard Business Review</em>, 2007)</td></tr>
-      <tr><td>FMEA</td><td>US Military Procedure MIL-P-1629 (1949); <a href="https://asq.org/quality-resources/fmea" target="_blank" rel="noopener">ASQ FMEA Overview</a></td></tr>
-      <tr><td>Thinking in Systems</td><td>Donella H. Meadows, <em>Thinking in Systems: A Primer</em> (2008, posthumous ed.)</td></tr>
-      <tr><td>Co-Intelligence / AI Collaboration</td><td>Ethan Mollick, <em>Co-Intelligence: Living and Working with AI</em> (2024); <a href="https://www.oneusefulthing.org/" target="_blank" rel="noopener">One Useful Thing</a> (Substack)</td></tr>
-      <tr><td>Tacit vs. Explicit Knowledge</td><td>Ikujiro Nonaka &amp; Hirotaka Takeuchi, <em>The Knowledge-Creating Company</em> (1995)</td></tr>
-      <tr><td>Jobs To Be Done</td><td>Clayton M. Christensen, Taddy Hall, Karen Dillon &amp; David S. Duncan, <em>Competing Against Luck: The Story of Innovation and Customer Choice</em> (2016)</td></tr>
-      <tr><td>Pre-Mortem Analysis</td><td>Gary Klein, <a href="https://hbr.org/2007/09/performing-a-project-premortem" target="_blank" rel="noopener">&#8220;Performing a Project Premortem&#8221;</a> (<em>Harvard Business Review</em>, 2007)</td></tr>
-    </table>
-
-    <h2>Contribute &amp; Feedback</h2>
-    <p>This framework is open source under GPL v3. Found an issue, have a suggestion, or want to contribute? Open an issue or pull request on GitHub.</p>
-    <p><a href="https://github.com/bmsimp/rhinoautomator-dot-com" target="_blank" rel="noopener" style="color:var(--accent);font-weight:600">github.com/bmsimp/rhinoautomator-dot-com</a></p>
-  </div>
-</div>
-
-<div id="tab-about-howto" class="tab-content">
-  <div class="about-content">
-    <h2>How to Use This Tool</h2>
-    <p>This web-based assessment tool lets you score individuals and teams across the 8 Archetypes of Automation. It runs entirely in your browser &#8212; no data is sent to any server.</p>
-
-    <h3>Individual Assessment</h3>
-    <ol>
-      <li>Open the <strong>Individual Assessment</strong> tab.</li>
-      <li>Enter the name and role of the person being assessed (e.g. &#8220;Jane Smith, Operations Lead&#8221;).</li>
-      <li>Score their capability 0&#8211;10 on each archetype. Expand each section to read the sub-archetype descriptions and ask: <em>is this person demonstrating these characteristics?</em></li>
-      <li>Review the live radar chart and total score as you go &#8212; they update instantly.</li>
-      <li>Click <strong>+ Add to Team Assessment</strong> to include this person in the team view.</li>
-      <li>Repeat for each team member.</li>
-    </ol>
-
-    <h3>Saving &amp; Importing Individual Results</h3>
-    <ul>
-      <li>Click <strong>Export</strong> to save the current assessment as a <code>.json</code> file you can return to later.</li>
-      <li>Click <strong>Import</strong> to load a previously exported <code>.json</code> file, then click <strong>+ Add to Team Assessment</strong> to include them in the team view.</li>
-    </ul>
-
-    <h3>Team Assessment</h3>
-    <ol>
-      <li>Collect individual assessments from each team member.</li>
-      <li>Each person completes their own assessment on the Individual Assessment tab and clicks <strong>+ Add to Team Assessment</strong>, or share exported <code>.json</code> files with a facilitator who imports them.</li>
-      <li>Switch to the <strong>Team Assessment</strong> tab to see all evaluators overlaid on a single radar chart.</li>
-      <li>Review the <strong>Gap Analysis</strong> card &#8212; it ranks archetypes from lowest to highest average score.</li>
-    </ol>
-
-    <h3>Interpreting Team Results</h3>
-    <ul>
-      <li>Where radars <strong>diverge</strong> on an archetype, that disagreement is worth discussing &#8212; it may indicate unclear expectations or hidden strengths.</li>
-      <li>Where all evaluators score an archetype <strong>low</strong>, that is your most urgent gap to address through hiring, training, or partnerships.</li>
-      <li>The archetype with the lowest combined team score represents your most urgent investment area.</li>
-    </ul>
-
-    <h3>Saving &amp; Importing Team Results</h3>
-    <ul>
-      <li>Click <strong>Export</strong> on the Team Assessment tab to save the full team dataset as a <code>.json</code> file.</li>
-      <li>Click <strong>Import</strong> to reload a previously exported team assessment.</li>
-    </ul>
-
-    <h3>Generating a PDF Report</h3>
-    <ol>
-      <li>Click <strong>Generate Report</strong> on the Team Assessment tab.</li>
-      <li>Choose whether to include individual breakdowns (each person&#8217;s scores, radar chart, and per-dimension narrative on separate pages).</li>
-      <li>Choose explainer depth: <strong>Short</strong> (2&#8211;3 sentence narrative per dimension) or <strong>Long</strong> (full sub-archetype breakdown with framework citations).</li>
-      <li>Click <strong>Generate Report</strong> to produce a printable PDF of the full team capability profile.</li>
-    </ol>
-
-    <h2>Scoring Bands</h2>
-    <p>Each archetype is scored on a 0&#8211;10 scale. Use these bands to calibrate your assessment:</p>
-    <table>
-      <tr><th>Score</th><th>Meaning</th></tr>
-      <tr><td>0&#8211;2</td><td>No demonstrated capability in this area</td></tr>
-      <tr><td>3&#8211;4</td><td>Emerging &#8212; shows instinct but no consistent, structured practice</td></tr>
-      <tr><td>5&#8211;6</td><td>Functional &#8212; can contribute meaningfully, but with notable gaps</td></tr>
-      <tr><td>7&#8211;8</td><td>Strong &#8212; reliable and practiced; others lean on them here</td></tr>
-      <tr><td>9&#8211;10</td><td>Exceptional &#8212; a defining strength; sets the standard</td></tr>
-    </table>
-  </div>
-</div>
-
 <div class="toast" id="toast"></div>
+
+<!-- Add Assessment Wizard Modal -->
+<div class="modal-overlay" id="wizard-modal">
+  <div class="modal wizard-modal">
+    <div class="modal-header">
+      <h3 id="wizard-title">Add Assessment</h3>
+      <button class="modal-close" onclick="closeWizard()" aria-label="Close">&times;</button>
+    </div>
+    <div class="wizard-progress" id="wizard-progress"></div>
+    <div class="modal-body" id="wizard-body"></div>
+    <div class="modal-footer">
+      <div class="wizard-footer">
+        <button class="btn btn-secondary" id="wizard-back" onclick="wizardBack()">&#8592; Back</button>
+        <div class="wizard-footer-right">
+          <button class="btn btn-secondary" onclick="closeWizard()">Cancel</button>
+          <button class="btn btn-primary" id="wizard-next" onclick="wizardNext()">Next &#8594;</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- PDF Report Modal -->
 <div class="modal-overlay" id="pdf-modal">
@@ -498,6 +300,77 @@ header h1 { font-family: var(--ff-display); font-size: var(--fs-assess-h1); font
     <div class="modal-footer">
       <button class="btn btn-secondary" onclick="closePdfModal()">Cancel</button>
       <button class="btn btn-primary" onclick="doGenerateReport()">&#128438; Generate Report</button>
+    </div>
+  </div>
+</div>
+
+<!-- How to Use Modal -->
+<div class="modal-overlay" id="howto-modal">
+  <div class="modal modal-scrollable" style="width:600px">
+    <div class="modal-header">
+      <h3>How to Use This Tool</h3>
+      <button class="modal-close" onclick="closeHowtoModal()" aria-label="Close">&times;</button>
+    </div>
+    <div class="modal-body about-content" style="margin:0;padding:20px 22px;max-width:none">
+      <p>This web-based assessment tool lets you score individuals and teams across the 8 Archetypes of Automation. It runs entirely in your browser &#8212; no data is sent to any server.</p>
+
+      <h3>Adding Assessments</h3>
+      <ol>
+        <li>Click <strong>+ Add Assessment</strong> to launch the assessment wizard.</li>
+        <li>Enter the name and role of the person being assessed (e.g. &#8220;Jane Smith, Operations Lead&#8221;).</li>
+        <li>Step through each of the 8 archetypes using <strong>Next</strong> and <strong>Back</strong>. Score their capability 0&#8211;10 on each one, using the sub-archetype descriptions to calibrate.</li>
+        <li>On the final step, click <strong>Add to Team</strong> to include this person in the team view.</li>
+        <li>Repeat for each team member.</li>
+      </ol>
+
+      <h3>Reviewing Results</h3>
+      <ol>
+        <li>The <strong>Perspectives Radar</strong> overlays all evaluators on a single chart.</li>
+        <li>Review the <strong>Gap Analysis</strong> card &#8212; it ranks archetypes from lowest to highest average score.</li>
+        <li>You can also <strong>Import</strong> previously exported <code>.json</code> files to add assessments.</li>
+      </ol>
+
+      <h3>Interpreting Team Results</h3>
+      <ul>
+        <li>Where radars <strong>diverge</strong> on an archetype, that disagreement is worth discussing &#8212; it may indicate unclear expectations or hidden strengths.</li>
+        <li>Where all evaluators score an archetype <strong>low</strong>, that is your most urgent gap to address through hiring, training, or partnerships.</li>
+        <li>The archetype with the lowest combined team score represents your most urgent investment area.</li>
+      </ul>
+
+      <h3>Saving &amp; Importing Team Results</h3>
+      <ul>
+        <li>Click <strong>Export</strong> on the Team Assessment tab to save the full team dataset as a <code>.json</code> file.</li>
+        <li>Click <strong>Import</strong> to reload a previously exported team assessment.</li>
+      </ul>
+
+      <h3>Generating a PDF Report</h3>
+      <ol>
+        <li>Click <strong>Generate Report</strong> on the Team Assessment tab.</li>
+        <li>Choose whether to include individual breakdowns (each person&#8217;s scores, radar chart, and per-dimension narrative on separate pages).</li>
+        <li>Choose explainer depth: <strong>Short</strong> (2&#8211;3 sentence narrative per dimension) or <strong>Long</strong> (full sub-archetype breakdown with framework citations).</li>
+        <li>Click <strong>Generate Report</strong> to produce a printable PDF of the full team capability profile.</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<!-- Scoring Bands Modal -->
+<div class="modal-overlay" id="bands-modal">
+  <div class="modal">
+    <div class="modal-header">
+      <h3>Scoring Bands</h3>
+      <button class="modal-close" onclick="closeBandsModal()" aria-label="Close">&times;</button>
+    </div>
+    <div class="modal-body">
+      <p style="color:var(--muted);font-size:0.85rem;margin:0 0 14px">Each archetype is scored on a 0&#8211;10 scale. Use these bands to calibrate:</p>
+      <table>
+        <tr><th>Score</th><th>Meaning</th></tr>
+        <tr><td>0&#8211;2</td><td>No demonstrated capability in this area</td></tr>
+        <tr><td>3&#8211;4</td><td>Emerging &#8212; shows instinct but no consistent, structured practice</td></tr>
+        <tr><td>5&#8211;6</td><td>Functional &#8212; can contribute meaningfully, but with notable gaps</td></tr>
+        <tr><td>7&#8211;8</td><td>Strong &#8212; reliable and practiced; others lean on them here</td></tr>
+        <tr><td>9&#8211;10</td><td>Exceptional &#8212; a defining strength; sets the standard</td></tr>
+      </table>
     </div>
   </div>
 </div>
@@ -573,11 +446,11 @@ var ARCHETYPES = [
 ];
 
 var PROFILES = [
-  {max:20, label:"Automation Newcomer"},
-  {max:35, label:"Developing Contributor"},
-  {max:50, label:"Capable Generalist"},
-  {max:65, label:"Strong Practitioner"},
-  {max:80, label:"Automation All-Rounder"}
+  {max:20, label:"Automation Newcomer", desc:"New to structured automation thinking; building foundational awareness"},
+  {max:35, label:"Developing Contributor", desc:"Shows instinct in some areas; developing consistent practice"},
+  {max:50, label:"Capable Generalist", desc:"Contributes meaningfully across several dimensions with some gaps"},
+  {max:65, label:"Strong Practitioner", desc:"Reliable and practiced; others lean on this person across multiple areas"},
+  {max:80, label:"Automation All-Rounder", desc:"Exceptional breadth; a defining strength across nearly all dimensions"}
 ];
 
 var BAND_HINTS = [
@@ -617,7 +490,6 @@ var RADAR_LABELS = [
 ];
 
 // ── STATE ─────────────────────────────────────────────────────────────────────
-var scores = [0,0,0,0,0,0,0,0];
 var teamMembers = [];
 
 var LS_KEY = "archetypes-assessment";
@@ -625,8 +497,6 @@ var LS_KEY = "archetypes-assessment";
 function saveState() {
   try {
     localStorage.setItem(LS_KEY, JSON.stringify({
-      name: (document.getElementById("assessor-name") || {}).value || "",
-      scores: scores,
       members: teamMembers
     }));
   } catch(e) {}
@@ -637,13 +507,6 @@ function loadState() {
     var raw = localStorage.getItem(LS_KEY);
     if (!raw) return;
     var state = JSON.parse(raw);
-    if (state.name) {
-      var nameEl = document.getElementById("assessor-name");
-      if (nameEl) nameEl.value = state.name;
-    }
-    if (state.scores && state.scores.length === 8) {
-      for (var i = 0; i < 8; i++) scores[i] = state.scores[i];
-    }
     if (state.members) teamMembers = state.members;
   } catch(e) {}
 }
@@ -781,87 +644,15 @@ function drawRadar(canvasId, datasets) {
   }
 }
 
-function buildIndividualChart() {
-  var name = document.getElementById("assessor-name").value || "You";
-  drawRadar("individual-chart", [{
-    data: scores.slice(),
-    fill: DS_COLORS[0][0],
-    stroke: DS_COLORS[0][1],
-    label: name
-  }]);
-}
-
 function buildTeamChart() {
   var datasets = [];
   for (var i = 0; i < teamMembers.length; i++) {
     var m = teamMembers[i];
+    if (m.enabled === false) continue;
     var c = DS_COLORS[i % DS_COLORS.length];
     datasets.push({data: m.scores.slice(), fill: c[0], stroke: c[1], label: m.name || ("Eval " + (i+1))});
   }
   drawRadar("team-chart", datasets);
-}
-
-// ── ARCHETYPE LIST ────────────────────────────────────────────────────────────
-function buildArchetypesList() {
-  var container = document.getElementById("archetypes-list");
-  container.innerHTML = "";
-  for (var i = 0; i < ARCHETYPES.length; i++) {
-    var arch = ARCHETYPES[i];
-    var subsHtml = "";
-    for (var j = 0; j < arch.subs.length; j++) {
-      var s = arch.subs[j];
-      subsHtml += '<div class="sub-item"><div class="sub-item-name">' + s.name + '</div>' +
-        '<div class="sub-item-desc">' + s.desc + '</div>' +
-        '<div class="sub-item-ref">' + s.ref + '</div></div>';
-    }
-    var section = document.createElement("div");
-    section.className = "archetype-section";
-    section.id = "arch-section-" + i;
-    section.innerHTML =
-      '<div class="archetype-header" onclick="toggleSection(' + i + ')">' +
-        '<div class="archetype-num">' + arch.id + '</div>' +
-        '<div style="flex:1"><div class="archetype-name">' + arch.name + '</div>' +
-        '<div class="archetype-desc">' + arch.description + '</div></div>' +
-        '<div class="archetype-score-badge" id="badge-' + i + '">0</div>' +
-        '<div class="expand-icon">&#9660;</div>' +
-      '</div>' +
-      '<div class="archetype-body" style="display:none" id="arch-body-' + i + '">' +
-        '<div class="slider-row">' +
-          '<span style="font-size:0.78rem;color:var(--muted)">0</span>' +
-          '<input type="range" min="0" max="10" value="0" id="slider-' + i + '" oninput="onSlider(' + i + ',this.value)" style="--pct:0%" />' +
-          '<span style="font-size:0.78rem;color:var(--muted)">10</span>' +
-        '</div>' +
-        '<div class="slider-labels"><span>Not a strength</span><span>Clear strength</span></div>' +
-        '<div class="band-hint" id="hint-' + i + '">' + BAND_HINTS[0] + '</div>' +
-        '<div class="sub-list">' +
-          '<div class="sub-list-title">Sub-Archetypes &#8212; is this person&#8230;?</div>' +
-          subsHtml +
-        '</div>' +
-      '</div>';
-    container.appendChild(section);
-  }
-}
-
-function toggleSection(i) {
-  var body    = document.getElementById("arch-body-" + i);
-  var section = document.getElementById("arch-section-" + i);
-  var open    = body.style.display !== "none";
-  body.style.display = open ? "none" : "block";
-  section.className  = open ? "archetype-section" : "archetype-section open";
-}
-
-function onSlider(i, val) {
-  val = parseInt(val, 10);
-  scores[i] = val;
-  var badge = document.getElementById("badge-" + i);
-  badge.textContent  = val;
-  badge.style.background = scoreColor(val);
-  var slider = document.getElementById("slider-" + i);
-  slider.style.setProperty("--pct", (val * 10) + "%");
-  var hi = val <= 2 ? 0 : val <= 4 ? 1 : val <= 6 ? 2 : val <= 8 ? 3 : 4;
-  document.getElementById("hint-" + i).textContent = BAND_HINTS[hi];
-  updateChart();
-  saveState();
 }
 
 function scoreColor(v) {
@@ -870,32 +661,6 @@ function scoreColor(v) {
   if (v <= 6) return "#3B82F6";
   if (v <= 8) return "#2563EB";
   return "#34D399";
-}
-
-function updateChart() {
-  buildIndividualChart();
-  updateSummary();
-}
-
-function updateSummary() {
-  var total = 0;
-  for (var i = 0; i < scores.length; i++) total += scores[i];
-  document.getElementById("total-display").textContent = total;
-  var profile = PROFILES[PROFILES.length - 1];
-  for (var p = 0; p < PROFILES.length; p++) {
-    if (total <= PROFILES[p].max) { profile = PROFILES[p]; break; }
-  }
-  document.getElementById("profile-display").textContent = profile.label;
-  var html = "";
-  for (var k = 0; k < ARCHETYPES.length; k++) {
-    var name = ARCHETYPES[k].name.split("&")[0].trim();
-    html += '<div class="breakdown-row">' +
-      '<span class="b-name">' + ARCHETYPES[k].id + '. ' + name + '</span>' +
-      '<div class="breakdown-bar-wrap"><div class="breakdown-bar" style="width:' + (scores[k]*10) + '%;background:' + scoreColor(scores[k]) + '"></div></div>' +
-      '<span class="breakdown-val">' + scores[k] + '</span>' +
-      '</div>';
-  }
-  document.getElementById("breakdown-display").innerHTML = html;
 }
 
 // ── TEAM ──────────────────────────────────────────────────────────────────────
@@ -907,15 +672,17 @@ function updateTeamChart() {
 
 function updateGapAnalysis() {
   var gap = document.getElementById("gap-analysis");
-  if (teamMembers.length === 0) {
+  var active = [];
+  for (var ai = 0; ai < teamMembers.length; ai++) { if (teamMembers[ai].enabled !== false) active.push(teamMembers[ai]); }
+  if (active.length === 0) {
     gap.innerHTML = '<p style="color:var(--muted);font-size:0.85rem">Add assessment perspectives to see gap analysis.</p>';
     return;
   }
   var avgs = [];
   for (var i = 0; i < ARCHETYPES.length; i++) {
     var sum = 0;
-    for (var j = 0; j < teamMembers.length; j++) sum += teamMembers[j].scores[i];
-    avgs.push({name: ARCHETYPES[i].name, avg: sum / teamMembers.length});
+    for (var j = 0; j < active.length; j++) sum += active[j].scores[i];
+    avgs.push({name: ARCHETYPES[i].name, avg: sum / active.length});
   }
   avgs.sort(function(a, b) { return a.avg - b.avg; });
   var html = "";
@@ -935,8 +702,9 @@ function updateGapAnalysis() {
 function renderTeamMembers() {
   var list = document.getElementById("team-member-list");
   if (teamMembers.length === 0) {
+    list.classList.remove("multi-col");
     list.innerHTML = '<div class="empty-state"><div class="empty-icon">&#128101;</div>' +
-      '<p>No perspectives yet. Complete an assessment and click <strong>+ Add Perspective</strong> to compare evaluators.</p></div>';
+      '<p>No completed assessments yet...</p></div>';
     return;
   }
   var html = "";
@@ -945,6 +713,8 @@ function renderTeamMembers() {
     var total = 0;
     for (var k = 0; k < m.scores.length; k++) total += m.scores[k];
     var color = DS_COLORS[i % DS_COLORS.length][1];
+    var prof = PROFILES[PROFILES.length - 1];
+    for (var pi = 0; pi < PROFILES.length; pi++) { if (total <= PROFILES[pi].max) { prof = PROFILES[pi]; break; } }
     var chips = "";
     for (var j = 0; j < ARCHETYPES.length; j++) {
       var pct = m.scores[j] * 10;
@@ -953,13 +723,18 @@ function renderTeamMembers() {
         '<span class="score-chip-bar"><span class="score-chip-bar-fill" style="width:' + pct + '%"></span></span>' +
         '<span class="score-chip-val">' + m.scores[j] + '</span></span>';
     }
-    html += '<div class="member-card"><div class="member-card-header">' +
+    var enabled = m.enabled !== false;
+    html += '<div class="member-card' + (enabled ? '' : ' disabled') + '"><div class="member-card-header">' +
       '<span class="member-name-display" style="color:' + color + '">' + (m.name || "Evaluator " + (i+1)) + '</span>' +
+      '<span class="member-profile" data-tooltip="' + prof.desc + '">' + prof.label + '</span>' +
       '<span class="member-total">Total: ' + total + '/80</span>' +
+      '<button class="btn btn-secondary" style="padding:4px 10px;font-size:0.75rem" onclick="editMember(' + i + ')">Edit</button>' +
       '<button class="btn btn-danger" style="padding:4px 10px;font-size:0.75rem" onclick="removeMember(' + i + ')">Remove</button>' +
+      '<label class="member-toggle" data-tooltip="' + (enabled ? 'Exclude from radar and gap analysis' : 'Include in radar and gap analysis') + '"><input type="checkbox"' + (enabled ? ' checked' : '') + ' onchange="toggleMember(' + i + ')"><span class="toggle-track"></span></label>' +
       '</div><div class="member-scores">' + chips + '</div></div>';
   }
   list.innerHTML = html;
+  list.classList.toggle("multi-col", teamMembers.length >= 2);
 }
 
 function removeMember(i) {
@@ -968,41 +743,182 @@ function removeMember(i) {
   saveState();
 }
 
-// ── ACTIONS ───────────────────────────────────────────────────────────────────
-function addToTeam() {
-  var name = document.getElementById("assessor-name").value.trim() || ("Evaluator " + (teamMembers.length + 1));
-  teamMembers.push({name: name, scores: scores.slice()});
+function toggleMember(i) {
+  teamMembers[i].enabled = teamMembers[i].enabled === false;
   updateTeamChart();
   saveState();
-  showToast("Added: " + name);
 }
 
-function exportJSON() {
-  var data = {type:"individual", version:1, name:document.getElementById("assessor-name").value.trim(), scores:scores.slice(), exported:new Date().toISOString()};
-  downloadJSON(data, "archetypes-" + (data.name || "assessment") + ".json");
+// ── WIZARD ─────────────────────────────────────────────────────────────────────
+var wizardStep = 0;
+var wizardScores = [0,0,0,0,0,0,0,0];
+var wizardEditIndex = -1; // -1 = adding new, >= 0 = editing existing
+var WIZARD_STEPS = 9; // 1 name + 8 archetypes
+
+function openWizard() {
+  wizardStep = 0;
+  wizardScores = [0,0,0,0,0,0,0,0];
+  wizardEditIndex = -1;
+  buildWizardBody();
+  renderWizardStep();
+  document.getElementById("wizard-modal").classList.add("open");
 }
 
-function importJSON() {
-  pickFile(function(data) {
-    if (data.type === "individual") {
-      document.getElementById("assessor-name").value = data.name || "";
-      for (var i = 0; i < data.scores.length; i++) {
-        scores[i] = data.scores[i];
-        var sl = document.getElementById("slider-" + i);
-        if (sl) { sl.value = scores[i]; onSlider(i, scores[i]); }
-      }
-      saveState();
-      showToast("Assessment imported");
-    } else if (data.type === "team") {
-      if (confirm("This is a team file. Import into Compare Perspectives?")) {
-        teamMembers = data.members || [];
-        switchTab("team");
-        updateTeamChart();
-        saveState();
-        showToast("Team imported");
-      }
-    } else { alert("Unrecognised file format."); }
-  });
+function editMember(i) {
+  var m = teamMembers[i];
+  wizardStep = 0;
+  wizardEditIndex = i;
+  wizardScores = m.scores.slice();
+  buildWizardBody();
+  // Prefill name
+  document.getElementById("wizard-name").value = m.name || "";
+  // Prefill sliders
+  for (var s = 0; s < 8; s++) {
+    onWizSlider(s, wizardScores[s]);
+    var sl = document.getElementById("wiz-slider-" + s);
+    if (sl) sl.value = wizardScores[s];
+  }
+  renderWizardStep();
+  document.getElementById("wizard-modal").classList.add("open");
+}
+
+function closeWizard() {
+  document.getElementById("wizard-modal").classList.remove("open");
+}
+
+function buildWizardBody() {
+  var body = document.getElementById("wizard-body");
+  var html = "";
+
+  // Step 0: Name
+  html += '<div class="wizard-step" id="wiz-step-0">';
+  html += '<div class="wizard-step-label">Step 1 of 9 — Person</div>';
+  html += '<div class="name-row" style="margin-bottom:12px">';
+  html += '<label for="wizard-name">Person being assessed:</label>';
+  html += '<input type="text" id="wizard-name" placeholder="e.g. Jane Smith, Operations Lead" />';
+  html += '</div>';
+  html += '<p style="color:var(--muted);font-size:var(--fs-assess-desc);line-height:1.6">Enter the name and role of the person you are assessing. You will rate their capability across 8 archetype dimensions on the following steps.</p>';
+  html += '</div>';
+
+  // Steps 1-8: Archetypes
+  for (var i = 0; i < ARCHETYPES.length; i++) {
+    var arch = ARCHETYPES[i];
+    var subsHtml = "";
+    for (var j = 0; j < arch.subs.length; j++) {
+      var s = arch.subs[j];
+      subsHtml += '<div class="sub-item"><div class="sub-item-name">' + s.name + '</div>' +
+        '<div class="sub-item-desc">' + s.desc + '</div>' +
+        '<div class="sub-item-ref">' + s.ref + '</div></div>';
+    }
+    html += '<div class="wizard-step" id="wiz-step-' + (i + 1) + '">';
+    html += '<div class="wizard-step-label">Step ' + (i + 2) + ' of 9 — Archetype ' + arch.id + '</div>';
+    html += '<div style="margin-bottom:14px">';
+    html += '<div class="archetype-name">' + arch.name + '</div>';
+    html += '<div class="archetype-desc">' + arch.description + '</div>';
+    html += '</div>';
+    html += '<div class="slider-row">';
+    html += '<span style="font-size:0.78rem;color:var(--muted)">0</span>';
+    html += '<input type="range" min="0" max="10" value="0" id="wiz-slider-' + i + '" oninput="onWizSlider(' + i + ',this.value)" style="--pct:0%" />';
+    html += '<span style="font-size:0.78rem;color:var(--muted)">10</span>';
+    html += '</div>';
+    html += '<div class="slider-labels"><span>Not a strength</span><span>Clear strength</span></div>';
+    html += '<div class="band-hint" id="wiz-hint-' + i + '">' + BAND_HINTS[0] + '</div>';
+    html += '<div style="display:flex;align-items:center;justify-content:center;margin:10px 0 6px">';
+    html += '<div class="archetype-score-badge" id="wiz-badge-' + i + '" style="width:48px;height:48px;font-size:1.3rem">0</div>';
+    html += '</div>';
+    html += '<div class="sub-list" style="border-top:1px solid var(--border);padding-top:12px;margin-top:8px">';
+    html += '<div class="sub-list-title">Sub-Archetypes — is this person…?</div>';
+    html += subsHtml;
+    html += '</div>';
+    html += '</div>';
+  }
+
+  body.innerHTML = html;
+
+  // Build progress dots
+  var prog = document.getElementById("wizard-progress");
+  var dots = "";
+  for (var d = 0; d < WIZARD_STEPS; d++) {
+    dots += '<div class="wizard-progress-dot" id="wiz-dot-' + d + '"></div>';
+  }
+  prog.innerHTML = dots;
+}
+
+function onWizSlider(i, val) {
+  val = parseInt(val, 10);
+  wizardScores[i] = val;
+  var badge = document.getElementById("wiz-badge-" + i);
+  badge.textContent = val;
+  badge.style.background = scoreColor(val);
+  var slider = document.getElementById("wiz-slider-" + i);
+  slider.style.setProperty("--pct", (val * 10) + "%");
+  var hi = val <= 2 ? 0 : val <= 4 ? 1 : val <= 6 ? 2 : val <= 8 ? 3 : 4;
+  document.getElementById("wiz-hint-" + i).textContent = BAND_HINTS[hi];
+}
+
+function renderWizardStep() {
+  // Show/hide steps
+  for (var i = 0; i < WIZARD_STEPS; i++) {
+    var step = document.getElementById("wiz-step-" + i);
+    step.className = (i === wizardStep) ? "wizard-step active" : "wizard-step";
+  }
+
+  // Update progress dots
+  for (var d = 0; d < WIZARD_STEPS; d++) {
+    var dot = document.getElementById("wiz-dot-" + d);
+    dot.className = "wizard-progress-dot" + (d < wizardStep ? " done" : d === wizardStep ? " current" : "");
+  }
+
+  // Update buttons
+  var backBtn = document.getElementById("wizard-back");
+  var nextBtn = document.getElementById("wizard-next");
+  backBtn.style.visibility = wizardStep === 0 ? "hidden" : "visible";
+
+  if (wizardStep === WIZARD_STEPS - 1) {
+    nextBtn.textContent = wizardEditIndex >= 0 ? "Save Changes" : "Add to Team";
+    nextBtn.className = "btn btn-success";
+  } else {
+    nextBtn.innerHTML = "Next &#8594;";
+    nextBtn.className = "btn btn-primary";
+  }
+
+  // Update title
+  if (wizardStep === 0) {
+    document.getElementById("wizard-title").textContent = wizardEditIndex >= 0 ? "Edit Assessment" : "Add Assessment";
+  } else {
+    document.getElementById("wizard-title").textContent = "Archetype " + wizardStep + " of 8";
+  }
+
+  // Scroll modal body to top
+  document.getElementById("wizard-body").scrollTop = 0;
+}
+
+function wizardNext() {
+  if (wizardStep === WIZARD_STEPS - 1) {
+    // Final step — add or update
+    var name = document.getElementById("wizard-name").value.trim() || ("Evaluator " + (teamMembers.length + 1));
+    if (wizardEditIndex >= 0) {
+      var prevEnabled = teamMembers[wizardEditIndex].enabled !== false;
+      teamMembers[wizardEditIndex] = {name: name, scores: wizardScores.slice(), enabled: prevEnabled};
+      showToast("Updated: " + name);
+    } else {
+      teamMembers.push({name: name, scores: wizardScores.slice(), enabled: true});
+      showToast("Added: " + name);
+    }
+    updateTeamChart();
+    saveState();
+    closeWizard();
+    return;
+  }
+  wizardStep++;
+  renderWizardStep();
+}
+
+function wizardBack() {
+  if (wizardStep > 0) {
+    wizardStep--;
+    renderWizardStep();
+  }
 }
 
 function exportTeamJSON() {
@@ -1018,7 +934,7 @@ function importTeamJSON() {
       saveState();
       showToast("Imported " + teamMembers.length + " perspectives");
     } else if (data.type === "individual") {
-      teamMembers.push({name: data.name, scores: data.scores});
+      teamMembers.push({name: data.name, scores: data.scores, enabled: true});
       updateTeamChart();
       saveState();
       showToast("Added: " + (data.name || "Evaluator"));
@@ -1066,53 +982,6 @@ function pickFile(callback) {
   input.click();
 }
 
-function switchTab(name) {
-  var tabs    = document.querySelectorAll(".tab-content");
-  var buttons = document.querySelectorAll(".tab-btn");
-  var dropItems = document.querySelectorAll(".tab-dropdown-item");
-  for (var i = 0; i < tabs.length; i++)    tabs[i].classList.remove("active");
-  for (var j = 0; j < buttons.length; j++) buttons[j].classList.remove("active");
-  for (var d = 0; d < dropItems.length; d++) dropItems[d].classList.remove("active");
-  document.getElementById("tab-" + name).classList.add("active");
-
-  // Highlight the correct top-level tab button
-  var isAboutSub = (name === "about-framework" || name === "about-howto");
-  for (var k = 0; k < buttons.length; k++) {
-    if (isAboutSub && buttons[k].getAttribute("data-tab") === "about") {
-      buttons[k].classList.add("active");
-    } else if (buttons[k].getAttribute("data-tab") === name) {
-      buttons[k].classList.add("active");
-    }
-  }
-  // Highlight the active dropdown item
-  for (var m = 0; m < dropItems.length; m++) {
-    if (dropItems[m].getAttribute("data-tab") === name) {
-      dropItems[m].classList.add("active");
-    }
-  }
-
-  // Close the dropdown after selection
-  var dropdown = document.getElementById("about-dropdown");
-  if (dropdown) dropdown.classList.remove("open");
-
-  if (name === "individual") buildIndividualChart();
-  if (name === "team")       buildTeamChart();
-}
-
-function toggleAboutDropdown(e) {
-  e.stopPropagation();
-  var dropdown = document.getElementById("about-dropdown");
-  dropdown.classList.toggle("open");
-}
-
-// Close dropdown when clicking outside
-document.addEventListener("click", function(e) {
-  var dropdown = document.getElementById("about-dropdown");
-  if (dropdown && !dropdown.contains(e.target)) {
-    dropdown.classList.remove("open");
-  }
-});
-
 var toastTimer = null;
 function showToast(msg) {
   var t = document.getElementById("toast");
@@ -1122,6 +991,17 @@ function showToast(msg) {
   toastTimer = setTimeout(function() { t.classList.remove("show"); }, 2800);
 }
 
+// ── HOW-TO MODAL ──────────────────────────────────────────────────────────────
+function openHowtoModal() {
+  document.getElementById("howto-modal").classList.add("open");
+}
+function closeHowtoModal() {
+  document.getElementById("howto-modal").classList.remove("open");
+}
+document.getElementById("howto-modal").addEventListener("click", function(e) {
+  if (e.target === this) closeHowtoModal();
+});
+
 // ── PDF REPORT ────────────────────────────────────────────────────────────────
 function openPdfModal() {
   document.getElementById("pdf-modal").classList.add("open");
@@ -1129,6 +1009,15 @@ function openPdfModal() {
 function closePdfModal() {
   document.getElementById("pdf-modal").classList.remove("open");
 }
+function openBandsModal() {
+  document.getElementById("bands-modal").classList.add("open");
+}
+function closeBandsModal() {
+  document.getElementById("bands-modal").classList.remove("open");
+}
+document.getElementById("bands-modal").addEventListener("click", function(e) {
+  if (e.target === this) closeBandsModal();
+});
 function doGenerateReport() {
   var includeIndiv = document.getElementById("opt-individuals").checked;
   var depth = document.querySelector('input[name="explainer-depth"]:checked').value;
@@ -1330,28 +1219,32 @@ function buildReportHtml(includeIndiv, depth) {
   h += '<div class="rh"><div class="rh-logo">&#129423;</div>';
   h += '<div><h1>ARCHETYPES OF AUTOMATION</h1><p class="sub">A framework by Brian Simpson &middot; rhinoautomator.com &middot; Team Capability Report &middot; ' + date + '</p></div></div>';
 
-  if (teamMembers.length === 0) {
-    h += '<p style="color:#6b7394;padding:20px 0">No team perspectives have been added. Return to the app and add perspectives to the Team Assessment tab first.</p>';
+  var pdfActive = [];
+  for (var pai = 0; pai < teamMembers.length; pai++) { if (teamMembers[pai].enabled !== false) pdfActive.push({m:teamMembers[pai], ci:pai}); }
+  if (pdfActive.length === 0) {
+    h += '<p style="color:#6b7394;padding:20px 0">No enabled team perspectives. Return to the app and enable at least one perspective.</p>';
     h += '</body></html>'; return h;
   }
 
   // Team overview
   h += '<h2>Team Overview</h2>';
   var teamDS = [];
-  for (var mi = 0; mi < teamMembers.length; mi++) {
-    teamDS.push({data:teamMembers[mi].scores, fill:PFILLS[mi % PFILLS.length], stroke:DS_COLORS[mi % DS_COLORS.length][1], label:teamMembers[mi].name || ("Evaluator " + (mi+1))});
+  for (var mi = 0; mi < pdfActive.length; mi++) {
+    var pci = pdfActive[mi].ci;
+    teamDS.push({data:pdfActive[mi].m.scores, fill:PFILLS[pci % PFILLS.length], stroke:DS_COLORS[pci % DS_COLORS.length][1], label:pdfActive[mi].m.name || ("Evaluator " + (pci+1))});
   }
   h += '<div style="display:flex;gap:32px;align-items:flex-start;flex-wrap:wrap;margin-bottom:20px">';
   h += buildSvgRadar(teamDS, 300);
   h += '<div style="flex:1;min-width:200px"><table><tr><th></th><th>Name</th><th>Score</th><th>Profile</th></tr>';
-  for (var mi2 = 0; mi2 < teamMembers.length; mi2++) {
-    var m = teamMembers[mi2]; var mtot = 0;
+  for (var mi2 = 0; mi2 < pdfActive.length; mi2++) {
+    var m = pdfActive[mi2].m; var mtot = 0;
+    var mci = pdfActive[mi2].ci;
     for (var msi = 0; msi < m.scores.length; msi++) mtot += m.scores[msi];
     var mprof = PROFILES[PROFILES.length - 1];
     for (var mpi = 0; mpi < PROFILES.length; mpi++) { if (mtot <= PROFILES[mpi].max) { mprof = PROFILES[mpi]; break; } }
-    var mc = DS_COLORS[mi2 % DS_COLORS.length][1];
+    var mc = DS_COLORS[mci % DS_COLORS.length][1];
     h += '<tr><td><span style="display:inline-block;width:10px;height:10px;background:' + mc + ';border-radius:2px"></span></td>';
-    h += '<td><strong>' + (m.name || "Evaluator " + (mi2+1)) + '</strong></td><td>' + mtot + '/80</td><td>' + mprof.label + '</td></tr>';
+    h += '<td><strong>' + (m.name || "Evaluator " + (mci+1)) + '</strong></td><td>' + mtot + '/80</td><td>' + mprof.label + '</td></tr>';
   }
   h += '</table></div></div>';
 
@@ -1359,8 +1252,8 @@ function buildReportHtml(includeIndiv, depth) {
   var avgs = [];
   for (var ai = 0; ai < ARCHETYPES.length; ai++) {
     var asum = 0;
-    for (var ami = 0; ami < teamMembers.length; ami++) asum += teamMembers[ami].scores[ai];
-    avgs.push({idx:ai, name:ARCHETYPES[ai].name, avg:asum / teamMembers.length});
+    for (var ami = 0; ami < pdfActive.length; ami++) asum += pdfActive[ami].m.scores[ai];
+    avgs.push({idx:ai, name:ARCHETYPES[ai].name, avg:asum / pdfActive.length});
   }
   var sorted = avgs.slice().sort(function(a,b) { return a.avg - b.avg; });
   h += '<h3>Gap Analysis \u2014 Lowest to Highest Average</h3>';
@@ -1394,16 +1287,17 @@ function buildReportHtml(includeIndiv, depth) {
   // Individual sections
   if (includeIndiv) {
     h += '<h2 style="page-break-before:always;break-before:page">Individual Assessments</h2>';
-    for (var pi = 0; pi < teamMembers.length; pi++) {
-      var person = teamMembers[pi]; var ptot = 0;
+    for (var pi = 0; pi < pdfActive.length; pi++) {
+      var person = pdfActive[pi].m; var ptot = 0;
+      var piCI = pdfActive[pi].ci;
       for (var psi = 0; psi < person.scores.length; psi++) ptot += person.scores[psi];
       var pprof = PROFILES[PROFILES.length - 1];
       for (var ppj = 0; ppj < PROFILES.length; ppj++) { if (ptot <= PROFILES[ppj].max) { pprof = PROFILES[ppj]; break; } }
-      var pColor = DS_COLORS[pi % DS_COLORS.length][1];
+      var pColor = DS_COLORS[piCI % DS_COLORS.length][1];
       h += '<div class="ps"' + (pi > 0 ? ' style="page-break-before:always;break-before:page"' : '') + '>';
-      h += '<h3 style="color:' + pColor + ';margin-top:0;font-size:1.05rem;border-left:4px solid ' + pColor + ';padding-left:10px">' + (person.name || "Evaluator " + (pi+1)) + '</h3>';
+      h += '<h3 style="color:' + pColor + ';margin-top:0;font-size:1.05rem;border-left:4px solid ' + pColor + ';padding-left:10px">' + (person.name || "Evaluator " + (piCI+1)) + '</h3>';
       h += '<div style="display:flex;gap:20px;align-items:flex-start;flex-wrap:wrap;margin-bottom:16px">';
-      h += buildSvgRadar([{data:person.scores, fill:PFILLS[pi % PFILLS.length], stroke:pColor, label:person.name||""}], 220);
+      h += buildSvgRadar([{data:person.scores, fill:PFILLS[piCI % PFILLS.length], stroke:pColor, label:person.name||""}], 220);
       h += '<div style="flex:1;min-width:180px">';
       h += '<div style="font-size:2rem;font-weight:800;color:' + pColor + '">' + ptot + '<span style="font-size:0.85rem;font-weight:400;color:#6b7394"> /80</span></div>';
       h += '<div style="font-weight:700;margin-bottom:12px;color:#374151">' + pprof.label + '</div>';
@@ -1446,29 +1340,14 @@ function buildReportHtml(includeIndiv, depth) {
 
 // ── INIT ──────────────────────────────────────────────────────────────────────
 function _initApp() {
-  // Build UI — script is at end of body, DOM is fully parsed
-  try { buildArchetypesList(); } catch(e) {
-    var c = document.getElementById("archetypes-list");
-    if (c) c.innerHTML = '<p style="color:red;padding:16px">Init error (buildArchetypesList): ' + e.message + '</p>';
-  }
-
   // Restore saved state from localStorage
-  try {
-    loadState();
-    for (var ri = 0; ri < scores.length; ri++) {
-      var sl = document.getElementById("slider-" + ri);
-      if (sl) { sl.value = scores[ri]; onSlider(ri, scores[ri]); }
-    }
-  } catch(e) {}
+  try { loadState(); } catch(e) {}
 
-  try { updateSummary(); } catch(e) {}
   try { renderTeamMembers(); } catch(e) {}
   try { updateGapAnalysis(); } catch(e) {}
-  try { buildIndividualChart(); } catch(e) {}
   try { buildTeamChart(); } catch(e) {}
 
   window.addEventListener("resize", function() {
-    try { buildIndividualChart(); } catch(e) {}
     try { buildTeamChart(); } catch(e) {}
   });
 }
