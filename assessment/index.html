@@ -95,8 +95,9 @@ header h1 { font-family: var(--ff-display); font-size: var(--fs-assess-h1); font
     #team-member-list { display: grid; grid-template-columns: 1fr; gap: 12px; }
     #team-member-list.multi-col { grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); }
     .member-card { border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; background: var(--surface); }
-    .member-card-header { display: flex; align-items: center; gap: 8px; }
-    .member-name-display { font-family: var(--ff-display); font-weight: 400; font-size: var(--fs-assess-name); letter-spacing: 0.04em; flex: 1; }
+    .member-card-title { display: flex; align-items: baseline; gap: 10px; margin-bottom: 6px; border-bottom: 1px solid var(--border); padding-bottom: 8px; }
+    .member-card-header { display: flex; align-items: center; gap: 8px; justify-content: flex-end; }
+    .member-name-display { font-family: var(--ff-display); font-weight: 400; font-size: var(--fs-assess-name); letter-spacing: 0.04em; }
     .member-total { font-family: var(--ff-mono); font-size: var(--fs-assess-desc); color: var(--muted); letter-spacing: 0.04em; }
     .member-scores { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 2px 12px; margin-top: 8px; }
     .score-chip { display: flex; align-items: center; gap: 8px; padding: 4px 0; font-size: var(--fs-assess-chip); }
@@ -723,14 +724,18 @@ function renderTeamMembers() {
         '<span class="score-chip-val">' + m.scores[j] + '</span></span>';
     }
     var enabled = m.enabled !== false;
-    html += '<div class="member-card' + (enabled ? '' : ' disabled') + '"><div class="member-card-header">' +
-      '<span class="member-name-display" style="color:' + color + '">' + (m.name || "Evaluator " + (i+1)) + '</span>' +
-      '<span class="member-profile" data-tooltip="' + prof.desc + '">' + prof.label + '</span>' +
-      '<span class="member-total">Total: ' + total + '/80</span>' +
-      '<button class="btn btn-primary" style="padding:4px 10px;font-size:0.75rem" onclick="editMember(' + i + ')">Edit</button>' +
-      '<button class="btn btn-danger" style="padding:4px 10px;font-size:0.75rem" onclick="removeMember(' + i + ')">Remove</button>' +
-      '<label class="member-toggle" data-tooltip="' + (enabled ? 'Exclude from radar and gap analysis' : 'Include in radar and gap analysis') + '"><input type="checkbox"' + (enabled ? ' checked' : '') + ' onchange="toggleMember(' + i + ')"><span class="toggle-track"></span></label>' +
-      '</div><div class="member-scores">' + chips + '</div></div>';
+    html += '<div class="member-card' + (enabled ? '' : ' disabled') + '">' +
+      '<div class="member-card-title">' +
+        '<span class="member-name-display" style="color:' + color + '">' + (m.name || "Evaluator " + (i+1)) + '</span>' +
+        '<span class="member-profile" data-tooltip="' + prof.desc + '">' + prof.label + '</span>' +
+      '</div>' +
+      '<div class="member-card-header">' +
+        '<span class="member-total">Total: ' + total + '/80</span>' +
+        '<button class="btn btn-primary" style="padding:4px 10px;font-size:0.75rem" onclick="editMember(' + i + ')">Edit</button>' +
+        '<button class="btn btn-danger" style="padding:4px 10px;font-size:0.75rem" onclick="removeMember(' + i + ')">Remove</button>' +
+        '<label class="member-toggle" data-tooltip="' + (enabled ? 'Exclude from radar and gap analysis' : 'Include in radar and gap analysis') + '"><input type="checkbox"' + (enabled ? ' checked' : '') + ' onchange="toggleMember(' + i + ')"><span class="toggle-track"></span></label>' +
+      '</div>' +
+      '<div class="member-scores">' + chips + '</div></div>';
   }
   list.innerHTML = html;
   list.classList.toggle("multi-col", teamMembers.length >= 2);
