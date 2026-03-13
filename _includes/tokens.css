@@ -294,8 +294,8 @@ a { text-decoration: none; }
 }
 .content p, .blog-main p { font-size: var(--fs-body); color: var(--muted); line-height: 1.65; margin-bottom: 14px; }
 .content strong, .blog-main strong { color: var(--text); }
-.content a, .blog-main a { color: var(--cobalt); transition: color 0.15s; }
-.content a:hover, .blog-main a:hover { color: var(--emerald); }
+.content a:not(.btn), .blog-main a:not(.btn) { color: var(--cobalt); transition: color 0.15s; }
+.content a:not(.btn):hover, .blog-main a:not(.btn):hover { color: var(--emerald); }
 .blog-main ul, .blog-main ol {
   font-size: var(--fs-body); color: var(--muted); line-height: 1.65; margin: 0 0 14px 20px;
 }
