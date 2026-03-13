@@ -37,16 +37,8 @@
     /* Pillar cards */
     .pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
     @media (max-width: 768px) { .pillars { grid-template-columns: 1fr; } }
-    .pillar-card {
-      background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
-      padding: 28px 24px; transition: border-color 0.2s; text-decoration: none; display: block;
-    }
-    .pillar-card:hover { border-color: var(--cobalt); }
-    .pillar-icon {
-      width: 48px; height: 48px; border-radius: 8px; background: rgba(59,130,246,0.12);
-      display: flex; align-items: center; justify-content: center; margin-bottom: 16px;
-      font-family: var(--ff-mono); font-size: var(--fs-card-icon); color: var(--cobalt);
-    }
+    .pillar-card { padding: 28px 24px; display: block; }
+    .pillar-icon { margin-bottom: 16px; font-family: var(--ff-mono); font-size: var(--fs-card-icon); }
     .pillar-card h3 {
       font-family: var(--ff-display); font-size: var(--fs-h3); letter-spacing: 0.05em;
       color: var(--text); margin-bottom: 8px;
@@ -56,10 +48,7 @@
     /* Feature cards */
     .features { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
     @media (max-width: 768px) { .features { grid-template-columns: 1fr; } }
-    .feature-card {
-      background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
-      padding: 24px; display: flex; gap: 16px; align-items: flex-start;
-    }
+    .feature-card { display: flex; gap: 16px; align-items: flex-start; }
     .feature-dot {
       width: 8px; height: 8px; border-radius: 50%; background: var(--emerald);
       flex-shrink: 0; margin-top: 6px;
@@ -74,10 +63,7 @@
     .cta-banner {
       max-width: 1100px; margin: 0 auto; padding: 0 32px 64px;
     }
-    .cta-inner {
-      background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
-      padding: 48px 40px; text-align: center;
-    }
+    .cta-inner { padding: 48px 40px; text-align: center; }
     .cta-inner h2 {
       font-family: var(--ff-display); font-size: var(--fs-cta-h2); letter-spacing: 0.05em;
       color: var(--text); margin-bottom: 8px;
@@ -115,18 +101,18 @@
     <p class="section-desc">Not a dev shop. Not a vendor. A practitioner who builds automation and teaches others to participate — regardless of technical background.</p>
 
     <div class="pillars">
-      <a href="blog/" class="pillar-card">
-        <div class="pillar-icon">⚡</div>
+      <a href="blog/" class="card pillar-card">
+        <div class="icon-box pillar-icon">⚡</div>
         <h3>AUTOMATION</h3>
         <p>Building real workflows that solve real problems. Rewst, Power Automate, and whatever gets the job done — focused on MSP and IT operations.</p>
       </a>
-      <a href="framework/" class="pillar-card">
-        <div class="pillar-icon">🎯</div>
+      <a href="framework/" class="card pillar-card">
+        <div class="icon-box pillar-icon">🎯</div>
         <h3>CONSULTING</h3>
         <p>Helping teams identify what to automate, who should be involved, and how to build a practice that doesn't depend on a single developer.</p>
       </a>
-      <a href="community/seen-me.html" class="pillar-card" id="community">
-        <div class="pillar-icon">🎓</div>
+      <a href="community/seen-me.html" class="card pillar-card" id="community">
+        <div class="icon-box pillar-icon">🎓</div>
         <h3>COMMUNITY ENGAGEMENT & EDUCATION</h3>
         <p>Conference talks, workshops, and community content on building automation muscle, team capability mapping, and making non-technical people meaningful contributors.</p>
       </a>
@@ -140,28 +126,28 @@
     <p class="section-desc">The biggest barrier to automation isn't technical skill — it's process thinking, team composition, and role awareness. The Archetypes framework maps 8 dimensions of automation capability so teams can find their gaps and fill them.</p>
 
     <div class="features">
-      <div class="feature-card">
+      <div class="card feature-card">
         <div class="feature-dot"></div>
         <div>
           <h4>INDIVIDUAL SELF-ASSESSMENT</h4>
           <p>Score yourself across 8 archetypes to understand where you contribute most — and where you have room to grow.</p>
         </div>
       </div>
-      <div class="feature-card">
+      <div class="card feature-card">
         <div class="feature-dot"></div>
         <div>
           <h4>TEAM RADAR CHARTS</h4>
           <p>Overlay individual scores to visualize your team's coverage. Two 9s in Building and zero in Quality is a risk profile.</p>
         </div>
       </div>
-      <div class="feature-card">
+      <div class="card feature-card">
         <div class="feature-dot"></div>
         <div>
           <h4>GAP ANALYSIS</h4>
           <p>The archetype with the lowest combined team score is your most urgent investment — in hiring, training, or partnerships.</p>
         </div>
       </div>
-      <div class="feature-card">
+      <div class="card feature-card">
         <div class="feature-dot"></div>
         <div>
           <h4>RESEARCH-BACKED</h4>
@@ -173,7 +159,7 @@
 
   <!-- CTA -->
   <div class="cta-banner">
-    <div class="cta-inner">
+    <div class="card cta-inner">
       <h2>READY TO FIND YOUR AUTOMATION STRENGTHS?</h2>
       <p>Take the Archetypes of Automation self-assessment — it takes about 10 minutes and gives you a clear picture of where you and your team stand.</p>
       <a href="assessment/" class="btn btn-primary">START THE ASSESSMENT</a>

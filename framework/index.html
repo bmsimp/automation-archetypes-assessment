@@ -7,43 +7,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@300;400;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="../_includes/tokens.css"/>
   <style>
-    /* Content */
-    .content { max-width: 1100px; margin: 0 auto; padding: 48px 32px 64px; }
-    .content h1 {
-      font-family: var(--ff-display); font-size: var(--fs-h1); letter-spacing: 0.04em;
-      line-height: 0.95; color: var(--text); margin-bottom: 8px;
-    }
-    .content h1 .silver { color: var(--silver); }
-    .content .subtitle {
-      font-family: var(--ff-mono); font-size: var(--fs-tag); color: var(--emerald);
-      letter-spacing: 0.14em; margin-bottom: 32px;
-    }
-    .content h2 {
-      font-family: var(--ff-display); font-size: var(--fs-h2-content); letter-spacing: 0.05em;
-      color: var(--text); margin: 36px 0 12px; padding-bottom: 6px;
-      border-bottom: 2px solid var(--cobalt);
-    }
-    .content h3 {
-      font-family: var(--ff-display); font-size: var(--fs-h3-content); letter-spacing: 0.04em;
-      color: var(--text); margin: 24px 0 8px;
-    }
-    .content p { font-size: var(--fs-body); color: var(--muted); line-height: 1.65; margin-bottom: 14px; }
-    .content strong { color: var(--text); }
-    .content table { width: 100%; border-collapse: collapse; font-size: var(--fs-body); margin: 14px 0 24px; }
-    .content th {
-      background: rgba(59,130,246,0.08); color: var(--cobalt); padding: 8px 12px; text-align: left;
-      font-family: var(--ff-mono); font-weight: 500; font-size: var(--fs-tag);
-      letter-spacing: 0.08em; text-transform: uppercase;
-    }
-    .content td { padding: 8px 12px; border-bottom: 1px solid var(--border); color: var(--muted); }
-    .content tr:last-child td { border-bottom: none; }
-
     /* Archetype cards — collapsible */
-    .arch-card {
-      background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
-      margin-bottom: 14px; overflow: hidden; transition: border-color 0.2s;
-    }
-    .arch-card:hover { border-color: rgba(59,130,246,0.35); }
+    .arch-card { margin-bottom: 14px; overflow: hidden; padding: 0; }
     .arch-card-trigger {
       padding: 20px 22px; cursor: pointer; display: flex; align-items: center;
       justify-content: space-between; gap: 12px; user-select: none;
@@ -83,17 +48,10 @@
     }
 
     /* CTA */
-    .cta {
-      background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
-      padding: 36px 32px; text-align: center; margin-top: 40px;
-    }
+    .cta { text-align: center; margin-top: 40px; }
     .cta h2 { border: none; margin: 0 0 8px; }
     .cta p { margin-bottom: 20px; }
 
-    @media (max-width: 600px) {
-      .content h1 { font-size: var(--fs-h1-mobile); }
-      .content { padding: 32px 20px 48px; }
-    }
   </style>
 </head>
 <body>
@@ -116,7 +74,7 @@
     <p>Click any archetype to explore its sub-roles, descriptions, and the established frameworks behind each one.</p>
 
     <!-- 1. Process & Knowledge Holding -->
-    <div class="arch-card" id="arch-1" data-nav-label="1. Process & Knowledge" data-nav-indent>
+    <div class="card arch-card" id="arch-1" data-nav-label="1. Process & Knowledge" data-nav-indent>
       <div class="arch-card-trigger" onclick="toggleArch('arch-1')">
         <div class="arch-card-left">
           <div class="arch-num">1</div>
@@ -181,7 +139,7 @@
     </div>
 
     <!-- 2. Problem Definition -->
-    <div class="arch-card" id="arch-2" data-nav-label="2. Problem Definition" data-nav-indent>
+    <div class="card arch-card" id="arch-2" data-nav-label="2. Problem Definition" data-nav-indent>
       <div class="arch-card-trigger" onclick="toggleArch('arch-2')">
         <div class="arch-card-left">
           <div class="arch-num">2</div>
@@ -246,7 +204,7 @@
     </div>
 
     <!-- 3. Design & Logic Thinking -->
-    <div class="arch-card" id="arch-3" data-nav-label="3. Design & Logic" data-nav-indent>
+    <div class="card arch-card" id="arch-3" data-nav-label="3. Design & Logic" data-nav-indent>
       <div class="arch-card-trigger" onclick="toggleArch('arch-3')">
         <div class="arch-card-left">
           <div class="arch-num">3</div>
@@ -318,7 +276,7 @@
     </div>
 
     <!-- 4. Communication & Translation -->
-    <div class="arch-card" id="arch-4" data-nav-label="4. Communication" data-nav-indent>
+    <div class="card arch-card" id="arch-4" data-nav-label="4. Communication" data-nav-indent>
       <div class="arch-card-trigger" onclick="toggleArch('arch-4')">
         <div class="arch-card-left">
           <div class="arch-num">4</div>
@@ -379,7 +337,7 @@
     </div>
 
     <!-- 5. Building & Implementation -->
-    <div class="arch-card" id="arch-5" data-nav-label="5. Building" data-nav-indent>
+    <div class="card arch-card" id="arch-5" data-nav-label="5. Building" data-nav-indent>
       <div class="arch-card-trigger" onclick="toggleArch('arch-5')">
         <div class="arch-card-left">
           <div class="arch-num">5</div>
@@ -455,7 +413,7 @@
     </div>
 
     <!-- 6. Quality & Oversight -->
-    <div class="arch-card" id="arch-6" data-nav-label="6. Quality & Oversight" data-nav-indent>
+    <div class="card arch-card" id="arch-6" data-nav-label="6. Quality & Oversight" data-nav-indent>
       <div class="arch-card-trigger" onclick="toggleArch('arch-6')">
         <div class="arch-card-left">
           <div class="arch-num">6</div>
@@ -508,7 +466,7 @@
     </div>
 
     <!-- 7. Human & Organizational Awareness -->
-    <div class="arch-card" id="arch-7" data-nav-label="7. Human & Org" data-nav-indent>
+    <div class="card arch-card" id="arch-7" data-nav-label="7. Human & Org" data-nav-indent>
       <div class="arch-card-trigger" onclick="toggleArch('arch-7')">
         <div class="arch-card-left">
           <div class="arch-num">7</div>
@@ -582,7 +540,7 @@
     </div>
 
     <!-- 8. Strategic & Vision Thinking -->
-    <div class="arch-card" id="arch-8" data-nav-label="8. Strategic & Vision" data-nav-indent>
+    <div class="card arch-card" id="arch-8" data-nav-label="8. Strategic & Vision" data-nav-indent>
       <div class="arch-card-trigger" onclick="toggleArch('arch-8')">
         <div class="arch-card-left">
           <div class="arch-num">8</div>
@@ -661,10 +619,10 @@
     <div id="page-nav"></div>
    </div><!-- end page-nav-wrapper -->
 
-    <div class="cta">
+    <div class="card card-spacious cta">
       <h2>READY TO ASSESS YOUR TEAM?</h2>
       <p>Take the Archetypes of Automation self-assessment &mdash; it takes about 10 minutes and gives you a clear picture of where you and your team stand.</p>
-      <a href="../assessment/" class="btn">START THE ASSESSMENT</a>
+      <a href="../assessment/" class="btn btn-primary">START THE ASSESSMENT</a>
     </div>
   </div>
 

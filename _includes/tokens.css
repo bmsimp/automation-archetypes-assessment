@@ -175,6 +175,147 @@ a { text-decoration: none; }
 
 
 /* ════════════════════════════════════
+   CARDS
+   ════════════════════════════════════ */
+
+.card {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+  padding: 24px; transition: border-color 0.2s;
+}
+.card:hover { border-color: var(--cobalt); }
+
+/* Card padding variants */
+.card-compact { padding: 14px 18px; }
+.card-snug    { padding: 18px 22px; }
+.card-roomy   { padding: 28px; }
+.card-spacious { padding: 36px 32px; }
+
+/* Card with left accent border (callouts) */
+.card-accent {
+  border-left: 3px solid var(--cobalt); border-radius: 0 8px 8px 0;
+}
+
+/* Card interior helpers */
+.card-label {
+  font-family: var(--ff-mono); font-size: var(--fs-meta); color: var(--cobalt);
+  letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 6px;
+}
+.card-event {
+  font-family: var(--ff-mono); font-size: var(--fs-tag); color: var(--emerald);
+  letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 8px;
+}
+.card-title {
+  font-family: var(--ff-display); font-size: var(--fs-card-title); letter-spacing: 0.04em;
+  color: var(--text); line-height: 1.1; margin-bottom: 16px;
+}
+.card-body {
+  font-size: var(--fs-card-body); color: var(--muted); line-height: 1.65; margin-bottom: 14px;
+}
+
+
+/* ════════════════════════════════════
+   VIDEO EMBEDS
+   ════════════════════════════════════ */
+
+.video-embed {
+  position: relative; width: 100%; padding-bottom: 56.25%; /* 16:9 */
+  background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+  overflow: hidden;
+}
+.video-embed iframe {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+}
+
+
+/* ════════════════════════════════════
+   ICON BOX
+   ════════════════════════════════════ */
+
+.icon-box {
+  width: 48px; height: 48px; border-radius: 8px; background: rgba(59,130,246,0.12);
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  color: var(--cobalt);
+}
+
+
+/* ════════════════════════════════════
+   LINK CARDS
+   ════════════════════════════════════ */
+
+.link-card { display: flex; align-items: center; gap: 14px; }
+.link-icon {
+  width: 40px; height: 40px; border-radius: 8px; display: flex;
+  align-items: center; justify-content: center; flex-shrink: 0;
+  font-size: 18px; color: var(--cobalt); background: rgba(59,130,246,0.12);
+}
+.link-icon.emerald { background: rgba(52,211,153,0.12); color: var(--emerald); }
+.link-icon.silver  { background: rgba(209,220,232,0.12); color: var(--silver); }
+.link-text { flex: 1; min-width: 0; }
+.link-title {
+  font-family: var(--ff-body); font-size: var(--fs-body); font-weight: 600;
+  color: var(--text); line-height: 1.3;
+}
+.link-desc { font-size: var(--fs-tag); color: var(--muted); margin-top: 2px; }
+.link-meta {
+  font-family: var(--ff-mono); font-size: var(--fs-tag); color: var(--muted);
+  margin-top: 2px;
+}
+.link-arrow { color: var(--muted); flex-shrink: 0; transition: color 0.2s; }
+.link-card:hover .link-arrow { color: var(--cobalt); }
+
+
+/* ════════════════════════════════════
+   CONTENT WRAPPER & TYPOGRAPHY
+   ════════════════════════════════════ */
+
+/* .content = standalone pages; .blog-main = blog pages (flex child, no max-width) */
+.content { max-width: 1100px; margin: 0 auto; padding: 48px 32px 64px; }
+.content h1, .blog-main h1 {
+  font-family: var(--ff-display); font-size: var(--fs-h1); letter-spacing: 0.04em;
+  line-height: 0.95; color: var(--text); margin-bottom: 8px;
+}
+.content h1 .silver, .blog-main h1 .silver { color: var(--silver); }
+.content .subtitle, .blog-main .subtitle {
+  font-family: var(--ff-mono); font-size: var(--fs-tag); color: var(--emerald);
+  letter-spacing: 0.14em; margin-bottom: 32px;
+}
+.content h2, .blog-main h2 {
+  font-family: var(--ff-display); font-size: var(--fs-h2-content); letter-spacing: 0.05em;
+  color: var(--text); margin: 36px 0 12px; padding-bottom: 6px;
+  border-bottom: 2px solid var(--cobalt);
+}
+.content h3, .blog-main h3 {
+  font-family: var(--ff-display); font-size: var(--fs-h3-content); letter-spacing: 0.04em;
+  color: var(--text); margin: 24px 0 8px;
+}
+.blog-main h4 {
+  font-family: var(--ff-display); font-size: var(--fs-h4); letter-spacing: 0.04em;
+  color: var(--text); margin: 20px 0 6px;
+}
+.content p, .blog-main p { font-size: var(--fs-body); color: var(--muted); line-height: 1.65; margin-bottom: 14px; }
+.content strong, .blog-main strong { color: var(--text); }
+.content a, .blog-main a { color: var(--cobalt); transition: color 0.15s; }
+.content a:hover, .blog-main a:hover { color: var(--emerald); }
+.blog-main ul, .blog-main ol {
+  font-size: var(--fs-body); color: var(--muted); line-height: 1.65; margin: 0 0 14px 20px;
+}
+.blog-main li { margin-bottom: 6px; }
+.content table, .blog-main table { width: 100%; border-collapse: collapse; font-size: var(--fs-body); margin: 14px 0 24px; }
+.content th, .blog-main th {
+  background: rgba(59,130,246,0.08); color: var(--cobalt); padding: 8px 12px; text-align: left;
+  font-family: var(--ff-mono); font-weight: 500; font-size: var(--fs-tag);
+  letter-spacing: 0.08em; text-transform: uppercase;
+}
+.content td, .blog-main td { padding: 8px 12px; border-bottom: 1px solid var(--border); color: var(--muted); }
+.content tr:last-child td, .blog-main tr:last-child td { border-bottom: none; }
+
+@media (max-width: 600px) {
+  .content h1, .blog-main h1 { font-size: var(--fs-h1-mobile); }
+  .content { padding: 32px 20px 48px; }
+}
+
+
+/* ════════════════════════════════════
    FOOTER
    ════════════════════════════════════ */
 

@@ -11,8 +11,7 @@
   .swatch:hover { transform: scale(1.02); }
   .toast { position:fixed;bottom:20px;right:20px;padding:8px 16px;border-radius:6px;font-family:var(--ff-mono);font-size:var(--fs-body);z-index:999;pointer-events:none;opacity:0;transition:opacity 0.2s; }
   .toast.show { opacity:1; }
-  .section-label { font-family:var(--ff-mono);font-size:var(--fs-body);color:var(--muted);letter-spacing:0.18em;text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:10px; }
-  .section-label::after { content:'';flex:1;height:1px;background:var(--border); }
+  .section-label { font-size: var(--fs-body); } /* override tokens.css 11px → 16px for brand page */
   h2 { font-family:var(--ff-display);font-size:var(--fs-h2-content);letter-spacing:0.06em;color:var(--text);margin-bottom:6px; }
 </style>
 </head>

@@ -47,15 +47,24 @@
 })();
 
 // Toggle expandable sidebar sections
+// If the parent link is already active (we're on that page), toggle its children.
+// Otherwise, navigate to the link's href so the index page loads.
 function toggleBlogSection(e, id) {
-  e.preventDefault();
-  var target = document.getElementById(id);
   var link = e.currentTarget;
+  var target = document.getElementById(id);
+
+  // If this section is already expanded (we're viewing it or a child), toggle collapse
   if (target.classList.contains('open')) {
+    e.preventDefault();
     target.classList.remove('open');
     link.classList.remove('expanded');
   } else {
-    target.classList.add('open');
-    link.classList.add('expanded');
+    // If the link itself is active (we're on the index page), just expand without navigating
+    if (link.classList.contains('active')) {
+      e.preventDefault();
+      target.classList.add('open');
+      link.classList.add('expanded');
+    }
+    // Otherwise, let the browser navigate to the href (index page)
   }
 }
